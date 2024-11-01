@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="TechTailsSecret"
+config/name="Stellar Secrets"
 run/main_scene="res://maps/test_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
