@@ -1,4 +1,4 @@
-# Tech Tails Secrets
+# Stellar Secrets
 This project is our submission for GitHub’s annual game jam, created using Godot. Theme of game jame Secret.
 
 ## Game description
