@@ -6,8 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y8c1v"]
 shader = ExtResource("1_hqj7w")
-shader_parameter/new_color = Vector4(0, 1, 1, 1)
-shader_parameter/scale = 0.5
+shader_parameter/tint_color = Color(0, 1, 0, 1)
 shader_parameter/pulse_speed = 5.0
 shader_parameter/mask = ExtResource("2_xcymh")
 
