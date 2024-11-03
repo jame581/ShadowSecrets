@@ -5,6 +5,7 @@
 
 [resource]
 shader = ExtResource("1_6pq0x")
-shader_parameter/tint_color = Color(0, 1, 0, 1)
-shader_parameter/pulse_speed = 3.0
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/pulse_speed = 2.0
+shader_parameter/enabled = 1.0
 shader_parameter/mask = ExtResource("2_bh6ms")
