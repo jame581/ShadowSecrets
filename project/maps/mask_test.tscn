@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=14 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="Material" uid="uid://dfk6rnlc8ulw0" path="res://resources/materials/mask_test_material.tres" id="1_8r334"]
 [ext_resource type="TileSet" uid="uid://cc1jgnxymw4mr" path="res://resources/tileset/space_tilemap.tres" id="2_lgyhi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/computer/computer_mask.png" id="6_dcf5m"]
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="6_mvqtt"]
 [ext_resource type="Script" path="res://scripts/device.gd" id="7_i2qn7"]
+[ext_resource type="Script" path="res://scripts/interaction_area.gd" id="8_omv8d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p8o1q"]
 
@@ -24,6 +25,9 @@ shader_parameter/tint_color = Color(0, 1, 0, 1)
 shader_parameter/enabled = 1.0
 shader_parameter/mask = ExtResource("6_dcf5m")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhimf"]
+radius = 150.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -32,7 +36,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAVAAIAAAAAAAEAAAAVAAMAAAAAAAIAAAAVAAQ
 tile_set = ExtResource("2_lgyhi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(374, 91)
+position = Vector2(374, -136)
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 position = Vector2(103, -152)
@@ -69,10 +73,21 @@ scale = Vector2(1.64433, 1.06215)
 curve = SubResource("Curve2D_uyq6r")
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(217, -88)
+position = Vector2(400, -62)
 script = ExtResource("7_i2qn7")
 enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
 material = SubResource("ShaderMaterial_dlu6p")
 texture = ExtResource("6_mvqtt")
+
+[node name="InteractionArea" type="Area2D" parent="Node2D2"]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("8_omv8d")
+interaction_text = "Press 'E' to interact adsfadfasdfadfasdfsad"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/InteractionArea"]
+shape = SubResource("CircleShape2D_xhimf")
+
+[connection signal="interacted" from="Node2D2/InteractionArea" to="Node2D2" method="_on_interaction_area_interacted"]

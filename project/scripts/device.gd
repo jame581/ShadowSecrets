@@ -6,10 +6,19 @@ extends Node2D
 
 func _process(_delta):
 	if Engine.is_editor_hint():
-		_debug_draw_state()
+		update_state()
 
-func _debug_draw_state():
+func update_state():
 	if sprite.material is ShaderMaterial:
 		var shader_material = sprite.material
 		var enabled_value = 1.0 if enabled else 0.0
 		shader_material.set_shader_parameter("enabled", enabled_value)
+
+func _on_interaction_area_interacted():
+	enabled = !enabled
+	update_state()
+
+
+func _on_interaction_area_body_entered(body:Node2D):
+	print("test test")
+	pass # Replace with function body.
