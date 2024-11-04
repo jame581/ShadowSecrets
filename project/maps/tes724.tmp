@@ -17,4 +17,3 @@ tile_set = ExtResource("2_3vu01")
 
 [node name="InteractTest" parent="." instance=ExtResource("4_7dk0w")]
 position = Vector2(885, 485)
-interaction_text = "talk"

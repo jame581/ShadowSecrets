@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq2yw4kueyxiw"]
+
+[ext_resource type="Script" path="res://scripts/interact_test.gd" id="1_j0aki"]
+[ext_resource type="Texture2D" uid="uid://y60vkh5cvh0i" path="res://assets/sprites/character_box.png" id="2_riua3"]
+[ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="3_cn0th"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ck8jf"]
+radius = 161.05
+
+[node name="InteractTest" type="Node2D"]
+script = ExtResource("1_j0aki")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_riua3")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_cn0th")]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ck8jf")
+
+[node name="SpeechLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -84.0
+offset_right = 20.0
+offset_bottom = -61.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
