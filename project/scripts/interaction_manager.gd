@@ -1,7 +1,7 @@
 extends Node2D
 
 # The offset of the label from the interaction area.
-@export var label_y_position_offset = 36
+@export var label_y_position_offset = 100
 
 # Onready variables to get the player and the label.
 @onready var player = get_tree().get_first_node_in_group("player")

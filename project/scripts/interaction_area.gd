@@ -1,10 +1,10 @@
 extends Area2D
 class_name InteractionArea
 
+@export var interaction_text: String = "interact"
+
 # Define the signal
 signal interacted()
-
-@export var interaction_text: String = "Press 'E' to interact"
 
 var interact: Callable = func():
 	emit_signal("interacted")
