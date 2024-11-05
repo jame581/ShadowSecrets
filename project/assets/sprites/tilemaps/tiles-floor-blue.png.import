@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwiklwagsqgi"
-path="res://.godot/imported/space_tilemap_dall_e_2_mask.png-300bda699bb3a6ece328c0a83b72435d.ctex"
+uid="uid://r6tnn8bm8lqn"
+path="res://.godot/imported/tiles-floor-blue.png-ed1408704368e0b6a3573e0e5d5c2454.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/space_tilemap_dall_e_2_mask.png"
-dest_files=["res://.godot/imported/space_tilemap_dall_e_2_mask.png-300bda699bb3a6ece328c0a83b72435d.ctex"]
+source_file="res://assets/sprites/tilemaps/tiles-floor-blue.png"
+dest_files=["res://.godot/imported/tiles-floor-blue.png-ed1408704368e0b6a3573e0e5d5c2454.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4bwwx8btrvv7"
-path="res://.godot/imported/space_tilemap_dall_e_2.png-dc960f7b6c3d1367da593789b4faef29.ctex"
+path="res://.godot/imported/space_tilemap_dall_e_2.png-a309bdfd929d4f4895215953f6cdf68f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/space_tilemap_dall_e_2.png"
-dest_files=["res://.godot/imported/space_tilemap_dall_e_2.png-dc960f7b6c3d1367da593789b4faef29.ctex"]
+source_file="res://assets/sprites/tilemaps/space_tilemap_dall_e_2.png"
+dest_files=["res://.godot/imported/space_tilemap_dall_e_2.png-a309bdfd929d4f4895215953f6cdf68f.ctex"]
 
 [params]
 
