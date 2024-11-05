@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cm25xv1tnr5ca" path="res://assets/sprites/player/player-fullsprite.png" id="2_mtgv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
-size = Vector2(32, 64)
+size = Vector2(25, 35)
 
 [sub_resource type="Animation" id="Animation_0d8qc"]
 length = 0.001
@@ -185,10 +185,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(3, 3)
 collision_layer = 3
 script = ExtResource("1_lc80v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.83333, -1.16667)
 shape = SubResource("RectangleShape2D_i5wc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
