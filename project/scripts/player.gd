@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export_group("Player Movement")
+@export var player_speed = 300
+@export var jump_velocity = -400
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
@@ -21,15 +21,15 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 		jump_pressed = true
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, player_speed)
 
 	select_animation(direction)
 	flip_sprite_by_direction()
