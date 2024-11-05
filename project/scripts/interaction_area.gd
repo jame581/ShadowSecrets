@@ -10,8 +10,9 @@ var interact: Callable = func():
 	emit_signal("interacted")
 
 func _ready() -> void:
-	self.body_entered.connect(_on_body_entered)
-	self.body_exited.connect(_on_body_exited)
+	pass
+	# self.body_entered.connect(_on_body_entered)
+	# self.body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node) -> void:
 	InteractionManager.register_area(self)
