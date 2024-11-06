@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Stellar Secrets"
+config/version="0.0.1"
 config/tags=PackedStringArray("2d", "platformer")
-run/main_scene="res://maps/test_scene.tscn"
+run/main_scene="res://maps/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
