@@ -8,8 +8,6 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 
 var jump_pressed : bool = false
-#func _on_ready() -> void:
-	#animation_player.play("idle")
 
 
 func _physics_process(delta: float) -> void:
