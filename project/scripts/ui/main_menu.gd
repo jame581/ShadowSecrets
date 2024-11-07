@@ -6,6 +6,7 @@ extends MarginContainer
 	"res://maps/level_prototype.tscn",
 	"res://maps/mask_test.tscn",
 	"res://maps/test_scene.tscn",
+	"res://maps/game_world.tscn",
 ]
 
 @onready var version_label: Label = get_node("HBoxContainer/VBoxMenu/VersionLabel")
@@ -23,7 +24,7 @@ func _ready() -> void:
 
 
 func _on_start_game_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://maps/level_prototype.tscn")
+	get_tree().change_scene_to_file("res://maps/game_world.tscn")
 
 
 func _on_quit_button_pressed() -> void:
