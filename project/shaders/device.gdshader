@@ -10,6 +10,6 @@ void fragment() {
 	vec4 tex_color = texture(TEXTURE, UV);
 	vec4 tinted_mask = mask_color * tint_color;
 	float intensity = mask_color.a * enabled * 0.65;
-		
+
 	COLOR = mix(tex_color, tinted_mask, intensity);
 }

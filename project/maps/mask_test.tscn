@@ -1,23 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=13 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="Material" uid="uid://dfk6rnlc8ulw0" path="res://resources/materials/mask_test_material.tres" id="1_8r334"]
 [ext_resource type="TileSet" uid="uid://cc1jgnxymw4mr" path="res://resources/tileset/space_tilemap.tres" id="2_lgyhi"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="3_vxavp"]
 [ext_resource type="Shader" path="res://shaders/device.gdshader" id="5_bkas4"]
-[ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/computer/computer_mask.png" id="6_dcf5m"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="6_mvqtt"]
+[ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/devices/computer/computer_mask.png" id="6_dcf5m"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="6_mvqtt"]
 [ext_resource type="Script" path="res://scripts/device.gd" id="7_i2qn7"]
-[ext_resource type="Script" path="res://scripts/interaction_area.gd" id="8_omv8d"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p8o1q"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_652w7"]
-
-[sub_resource type="Curve2D" id="Curve2D_uyq6r"]
-_data = {
-"points": PackedVector2Array(0.5, 14, -0.5, -14, 126, 75, -38, 27, 38, -27, 164, -18, -31.928, -63.5505, 31.928, 63.5505, 340, -102, 0, 0, 0, 0, 306, -15, -58.9907, -52.7234, 58.9907, 52.7234, 242, 52)
-}
-point_count = 5
+[ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="8_ivotv"]
+[ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="9_kvp3e"]
+[ext_resource type="PackedScene" uid="uid://cp81t5nmabmb8" path="res://scenes/devices/output.tscn" id="10_u4ho2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dlu6p"]
 shader = ExtResource("5_bkas4")
@@ -25,7 +17,7 @@ shader_parameter/tint_color = Color(0, 1, 0, 1)
 shader_parameter/enabled = 1.0
 shader_parameter/mask = ExtResource("6_dcf5m")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xhimf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng0dw"]
 radius = 150.0
 
 [node name="Node2D" type="Node2D"]
@@ -39,55 +31,38 @@ tile_set = ExtResource("2_lgyhi")
 position = Vector2(374, -136)
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
-position = Vector2(103, -152)
+position = Vector2(-58, -174)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(568, -161)
-
-[node name="Area2D" type="Area2D" parent="Node2D"]
-position = Vector2(326, -6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-shape = SubResource("CircleShape2D_p8o1q")
-debug_color = Color(1, 0, 0, 1)
-
-[node name="Area2D2" type="Area2D" parent="Node2D"]
-position = Vector2(56, 120)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
-shape = SubResource("CircleShape2D_652w7")
-debug_color = Color(1, 0, 0, 1)
-
-[node name="Line2D" type="Line2D" parent="Node2D"]
-position = Vector2(115, -6)
-points = PackedVector2Array(211, 4, 105, 24, 18, 23, -44, 45, -58, 124)
-width = 1.685
-end_cap_mode = 1
-sharp_limit = 18.05
-round_precision = 32
-antialiased = true
-
-[node name="Path2D" type="Path2D" parent="Node2D"]
-position = Vector2(-219.071, 6.33898)
-scale = Vector2(1.64433, 1.06215)
-curve = SubResource("Curve2D_uyq6r")
-
-[node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(400, -62)
+[node name="Device" type="Node2D" parent="."]
+position = Vector2(762, -306)
 script = ExtResource("7_i2qn7")
 enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Device"]
 material = SubResource("ShaderMaterial_dlu6p")
 texture = ExtResource("6_mvqtt")
 
-[node name="InteractionArea" type="Area2D" parent="Node2D2"]
+[node name="InteractionArea" parent="Device" instance=ExtResource("8_ivotv")]
 collision_layer = 3
-collision_mask = 2
-script = ExtResource("8_omv8d")
-interaction_text = "Press 'E' to interact adsfadfasdfadfasdfsad"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/InteractionArea"]
-shape = SubResource("CircleShape2D_xhimf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Device/InteractionArea"]
+shape = SubResource("CircleShape2D_ng0dw")
 
-[connection signal="interacted" from="Node2D2/InteractionArea" to="Node2D2" method="_on_interaction_area_interacted"]
+[node name="Input" parent="." node_paths=PackedStringArray("output_devices") instance=ExtResource("9_kvp3e")]
+position = Vector2(149, -69)
+scale = Vector2(3, 3)
+output_devices = [NodePath("../Output"), NodePath("../Output2")]
+
+[node name="Output" parent="." instance=ExtResource("10_u4ho2")]
+position = Vector2(419, -82)
+
+[node name="Output2" parent="." instance=ExtResource("10_u4ho2")]
+position = Vector2(335, -81)
+
+[node name="Output3" parent="." instance=ExtResource("10_u4ho2")]
+position = Vector2(531, -175)
+
+[node name="Output4" parent="." instance=ExtResource("10_u4ho2")]
+position = Vector2(524, -79)
+
+[connection signal="interacted" from="Device/InteractionArea" to="Device" method="_on_interacted"]
