@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=10 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://dmr2r178f225d" path="res://assets/sprites/backgrounds/background-proto.png" id="2_0inwm"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="3_uvekh"]
 [ext_resource type="Texture2D" uid="uid://bis4clcn0l7yn" path="res://assets/sprites/lights/cone_light.png" id="4_b1cp1"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="5_iyg5n"]
+[ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="7_avo21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -166,6 +167,15 @@ repeat_times = 6
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
 texture = ExtResource("2_0inwm")
 
+[node name="Player" parent="." instance=ExtResource("5_iyg5n")]
+z_index = 10
+position = Vector2(234, 471)
+player_speed = 350
+jump_velocity = -580
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
 [node name="Tilemaps" type="Node" parent="."]
 
 [node name="TileMapLayerAssets" type="TileMapLayer" parent="Tilemaps"]
@@ -208,11 +218,14 @@ position = Vector2(234, 471)
 scale = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("5_iyg5n")]
-z_index = 10
-position = Vector2(234, 471)
-player_speed = 350
-jump_velocity = -580
+[node name="Traps" type="Node" parent="."]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="Trap" parent="Traps" instance=ExtResource("7_avo21")]
+position = Vector2(-345, 405)
+scale = Vector2(2, 2)
+
+[node name="Trap2" parent="Traps" instance=ExtResource("7_avo21")]
+position = Vector2(-597, 446)
+scale = Vector2(2, 2)
+damage = 30
+timer_duration = 0.1

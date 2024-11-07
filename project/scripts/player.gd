@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var healt_component = get_node("Components/HealthComponent")
 
 var jump_pressed : bool = false
 
@@ -50,3 +51,6 @@ func flip_sprite_by_direction() -> void:
 		else:
 			sprite.scale.x = 1
 			sprite.offset.x = 0
+
+func deal_damage(damage: int) -> void:
+	healt_component.update_health(damage)
