@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg2kxws1wrpmu"]
+[gd_scene load_steps=12 format=3 uid="uid://dg2kxws1wrpmu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lc80v"]
 [ext_resource type="Texture2D" uid="uid://cm25xv1tnr5ca" path="res://assets/sprites/player/player-fullsprite.png" id="2_mtgv0"]
+[ext_resource type="PackedScene" uid="uid://cnq57ucaffmw7" path="res://scenes/components/health_component.tscn" id="3_vunkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
 size = Vector2(23.3333, 33.3333)
@@ -184,6 +185,21 @@ _data = {
 "run": SubResource("Animation_878ls")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo4w7"]
+bg_color = Color(0.502115, 0, 0.182197, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cp72"]
+bg_color = Color(1.1792e-05, 0.862689, 7.70092e-07, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(3, 3)
 collision_layer = 3
@@ -202,3 +218,20 @@ frame = 5
 libraries = {
 "": SubResource("AnimationLibrary_4i1gm")
 }
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponent" parent="Components" node_paths=PackedStringArray("health_bar") instance=ExtResource("3_vunkp")]
+health_bar = NodePath("../../PlayerUI/ProgressBar")
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
+custom_minimum_size = Vector2(100, 25)
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 150.0
+offset_bottom = 60.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vo4w7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0cp72")
+value = 50.0
