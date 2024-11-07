@@ -2,10 +2,12 @@
 extends Device
 class_name OutputDevice
 
-@export var enabledColor: Color = Color(0, 1, 0, 1)
-@export var disabledColor: Color = Color(1, 0, 0, 1)
+@export var enabledColor: Color = Color("#a8ca58")
+@export var disabledColor: Color = Color("#cf573c")
 
-
+func _ready():
+	if sprite.material is ShaderMaterial:
+		sprite.material = sprite.material.duplicate()
 
 func _process(_delta):
 	#pass
@@ -22,4 +24,5 @@ func update_state():
 
 func _on_interacted():
 	enabled = !enabled
+	print("Interacted with output device")
 	update_state()

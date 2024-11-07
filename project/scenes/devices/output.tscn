@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dlu6p"]
 shader = ExtResource("2_vgivd")
-shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/tint_color = Color(0.811765, 0.341176, 0.235294, 1)
 shader_parameter/enabled = 1.0
 shader_parameter/mask = ExtResource("3_s8yrp")
 
@@ -16,7 +16,6 @@ shader_parameter/mask = ExtResource("3_s8yrp")
 radius = 35.0
 
 [node name="Output" type="Node2D"]
-position = Vector2(400, -62)
 script = ExtResource("1_dl53k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

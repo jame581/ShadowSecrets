@@ -2,9 +2,8 @@
 extends Device
 class_name InputDevice
 
-@export var enabledColor: Color = Color(0, 1, 0, 1)
-@export var disabledColor: Color = Color(1, 0, 0, 1)
-
+@export var enabledColor: Color = Color("#a8ca58")
+@export var disabledColor: Color = Color("#cf573c")
 
 @export var output_devices: Array[OutputDevice] = []
 
