@@ -6,6 +6,7 @@ class_name OutputDevice
 @export var disabledColor: Color = Color("#cf573c")
 
 func _ready():
+	# duplicate shader so every output uses unique shader
 	if sprite.material is ShaderMaterial:
 		sprite.material = sprite.material.duplicate()
 
@@ -24,5 +25,4 @@ func update_state():
 
 func _on_interacted():
 	enabled = !enabled
-	print("Interacted with output device")
 	update_state()

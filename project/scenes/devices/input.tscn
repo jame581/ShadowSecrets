@@ -10,6 +10,7 @@
 shader = ExtResource("2_7gxxs")
 shader_parameter/tint_color = Color(0.811765, 0.341176, 0.235294, 1)
 shader_parameter/enabled = 1.0
+shader_parameter/glow_intensity = 2.0
 shader_parameter/mask = ExtResource("3_mcsml")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ng0dw"]
