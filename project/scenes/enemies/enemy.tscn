@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(18, 26.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tp6es"]
-radius = 108.51
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tr7es"]
+radius = 40.5
+height = 449.0
 
 [sub_resource type="Animation" id="Animation_chd1i"]
 resource_name = "idle"
@@ -191,7 +192,9 @@ shape = SubResource("RectangleShape2D_j4pcy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
 position = Vector2(-1, 1.5)
-shape = SubResource("CircleShape2D_tp6es")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tr7es")
+one_way_collision_margin = 0.0
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["enemy"]]
 texture = ExtResource("1_0jedr")
@@ -204,5 +207,9 @@ libraries = {
 "": SubResource("AnimationLibrary_sgqil")
 }
 
+[node name="ReturnToStartPositionTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]
+[connection signal="timeout" from="ReturnToStartPositionTimer" to="." method="_on_return_to_start_position_timer_timeout"]
