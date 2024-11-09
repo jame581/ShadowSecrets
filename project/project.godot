@@ -29,6 +29,7 @@ window/size/viewport_height=720
 [global_group]
 
 player=""
+enemy="Group for all enemies"
 
 [input]
 

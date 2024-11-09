@@ -170,6 +170,7 @@ texture = ExtResource("2_0inwm")
 [node name="Player" parent="." instance=ExtResource("5_iyg5n")]
 z_index = 10
 position = Vector2(234, 471)
+scale = Vector2(2, 2)
 player_speed = 350
 jump_velocity = -580
 
@@ -215,7 +216,7 @@ texture_scale = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(234, 471)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Traps" type="Node" parent="."]
