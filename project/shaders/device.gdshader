@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform sampler2D mask;
 uniform vec4 tint_color: source_color = vec4(0.0, 1.0, 0.0, 1.0);
 uniform float enabled;
-uniform float glow_intensity = 4.0; // Add a uniform for glow intensity
+uniform float glow_intensity = 1.0; // Add a uniform for glow intensity
 
 void fragment() {
     // Called for every pixel the material is visible on.
