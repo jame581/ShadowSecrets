@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=12 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://dmr2r178f225d" path="res://assets/sprites/backgrounds/background-proto.png" id="2_0inwm"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bis4clcn0l7yn" path="res://assets/sprites/lights/cone_light.png" id="4_b1cp1"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="5_iyg5n"]
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="7_avo21"]
+[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/enemy.tscn" id="8_pg3c7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -155,6 +156,11 @@ texture = ExtResource("2_uc1nw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vucup")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_84tu6"]
+vertices = PackedVector2Array(525.469, 533.961, 530.258, 563.906, -288.117, 558.07, -285.82, 531.031, 789, 246.961, 236.656, 245.031, 237.367, 233.961, 789, 232.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-295, 521, 534, 524, 542, 574, -299, 568), PackedVector2Array(228, 224, 799, 222, 799, 257, 226, 255)])
+
 [node name="LevelPrototype" type="Node2D"]
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
@@ -169,7 +175,7 @@ texture = ExtResource("2_0inwm")
 
 [node name="Player" parent="." instance=ExtResource("5_iyg5n")]
 z_index = 10
-position = Vector2(234, 471)
+position = Vector2(482, 485)
 scale = Vector2(2, 2)
 player_speed = 350
 jump_velocity = -580
@@ -215,7 +221,7 @@ texture = ExtResource("4_b1cp1")
 texture_scale = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(234, 471)
+position = Vector2(482, 485)
 scale = Vector2(2, 2)
 position_smoothing_enabled = true
 
@@ -230,3 +236,15 @@ position = Vector2(-597, 446)
 scale = Vector2(2, 2)
 damage = 30
 timer_duration = 0.1
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("8_pg3c7")]
+position = Vector2(-147, 475)
+movement_target_position = Vector2(100, 529)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("8_pg3c7")]
+position = Vector2(279, 200)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_84tu6")
