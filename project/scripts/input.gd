@@ -7,6 +7,8 @@ class_name InputDevice
 
 @export var output_devices: Array[OutputDevice] = []
 
+@export var interactables: Array[Laser] = []
+
 func _process(_delta):
 	pass
 	if Engine.is_editor_hint():
@@ -28,3 +30,6 @@ func _on_interacted():
 func triggerOutputs():
 	for output_device in output_devices:
 		output_device._on_interacted()
+
+	for interactable in interactables:
+		interactable.toggle()
