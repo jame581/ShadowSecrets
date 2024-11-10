@@ -6,14 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bq2yw4kueyxiw" path="res://scenes/interact_test.tscn" id="4_7dk0w"]
 [ext_resource type="Script" path="res://scripts/device.gd" id="5_513ko"]
 [ext_resource type="Shader" path="res://shaders/device.gdshader" id="6_ch60e"]
-[ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/devices/computer/computer_mask.png" id="7_yyjiq"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="8_hm4rr"]
+[ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/computer/computer_mask.png" id="7_yyjiq"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="8_hm4rr"]
 [ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="9_6room"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yj6fg"]
 shader = ExtResource("6_ch60e")
 shader_parameter/tint_color = Color(0, 1, 0, 1)
 shader_parameter/enabled = 1.0
+shader_parameter/glow_intensity = 4.0
 shader_parameter/mask = ExtResource("7_yyjiq")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgjas"]

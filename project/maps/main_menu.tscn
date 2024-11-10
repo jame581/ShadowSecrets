@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cowloviriv7pc"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_oj6b2"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="1_sd4ir"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="1_sd4ir"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = -1
