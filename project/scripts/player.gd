@@ -51,10 +51,8 @@ func flip_sprite_by_direction() -> void:
 	if velocity.x != 0:
 		if velocity.x < 0:
 			sprite.scale.x = -1
-			sprite.offset.x = 10
 		else:
 			sprite.scale.x = 1
-			sprite.offset.x = 0
 
 func deal_damage(damage: int) -> void:
 	healt_component.update_health(damage)
