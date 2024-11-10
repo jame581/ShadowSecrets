@@ -157,9 +157,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vucup")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_84tu6"]
-vertices = PackedVector2Array(525.469, 533.961, 530.258, 563.906, -288.117, 558.07, -285.82, 531.031, 789, 246.961, 236.656, 245.031, 237.367, 233.961, 789, 232.031)
+vertices = PackedVector2Array(521.508, 516.961, 524.43, 570.977, -294.313, 570.008, -290.633, 514.031, 785.211, 194.961, 786.773, 265.938, 246.656, 263.047, 244.328, 193.031)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-295, 521, 534, 524, 542, 574, -299, 568), PackedVector2Array(228, 224, 799, 222, 799, 257, 226, 255)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-300, 504, 531, 507, 535, 581, -305, 580), PackedVector2Array(234, 183, 795, 185, 797, 276, 237, 273)])
 
 [node name="LevelPrototype" type="Node2D"]
 
@@ -241,10 +241,10 @@ timer_duration = 0.1
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("8_pg3c7")]
 position = Vector2(-147, 475)
-movement_target_position = Vector2(100, 529)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("8_pg3c7")]
-position = Vector2(279, 200)
+position = Vector2(290, 183)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-2, 17)
 navigation_polygon = SubResource("NavigationPolygon_84tu6")
