@@ -10,6 +10,8 @@ extends CharacterBody2D
 
 var jump_pressed : bool = false
 
+var explosion_ticks : int = 0
+var explosion_impulse : Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,10 +27,13 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * player_speed
+	if explosion_ticks >= 0:
+		process_explosion()
 	else:
-		velocity.x = move_toward(velocity.x, 0, player_speed)
+		if direction:
+			velocity.x = direction * player_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, player_speed)
 
 	select_animation(direction)
 	flip_sprite_by_direction()
@@ -42,7 +47,6 @@ func select_animation(direction) -> void:
 	else:
 		animation_player.play("idle")
 
-
 func flip_sprite_by_direction() -> void:
 	if velocity.x != 0:
 		if velocity.x < 0:
@@ -54,3 +58,13 @@ func flip_sprite_by_direction() -> void:
 
 func deal_damage(damage: int) -> void:
 	healt_component.update_health(damage)
+
+func apply_impulse(direction: Vector2, strength: float) -> void:
+	explosion_impulse += direction.normalized() * strength
+	explosion_ticks = 10
+
+func process_explosion():
+	explosion_ticks = explosion_ticks - 1
+	velocity = explosion_impulse
+	if explosion_ticks == 0:
+		explosion_impulse = Vector2.ZERO
