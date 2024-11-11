@@ -157,9 +157,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vucup")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_84tu6"]
-vertices = PackedVector2Array(521.508, 516.961, 524.43, 570.977, -294.313, 570.008, -290.633, 514.031, 785.211, 194.961, 786.773, 265.938, 246.656, 263.047, 244.328, 193.031)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-300, 504, 531, 507, 535, 581, -305, 580), PackedVector2Array(234, 183, 795, 185, 797, 276, 237, 273)])
+vertices = PackedVector2Array(526, 579.867, -294.523, 570.117, -291.461, 505, 526, 505, 641.648, 516.656, 572.602, 520.461, 570.313, 459.227, 626.359, 448.617, 785.211, 194.961, 786.773, 265.938, 246.656, 263.047, 244.328, 193.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-301, 495, 536, 495, 536, 590, -305, 580), PackedVector2Array(234, 183, 795, 185, 797, 276, 237, 273), PackedVector2Array(560, 451, 563, 531, 654, 526, 634, 437)])
 
 [node name="LevelPrototype" type="Node2D"]
 
@@ -246,5 +246,11 @@ position = Vector2(-147, 475)
 position = Vector2(290, 183)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+top_level = true
 position = Vector2(-2, 17)
 navigation_polygon = SubResource("NavigationPolygon_84tu6")
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="NavigationRegion2D"]
+position = Vector2(539, 525)
+start_position = Vector2(-240, 9)
+end_position = Vector2(68, -60)

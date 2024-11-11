@@ -30,11 +30,12 @@ func _ready() -> void:
 
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
+	navigation_agent.path_desired_distance = 3.0
+	navigation_agent.target_desired_distance = 3.0
 
 	# Make sure to not await during _ready.
 	actor_setup.call_deferred()
+	navigation_agent.link_reached.connect(_on_link_reached)
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -52,11 +53,11 @@ func _process(delta: float) -> void:
 			attack_player()
 		else:
 			is_attacking_player = false
-			set_movement_target(player.global_position)
+		set_movement_target(player.global_position)
 	elif last_player_position != Vector2.ZERO:
 		set_movement_target(last_player_position)
-	elif return_to_home:
-		set_movement_target(start_position)
+	# elif return_to_home:
+	# 	set_movement_target(start_position)
 
 
 func _physics_process(delta: float) -> void:
@@ -85,7 +86,7 @@ func _physics_process(delta: float) -> void:
 
 	print("is target reached: ", navigation_agent.is_target_reached())
 	print("get_final_position: ", navigation_agent.get_final_position())
-
+	
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	print("current_agent_position: ", current_agent_position, "next_path_position: ", next_path_position, "velocity: ", velocity)
 	
@@ -137,10 +138,18 @@ func _on_player_detect_area_body_exited(body: Node) -> void:
 		chase_player = false
 		last_player_position = player.global_position
 		player = null
-		return_timer.start()
+		# return_timer.start()
 		print("Player exited!")
 
 func _on_attack_area_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.call_deferred("deal_damage", damage)
 		print("Player attacked!")
+
+func _on_link_reached() -> void:
+	var current_agent_position: Vector2 = global_position
+	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	print("Using navlink to jump from ", current_agent_position, " to ", next_path_position)
+	# Add your jump logic here, e.g., setting a jump velocity
+	velocity.y = JUMP_VELOCITY  # Example jump speed
+	# Optionally, you can add an animation or effect here
