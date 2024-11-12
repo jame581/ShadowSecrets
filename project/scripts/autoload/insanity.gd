@@ -13,8 +13,8 @@ func _ready():
 func _process(delta):
 	var insanity_sin = abs(sin(Time.get_ticks_msec() / 1000.0))
 	insanity = 1.01 * insanity_sin
-	print(insanity)
-	emit_signal("insanity_changed", insanity)	
+	# print(insanity)
+	# emit_signal("insanity_changed", insanity)	
 	RenderingServer.global_shader_parameter_set("insanity", insanity)
 
 

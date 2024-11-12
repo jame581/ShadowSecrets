@@ -1,13 +1,14 @@
 [gd_scene load_steps=10 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
-[ext_resource type="Shader" path="res://maps/horror_border.gdshader" id="3_4po0v"]
+[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="3_vxavp"]
 [ext_resource type="PackedScene" uid="uid://e6lgy5i4fd8d" path="res://scenes/traps/laser.tscn" id="7_mgqnx"]
 [ext_resource type="PackedScene" uid="uid://67h4qmhplnmr" path="res://scenes/traps/spike.tscn" id="8_m1ld2"]
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="9_iybq4"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="9_kvp3e"]
 [ext_resource type="PackedScene" uid="uid://cp81t5nmabmb8" path="res://scenes/devices/output.tscn" id="10_u4ho2"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
 shader = ExtResource("3_4po0v")
