@@ -1,11 +1,12 @@
 extends Node2D
 class_name Spike
 
-@export_group("Spike Properties")
+@export_group("Spike")
+@export var autostart: bool = true
 @export var active: bool = false
 @export var damage: int = 10
 @export var timer_duration: float = 1.0
-@export var impulse_strength: float = 500.0  # Strength of the impulse applied to the player
+@export var impulse_strength: float = 500.0
 
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -13,7 +14,8 @@ class_name Spike
 
 func _ready() -> void:
 	timer.wait_time = timer_duration
-	timer.start(timer_duration)
+	if autostart:
+		timer.start(timer_duration)
 
 	if	active:
 		enable()
