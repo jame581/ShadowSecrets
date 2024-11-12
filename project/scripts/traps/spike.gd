@@ -44,26 +44,3 @@ func apply_impulse_to_player(body):
 	if body is CharacterBody2D:
 		var direction = (body.global_position - global_position).normalized()
 		body.apply_impulse(direction, impulse_strength)
-#
-#
-#func _on_timer_timeout() -> void:
-#	damage_player()
-#
-#func damage_player():
-#	if player_ref:
-#		player_ref.deal_damage(damage)
-#		apply_impulse_to_player()
-#
-#func toggle():
-#	active = !active
-#	if active:
-#		enable()
-#	else:
-#		disable()
-#
-#func _on_area_2d_body_entered(body):
-#	if body.is_in_group("player"):
-#		damage_player()
-#
-
-

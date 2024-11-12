@@ -8,12 +8,16 @@ enum activation_direction {LEFT, RIGHT}
 @export var timer_duration: float = 3.0
 @export var direction : activation_direction = activation_direction.LEFT
 
-
 @onready var timer: Timer = $Timer
 
 var spike_index: int = 0
 
-# Called when the node enters the scene tree for the first time.
+# Disable autostart for all spikes before entering the tree
+func _enter_tree( ):
+	for spike in spikes:
+		spike.autostart = false		
+
+# Set the timer duration for all spikes and start own timer
 func _ready():
 	for spike in spikes:
 		spike.timer.wait_time = timer_duration
@@ -21,11 +25,7 @@ func _ready():
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	timer.start()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+# Start the timer of the next spike
 func _on_timer_timeout():
 	if direction == activation_direction.LEFT:
 		spikes[spike_index].timer.start()
