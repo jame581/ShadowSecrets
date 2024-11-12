@@ -4,6 +4,8 @@ uniform float STATIC_GRANULARITY = .005;
 uniform float EDGE_BLUR = .5;
 uniform float BORDER_SIZE = .3;
 
+global uniform float insanity = 1.0;
+
 float generate_random_static (in float size, in float interval, in vec2 uv){
 	float time_step = TIME - mod(TIME,interval);
 	vec2 uv_step = uv - mod(uv, size);
@@ -22,12 +24,13 @@ vec4 layer (in vec4 front_color, in vec4 back_color){
 }
 
 void fragment() {
+	float edge_blur_updated = insanity * EDGE_BLUR;
 	vec3 static_plot = vec3(generate_random_static(STATIC_GRANULARITY,UPDATE_INTERVAL,UV));
 	
 	vec2 c1 = vec2(0.5);
 	vec2 pv1 = get_polar_coords(c1,UV);
 	float func = BORDER_SIZE-.015*cos(4.0*pv1.y);
-	float border_plot = smoothstep(func,func+EDGE_BLUR, pv1.x);
+	float border_plot = smoothstep(func,func+edge_blur_updated, pv1.x);
 	vec4 border_color = vec4(vec3(0.0),1.0)*border_plot;
 	COLOR = vec4(static_plot,.1);
 	COLOR = layer(COLOR,border_color);

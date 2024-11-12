@@ -11,7 +11,7 @@ void fragment() {
     // Get the color from the mask texture at the current UV coordinates
     float mask_value = texture(mask, UV).r;
     // Calculate the pulsing intensity using a sine wave
-    float intensity = ((sin(TIME * pulse_speed) + 1.0) / 2.0) * enabled;  
+    float intensity = ((sin(TIME * pulse_speed) + 1.0) / 2.0) * enabled;
     // Blend the original texture color with the modulated tint color
     vec4 blended_color = mix(texture_color, tint_color, intensity);
     // Use the mask to determine where to apply the blended color
