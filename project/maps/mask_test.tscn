@@ -12,7 +12,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
 shader = ExtResource("3_4po0v")
-shader_parameter/STATIC_GRANULARITY = 0.001
+shader_parameter/STATIC_GRANULARITY = 0.005
 shader_parameter/EDGE_BLUR = 0.5
 shader_parameter/BORDER_SIZE = 0.3
 

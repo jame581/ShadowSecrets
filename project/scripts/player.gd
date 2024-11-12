@@ -56,6 +56,7 @@ func flip_sprite_by_direction() -> void:
 
 func deal_damage(damage: int) -> void:
 	healt_component.update_health(damage)
+	Insanity.insanity_hit(Insanity.insanity_level.HIGH)
 
 func apply_impulse(direction: Vector2, strength: float) -> void:
 	explosion_impulse += direction.normalized() * strength
