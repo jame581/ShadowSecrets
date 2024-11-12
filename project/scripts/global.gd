@@ -12,6 +12,8 @@ func _ready():
 func get_game_version():
 	return ProjectSettings.get_setting("application/config/version")
 
+func goto_main_menu():
+	goto_scene("res://maps/main_menu.tscn")
 
 func goto_scene(path):
 	# This function will usually be called from a signal callback,

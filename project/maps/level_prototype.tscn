@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=13 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://dmr2r178f225d" path="res://assets/sprites/backgrounds/background-proto.png" id="2_0inwm"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="5_iyg5n"]
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="7_avo21"]
 [ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/enemy.tscn" id="8_pg3c7"]
+[ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_23kex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -265,3 +266,5 @@ end_position = Vector2(-33, -24)
 position = Vector2(-1, -10)
 start_position = Vector2(673, 219)
 end_position = Vector2(491, 220)
+
+[node name="InGameMenu" parent="." instance=ExtResource("9_23kex")]
