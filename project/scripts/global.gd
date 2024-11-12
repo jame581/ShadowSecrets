@@ -1,14 +1,6 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
-# func _ready() -> void:
-# 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta: float) -> void:
-# 	pass
+signal map_changed(new_map)
 
 var current_scene = null
 
@@ -50,3 +42,4 @@ func _deferred_goto_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = current_scene
+	map_changed.emit(current_scene)

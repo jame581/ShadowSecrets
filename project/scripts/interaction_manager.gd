@@ -7,6 +7,9 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
+func _ready() -> void:
+	Global.map_changed.connect(_on_map_changed)
+
 # The base text of the interaction label.
 const base_text : String = "[E] to "
 
@@ -22,20 +25,22 @@ func unregister_area(area: InteractionArea) -> void:
 		active_areas.remove_at(index)
 
 func _process(delta: float) -> void:
+	if player == null:
+		#push_warning(name + ": player not found")
+		return
+		
 	if not can_interact or active_areas.size() <= 0:
 		label.hide()
 		return
 
 	active_areas.sort_custom(_sort_by_distance_to_player)
 	_set_label(active_areas[0])
-	# for area in active_areas:
-	# 	if area.is_inside(player.get_global_position()):
-	# 		label.text = base_text + area.interaction_text
-	# 		if Input.is_action_just_pressed("interact"):
-	# 			area.interact()
-	# 			break
 
 func _sort_by_distance_to_player(a: InteractionArea, b: InteractionArea) -> int:
+	# print("Sorting")
+	# print("Player position: ", player.get_global_position())
+	# print("A position: ", a.get_global_position())
+	# print("B position: ", b.get_global_position())
 	var a_distance = player.get_global_position().distance_to(a.get_global_position())
 	var b_distance = player.get_global_position().distance_to(b.get_global_position())
 	return a_distance < b_distance
@@ -58,3 +63,8 @@ func _input(event: InputEvent) -> void:
 		await active_areas[0].interact.call()
 
 		can_interact = true
+
+func _on_map_changed(new_map: Node) -> void:
+	print("Map changed")
+	player = get_tree().get_first_node_in_group("player")
+	print("Player found: ", player)
