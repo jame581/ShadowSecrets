@@ -28,11 +28,9 @@ func _on_timer_timeout() -> void:
 	toggle();
 
 func enable():
-	collision_shape.disabled = false
 	animation_player.play("enable")
 
 func disable():
-	collision_shape.disabled = true
 	animation_player.play("disable")
 
 func _on_area_2d_body_entered(body):

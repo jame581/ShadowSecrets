@@ -69,5 +69,5 @@ renderer/rendering_method="mobile"
 
 insanity={
 "type": "float",
-"value": 1.0
+"value": 0.0
 }
