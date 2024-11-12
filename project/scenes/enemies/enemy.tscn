@@ -240,9 +240,6 @@ libraries = {
 "": SubResource("AnimationLibrary_sgqil")
 }
 
-[node name="ReturnToStartPositionTimer" type="Timer" parent="."]
-wait_time = 5.0
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
@@ -253,4 +250,3 @@ wait_time = 0.5
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="timeout" from="ReturnToStartPositionTimer" to="." method="_on_return_to_start_position_timer_timeout"]
