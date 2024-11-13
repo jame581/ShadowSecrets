@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://cim1ywlunmueh"]
+
+[ext_resource type="Script" path="res://scripts/device/panic.gd" id="1_dp6w0"]
+[ext_resource type="Shader" path="res://shaders/PANIC.gdshader" id="2_k3j3e"]
+[ext_resource type="Texture2D" uid="uid://uo1nwgpcuhgh" path="res://assets/sprites/devices/pANIC/panic_blank.png" id="3_1dchv"]
+[ext_resource type="Texture2D" uid="uid://c5kqt44t7qj7" path="res://assets/sprites/devices/pANIC/panic_face.png" id="3_pg42j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pospy"]
+shader = ExtResource("2_k3j3e")
+shader_parameter/transition = 0.0
+shader_parameter/face = ExtResource("3_pg42j")
+
+[sub_resource type="Animation" id="Animation_ctlco"]
+resource_name = "enable"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/transition")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"active", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_l66v3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/transition")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_clser"]
+resource_name = "active"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/transition")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.75, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.85, -0.25, 0, 0.25, 0, 0.6, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.96667, 3.1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i25tp"]
+_data = {
+"RESET": SubResource("Animation_l66v3"),
+"active": SubResource("Animation_clser"),
+"enable": SubResource("Animation_ctlco")
+}
+
+[node name="Panic" type="Node2D"]
+script = ExtResource("1_dp6w0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pospy")
+texture = ExtResource("3_1dchv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i25tp")
+}
