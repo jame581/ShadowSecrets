@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://el4cds56exlx" path="res://resources/tileset/tiles_door.tres" id="4_04w0q"]
-[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/enemy.tscn" id="4_iptju"]
+[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="4_iptju"]
 [ext_resource type="TileSet" uid="uid://cugyuif2omxpd" path="res://resources/tileset/tiles_assets_no_face.tres" id="5_n4muy"]
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="7_16qj0"]
 [ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/devices/computer/computer_mask.png" id="8_pqnet"]

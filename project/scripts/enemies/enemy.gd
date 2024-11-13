@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
+class_name Enemy
 
-const SPEED = 300.0
-
-const OFFSET_FROM_POSITION = 50
-
+# export variables
 @export_group("Enemy Properties")
 @export var movement_speed: float = 100.0
 @export var jump_speed: float = -600.0
@@ -13,12 +11,13 @@ const OFFSET_FROM_POSITION = 50
 @export var attack_range: int = 50
 @export var player_position_changed_threshold: float = 20.0
 
+# onready variables
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var sprite: Sprite2D = get_node("Sprite")
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var update_player_position_timer: Timer = $UpdatePlayerPositionTimer
 
-
+# private variables
 var chase_player: bool = false
 var player: Node = null
 var last_player_position: Vector2 = Vector2.ZERO
@@ -26,6 +25,7 @@ var start_position: Vector2 = Vector2.ZERO
 var return_to_home: bool = false
 var is_attacking_player: bool = false
 var jump_now: bool = false
+
 
 func _ready() -> void:
 	start_position = global_position
@@ -50,6 +50,7 @@ func actor_setup():
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
+
 
 func _process(delta: float) -> void:
 	if chase_player and player != null:

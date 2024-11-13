@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bis4clcn0l7yn" path="res://assets/sprites/lights/cone_light.png" id="4_b1cp1"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="5_iyg5n"]
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="7_avo21"]
-[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/enemy.tscn" id="8_pg3c7"]
+[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="8_pg3c7"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_23kex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbjebx1q2n0mj"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_0bw80"]
 [ext_resource type="Texture2D" uid="uid://bvlp4nnfadben" path="res://assets/sprites/enemies/corupted_enemy_sheet.png" id="1_0jedr"]
+[ext_resource type="Script" path="res://scripts/enemies/corupted_enemy.gd" id="1_3kger"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(18, 26.5)
@@ -206,9 +206,9 @@ _data = {
 "walk": SubResource("Animation_coqxl")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="CoruptedEnemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_0bw80")
+script = ExtResource("1_3kger")
 movement_speed = 125.0
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
