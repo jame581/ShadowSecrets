@@ -1,13 +1,10 @@
 extends Enemy
 
-
 func _ready() -> void:
 	super._ready()
 
-
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-
 
 func _on_player_detect_area_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
