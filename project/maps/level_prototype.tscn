@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://bwkhldhv3rnib"]
 
-[ext_resource type="Texture2D" uid="uid://dmr2r178f225d" path="res://assets/sprites/backgrounds/background-proto.png" id="2_0inwm"]
+[ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_7c52x"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
 [ext_resource type="Texture2D" uid="uid://cysequei4rx6h" path="res://assets/sprites/tilemaps/level_platform_tiles.png" id="2_uc1nw"]
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="3_uvekh"]
@@ -169,11 +169,11 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-301, 495, 475, 496, 47
 position = Vector2(480, 360)
 
 [node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
-repeat_size = Vector2(320, 180)
-repeat_times = 6
+repeat_size = Vector2(32, 32)
+repeat_times = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
-texture = ExtResource("2_0inwm")
+texture = ExtResource("1_7c52x")
 
 [node name="Player" parent="." instance=ExtResource("5_iyg5n")]
 z_index = 10
