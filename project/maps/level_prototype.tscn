@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=15 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_7c52x"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="8_pg3c7"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_23kex"]
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="9_d3q1n"]
+[ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_fb264"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -249,8 +250,15 @@ jump_speed = -550.0
 position = Vector2(290, 183)
 
 [node name="BigEnemy" parent="Enemies" instance=ExtResource("9_d3q1n")]
-position = Vector2(1686, 451)
+position = Vector2(2981, 488)
 movement_speed = 100.0
+
+[node name="RobotEnemy" parent="Enemies" instance=ExtResource("10_fb264")]
+position = Vector2(1819, 497)
+movement_speed = 150.0
+health = 25
+damage = 50
+attack_range = 100
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 top_level = true
