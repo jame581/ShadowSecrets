@@ -8,6 +8,7 @@ extends Node2D
 @onready var label = $Label
 
 func _ready() -> void:
+	label.hide()
 	Global.map_changed.connect(_on_map_changed)
 
 # The base text of the interaction label.
