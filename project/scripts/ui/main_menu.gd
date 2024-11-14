@@ -10,6 +10,7 @@ extends MarginContainer
 ]
 
 @onready var version_label: Label = get_node("HBoxContainer/VBoxMenu/VersionLabel")
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 var level_selected = ""
 
@@ -21,6 +22,8 @@ func _ready() -> void:
 		level_selected = level_paths[0]
 	else:
 		push_error("No levels found in the level_paths array")
+	
+	animation_player.play("logo_blood")
 
 
 func _on_start_game_button_pressed() -> void:
@@ -41,3 +44,7 @@ func _on_item_list_item_selected(index: int) -> void:
 
 func _on_start_selected_level_button_pressed() -> void:
 		Global.goto_scene(level_selected)
+
+func _on_animation_player_animation_finished(anim_name: String) -> void:
+	if anim_name == "logo_blood":
+		animation_player.play("blood_pulse")

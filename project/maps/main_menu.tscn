@@ -1,7 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://cowloviriv7pc"]
+[gd_scene load_steps=8 format=3 uid="uid://cowloviriv7pc"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_oj6b2"]
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="1_sd4ir"]
+[ext_resource type="Texture2D" uid="uid://cgke17w4u0536" path="res://assets/sprites/bloody.png" id="3_ei6qs"]
+
+[sub_resource type="Animation" id="Animation_tevvu"]
+resource_name = "logo_blood"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.878431, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aunay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ywd3d"]
+resource_name = "blood_pulse"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Logo:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.878431, 0, 0, 1), Color(0.507244, 5.95618e-07, 2.88785e-07, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpcv2"]
+_data = {
+"RESET": SubResource("Animation_aunay"),
+"blood_pulse": SubResource("Animation_ywd3d"),
+"logo_blood": SubResource("Animation_tevvu")
+}
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = -1
@@ -18,12 +74,14 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="VBoxMenu" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="GameLogo" type="TextureRect" parent="HBoxContainer/VBoxMenu"]
 layout_mode = 2
 texture = ExtResource("1_sd4ir")
+stretch_mode = 3
 
 [node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxMenu"]
 layout_mode = 2
@@ -94,7 +152,19 @@ item_3/text = "Game World"
 layout_mode = 2
 text = "Start level"
 
+[node name="Logo" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ei6qs")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dpcv2")
+}
+
 [connection signal="pressed" from="HBoxContainer/VBoxMenu/MenuOptions/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxMenu/MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="item_selected" from="HBoxContainer/VBoxDebugMenu/MenuOptions/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="HBoxContainer/VBoxDebugMenu/MenuOptions/StartSelectedLevelButton" to="." method="_on_start_selected_level_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
