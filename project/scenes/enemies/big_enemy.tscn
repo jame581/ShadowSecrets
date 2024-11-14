@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dsyksur8gqx8f"]
 
 [ext_resource type="Script" path="res://scripts/enemies/big_enemy.gd" id="1_sp3ji"]
-[ext_resource type="Texture2D" uid="uid://6h1u63g0tdin" path="res://assets/sprites/enemies/big_enemy_sheet.png" id="2_yqs7m"]
+[ext_resource type="Texture2D" uid="uid://bmhysmanlb31h" path="res://assets/sprites/enemies/big_enemy_sheet_v2.png" id="2_kdgcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(20.5, 41.5)
@@ -233,7 +233,7 @@ shape = SubResource("RectangleShape2D_mfmhk")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["enemy"]]
-texture = ExtResource("2_yqs7m")
+texture = ExtResource("2_kdgcy")
 flip_h = true
 hframes = 8
 vframes = 3
