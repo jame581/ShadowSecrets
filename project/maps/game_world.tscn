@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=11 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="Texture2D" uid="uid://dmr2r178f225d" path="res://assets/sprites/backgrounds/background-proto.png" id="1_28gr1"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caq0qy4gqciol" path="res://scenes/traps/spike_area.tscn" id="7_bvpr3"]
 [ext_resource type="PackedScene" uid="uid://e6lgy5i4fd8d" path="res://scenes/traps/laser.tscn" id="7_k70y1"]
 [ext_resource type="PackedScene" uid="uid://67h4qmhplnmr" path="res://scenes/traps/spike.tscn" id="8_gi2hv"]
+[ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_8ih2t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0g6e"]
 
@@ -184,3 +185,5 @@ offset_top = -462.0
 offset_right = 861.0
 offset_bottom = -368.0
 text = "A computer with the information you are looking for and that can lift the lockdown is here"
+
+[node name="InGameMenu" parent="." instance=ExtResource("9_8ih2t")]

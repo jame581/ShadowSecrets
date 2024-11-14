@@ -4,22 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="1_sd4ir"]
 [ext_resource type="Texture2D" uid="uid://cgke17w4u0536" path="res://assets/sprites/bloody.png" id="3_ei6qs"]
 
-[sub_resource type="Animation" id="Animation_tevvu"]
-resource_name = "logo_blood"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/Logo:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.878431, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_aunay"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,6 +34,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.878431, 0, 0, 1), Color(0.507244, 5.95618e-07, 2.88785e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tevvu"]
+resource_name = "logo_blood"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.878431, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dpcv2"]
