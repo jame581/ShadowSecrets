@@ -19,6 +19,9 @@ radius = 35.0
 [node name="Input" type="Node2D"]
 position = Vector2(400, -62)
 script = ExtResource("1_0pt7a")
+enabledColor = null
+disabledColor = null
+enabled = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dlu6p")

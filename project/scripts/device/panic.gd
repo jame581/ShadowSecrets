@@ -1,4 +1,4 @@
-extends Node2D
+extends InteractableDevice
 class_name PANIC
 
 #Paranoid Android Network, Inefficient and Clumsy
@@ -17,5 +17,14 @@ func _ready():
 func _process(delta):
 	pass
 
+func _interact():
+	enabled = not enabled
+
+	if	enabled:
+		$AnimationPlayer.play("enable")
+	else:
+		$AnimationPlayer.play("disable")
+
 func _on_Timer_timeout():
-	$AnimationPlayer.play("enable")
+	pass
+	#$AnimationPlayer.play("enable")

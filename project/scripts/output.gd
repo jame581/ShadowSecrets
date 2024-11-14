@@ -1,9 +1,11 @@
 @tool
-extends Device
+extends InteractableDevice
 class_name OutputDevice
 
 @export var enabledColor: Color = Color("#a8ca58")
 @export var disabledColor: Color = Color("#cf573c")
+
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready():
 	# duplicate shader so every output uses unique shader

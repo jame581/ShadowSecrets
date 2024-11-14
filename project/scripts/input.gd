@@ -1,18 +1,17 @@
-@tool
-extends Device
+extends InteractableDevice
 class_name InputDevice
 
 @export var enabledColor: Color = Color("#a8ca58")
 @export var disabledColor: Color = Color("#cf573c")
 
-@export var output_devices: Array[OutputDevice] = []
 
-@export var interactables: Array[Laser] = []
+@export var interactable_devices: Array[InteractableDevice] = []
+
+
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _process(_delta):
 	pass
-	if Engine.is_editor_hint():
-		update_state()
 
 func update_state():
 	if sprite.material is ShaderMaterial:
@@ -28,8 +27,5 @@ func _on_interacted():
 	triggerOutputs()
 
 func triggerOutputs():
-	for output_device in output_devices:
-		output_device._on_interacted()
-
-	for interactable in interactables:
-		interactable.toggle()
+	for interactable_device in interactable_devices:
+		interactable_device._interact()
