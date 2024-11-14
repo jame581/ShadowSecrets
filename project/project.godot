@@ -35,6 +35,10 @@ window/size/viewport_height=720
 player=""
 enemy="Group for all enemies"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Kenney Pixel Square.ttf"
+
 [input]
 
 left={
