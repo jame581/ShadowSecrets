@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=19 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_7c52x"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_23kex"]
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="9_d3q1n"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_fb264"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="11_joxlp"]
+[ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="13_r55p8"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="14_w38f8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -164,6 +167,9 @@ vertices = PackedVector2Array(3144.69, 509.977, 3136.16, 579.023, 1191.91, 583.9
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-301, 495, 475, 496, 477, 588, -305, 580), PackedVector2Array(234, 183, 515, 186, 518, 273, 237, 273), PackedVector2Array(553, 438, 556, 510, 662, 511, 651, 438), PackedVector2Array(643, 183, 646, 270, 835, 269, 828, 184), PackedVector2Array(685, 439, 687, 511, 865, 512, 835, 444), PackedVector2Array(1172, 498, 1183, 594, 3145, 589, 3156, 500)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bw3t"]
+size = Vector2(75, 75)
+
 [node name="LevelPrototype" type="Node2D"]
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
@@ -280,4 +286,22 @@ position = Vector2(-1, -10)
 start_position = Vector2(673, 219)
 end_position = Vector2(491, 220)
 
+[node name="DialogDisplay" type="CanvasLayer" parent="."]
+
+[node name="DialogDisplay" parent="DialogDisplay" instance=ExtResource("11_joxlp")]
+
 [node name="InGameMenu" parent="." instance=ExtResource("9_23kex")]
+
+[node name="Dialogs" type="Node" parent="."]
+
+[node name="DialogArea" parent="Dialogs" instance=ExtResource("13_r55p8")]
+position = Vector2(-893, 372)
+dialog_text = "Hello, world! Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+dialog_wait_time = 3.0
+
+[node name="ComputerBase" type="Sprite2D" parent="Dialogs/DialogArea"]
+position = Vector2(-3, -26)
+texture = ExtResource("14_w38f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
+shape = SubResource("RectangleShape2D_0bw3t")
