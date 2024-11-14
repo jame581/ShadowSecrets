@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=12 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="9_iybq4"]
 [ext_resource type="PackedScene" uid="uid://caq0qy4gqciol" path="res://scenes/traps/spike_area.tscn" id="9_jdrej"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="9_kvp3e"]
+[ext_resource type="PackedScene" uid="uid://cim1ywlunmueh" path="res://scenes/devices/PANIC.tscn" id="10_b7myw"]
 [ext_resource type="PackedScene" uid="uid://cp81t5nmabmb8" path="res://scenes/devices/output.tscn" id="10_u4ho2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
@@ -35,7 +36,7 @@ scale = Vector2(1, 1)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Input" parent="." node_paths=PackedStringArray("interactables") instance=ExtResource("9_kvp3e")]
+[node name="Input" parent="." instance=ExtResource("9_kvp3e")]
 position = Vector2(-478, -96)
 
 [node name="Output" parent="." instance=ExtResource("10_u4ho2")]
@@ -91,3 +92,6 @@ position = Vector2(-247, -5)
 rotation = 3.14159
 timer_duration = 2.0
 direction = 1
+
+[node name="Panic" parent="." instance=ExtResource("10_b7myw")]
+position = Vector2(-283, -90)
