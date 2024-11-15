@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=12 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
+[ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_klita"]
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://el4cds56exlx" path="res://resources/tileset/tiles_door.tres" id="4_04w0q"]
 [ext_resource type="TileSet" uid="uid://cugyuif2omxpd" path="res://resources/tileset/tiles_assets_no_face.tres" id="5_n4muy"]
@@ -15,13 +16,22 @@
 [node name="GameWorld" type="Node2D"]
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
-position = Vector2(480, 360)
+position = Vector2(640, 360)
 
-[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+[node name="SpaceParallax2D" type="Parallax2D" parent="ParallaxBackground"]
+visible = false
+repeat_size = Vector2(320, 180)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SpaceParallax2D"]
+texture = ExtResource("1_klita")
+
+[node name="WallParallax2D" type="Parallax2D" parent="ParallaxBackground"]
+clip_children = 1
 repeat_size = Vector2(32, 32)
-repeat_times = 100
+repeat_times = 90
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/WallParallax2D"]
 texture = ExtResource("1_igrcl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
