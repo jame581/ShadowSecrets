@@ -2,11 +2,17 @@ extends Node2D
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+var audio_enabled = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	audio_player.play()
+	if audio_enabled:
+		audio_player.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_sound_enabled(enabled: bool) -> void:
+	audio_enabled = enabled
+	if audio_enabled:
+		audio_player.play()
+	else:
+		audio_player.stop()
