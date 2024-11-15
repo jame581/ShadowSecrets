@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="4_2h5dx"]
 [ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="5_qji4t"]
 
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dlu6p"]
 shader = ExtResource("2_vgivd")
 shader_parameter/tint_color = Color(0.811765, 0.341176, 0.235294, 1)
