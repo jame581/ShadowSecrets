@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@export_category("Pause Menu Settings")
+@export var animation_speed: float = 1.0
+
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 func _ready() -> void:
@@ -17,10 +20,10 @@ func toggle_pause_menu() -> void:
 	print("Toggle pause menu called, visible: " + str(visible))
 	if (visible):
 		get_tree().paused = false
-		animation_player.play("fade_out")
+		animation_player.play("fade_out", -1, animation_speed)
 	else:
 		visible = true
-		animation_player.play("fade_in")
+		animation_player.play("fade_in", -1, animation_speed)
 		get_tree().paused = true
 
 
