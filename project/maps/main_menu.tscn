@@ -191,6 +191,32 @@ button_pressed = true
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxSettingsMenu"]
 layout_mode = 2
 
+[node name="ControlSettingsLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxSettingsMenu"]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlSettingsGrid" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxSettingsMenu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="JumpLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlSettingsGrid"]
+layout_mode = 2
+text = "Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JumpKeyLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlSettingsGrid"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Spacebar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxCredits" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
