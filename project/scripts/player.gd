@@ -13,6 +13,11 @@ var jump_pressed : bool = false
 var explosion_ticks : int = 0
 var explosion_impulse : Vector2 = Vector2.ZERO
 
+
+func _ready() -> void:
+	healt_component.health_changed.connect(health_changed)
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -67,3 +72,8 @@ func process_explosion():
 	velocity = explosion_impulse
 	if explosion_ticks == 0:
 		explosion_impulse = Vector2.ZERO
+
+func health_changed(new_value: int) -> void:
+	if new_value <= 0:
+		print("Player died")
+		GameManager.game_over()

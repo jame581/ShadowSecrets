@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=20 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_7c52x"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="11_joxlp"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="13_r55p8"]
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="14_w38f8"]
+[ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="15_djeii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vucup"]
 texture = ExtResource("2_uc1nw")
@@ -286,12 +287,6 @@ position = Vector2(-1, -10)
 start_position = Vector2(673, 219)
 end_position = Vector2(491, 220)
 
-[node name="DialogDisplay" type="CanvasLayer" parent="."]
-
-[node name="DialogDisplay" parent="DialogDisplay" instance=ExtResource("11_joxlp")]
-
-[node name="InGameMenu" parent="." instance=ExtResource("9_23kex")]
-
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="DialogArea" parent="Dialogs" instance=ExtResource("13_r55p8")]
@@ -305,3 +300,13 @@ texture = ExtResource("14_w38f8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 shape = SubResource("RectangleShape2D_0bw3t")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="DialogDisplay" type="CanvasLayer" parent="UI"]
+
+[node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("11_joxlp")]
+
+[node name="InGameMenu" parent="UI" instance=ExtResource("9_23kex")]
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("15_djeii")]

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
+GameManager="*res://scenes/game_manager.tscn"
 InteractionManager="*res://scenes/interaction_manager.tscn"
 Insanity="*res://scripts/autoload/insanity.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
