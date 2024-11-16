@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void:
 
 		can_interact = true
 
-func _on_map_changed(new_map: Node) -> void:
+func _on_map_changed(new_map_path: String) -> void:
 	print("Map changed")
 	player = get_tree().get_first_node_in_group("player")
 	print("Player found: ", player)

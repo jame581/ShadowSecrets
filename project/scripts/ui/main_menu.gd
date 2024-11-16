@@ -14,6 +14,7 @@ extends PanelContainer
 @onready var settings_box: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu")
 @onready var credits_box: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxCredits")
 @onready var controls_setting: GridContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlSettingsGrid")
+@onready var particles : CPUParticles2D = get_node("CPUParticles2D")
 
 var level_selected = ""
 var hide_credits = false
@@ -28,6 +29,12 @@ var input_actions = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Main menu ready")
+	initialize()
+	Global.map_changed.connect(_on_map_changed)
+
+func initialize() -> void:
+	print("Main menu initialized")
 	hide_all_settings()
 	version_label.text = "Version: " + ProjectSettings.get_setting("application/config/version")
 	
@@ -39,6 +46,7 @@ func _ready() -> void:
 	animation_player.play("logo_blood")
 	create_action_list()
 
+	particles.emitting = true
 
 func _on_start_game_button_pressed() -> void:
 	Global.goto_scene("res://maps/game_world.tscn")
@@ -67,6 +75,7 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		credits_box.hide()
 
 func _on_options_button_pressed() -> void:
+	print("Options button pressed")
 	if settings_box.is_visible():
 		hide_all_settings()
 	else:
@@ -89,6 +98,13 @@ func _on_sounds_enabled_check_button_toggled(button_pressed: bool) -> void:
 		AudioManager.set_sound_enabled(true)
 	else:
 		AudioManager.set_sound_enabled(false)
+
+func _on_map_changed(new_map: String) -> void:
+	print("Map changed signal received: " + new_map)
+	# if new_map == get_tree().current_scene.scene_file_path:
+	# 	print("Map changed to the main menu")
+	# 	initialize()
+
 
 func hide_all_settings() -> void:
 	settings_box.hide()
