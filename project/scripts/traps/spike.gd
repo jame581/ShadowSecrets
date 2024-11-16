@@ -1,4 +1,4 @@
-extends Node2D
+extends InteractableDevice
 class_name Spike
 
 @export_group("Spike")
@@ -34,6 +34,9 @@ func enable():
 
 func disable():
 	animation_player.play("disable")
+
+func _interact():
+	toggle()
 
 func _on_area_2d_body_entered(body):
 	if body is CharacterBody2D:
