@@ -1,19 +1,19 @@
 shader_type canvas_item;
 
-uniform sampler2D mask;
-uniform vec4 tint_color: source_color = vec4(0.0, 1.0, 0.0, 1.0);
-uniform float enabled;
-uniform float glow_intensity = 1.0; // Add a uniform for glow intensity
+uniform sampler2D mask: filter_nearest ;
+uniform vec4 disabled_color : source_color = vec4(1.0, 0.0, 0.0, 1.0); // Red color
+uniform vec4 enabled_color : source_color = vec4(0.0, 1.0, 0.0, 1.0); // Green color
+
+uniform float enabled : hint_range(0.0, 1.0);
 
 void fragment() {
-    // Called for every pixel the material is visible on.
+    vec4 texture_color = texture(TEXTURE, UV);
     vec4 mask_color = texture(mask, UV);
-    vec4 tex_color = texture(TEXTURE, UV);
-    vec4 tinted_mask = mask_color * tint_color;
-    float intensity = mask_color.a * enabled * 0.65;
 
-    // Add glow effect
-    vec4 glow = tinted_mask * glow_intensity;
+    vec4 target_color = mix(disabled_color, enabled_color, enabled);
+    vec4 mask_colored =  mix(mask_color, target_color, mask_color);
 
-    COLOR = mix(tex_color, glow, intensity);
+   	vec4 final_color = mix(texture_color, mask_colored, mask_color.a);
+
+    COLOR = final_color;
 }
