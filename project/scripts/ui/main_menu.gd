@@ -18,6 +18,7 @@ extends PanelContainer
 
 var level_selected = ""
 var hide_credits = false
+var hide_settings = false
 
 var input_actions = {
 	"left": " Move Left",
@@ -73,14 +74,21 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 	
 	if anim_name == "show_credits" and hide_credits:
 		credits_box.hide()
+	
+	if anim_name == "show_settings" and hide_settings:
+		settings_box.hide()
 
 func _on_options_button_pressed() -> void:
 	print("Options button pressed")
 	if settings_box.is_visible():
-		hide_all_settings()
+		animation_player.play("show_settings", -1, -2.0, true)
+		hide_settings = true
 	else:
 		hide_all_settings()
 		settings_box.show()
+		hide_settings = false
+		animation_player.play("show_settings")
+
 
 func _on_credits_button_pressed() -> void:
 	if credits_box.is_visible():
