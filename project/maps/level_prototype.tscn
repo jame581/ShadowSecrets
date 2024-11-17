@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=21 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_7c52x"]
 [ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
+[ext_resource type="Texture2D" uid="uid://bs430eb8irl1g" path="res://assets/sprites/backgrounds/bg_tile_variant.png" id="2_mwhyb"]
 [ext_resource type="Texture2D" uid="uid://cysequei4rx6h" path="res://assets/sprites/tilemaps/level_platform_tiles.png" id="2_uc1nw"]
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="3_uvekh"]
 [ext_resource type="Texture2D" uid="uid://bis4clcn0l7yn" path="res://assets/sprites/lights/cone_light.png" id="4_b1cp1"]
@@ -183,6 +184,13 @@ repeat_times = 60
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
 texture = ExtResource("1_7c52x")
 
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground"]
+repeat_size = Vector2(32, 32)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
+texture = ExtResource("2_mwhyb")
+
 [node name="Player" parent="." instance=ExtResource("5_iyg5n")]
 z_index = 10
 position = Vector2(482, 485)
@@ -304,9 +312,12 @@ shape = SubResource("RectangleShape2D_0bw3t")
 [node name="UI" type="Node" parent="."]
 
 [node name="DialogDisplay" type="CanvasLayer" parent="UI"]
+visible = false
 
 [node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("11_joxlp")]
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_23kex")]
+visible = false
 
 [node name="GameOverMenu" parent="UI" instance=ExtResource("15_djeii")]
+visible = false
