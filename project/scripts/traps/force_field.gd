@@ -1,35 +1,34 @@
 extends InteractableDevice
 class_name ForceField
 
-@export var active: bool = false
-@export var damage: int = 10
-@export var timer_duration: float = 1.0
-@export var impulse_strength: float = 500.0  # Strength of the impulse applied to the player
-
-@onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var collision: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var player_ref : CharacterBody2D
-
+# Called when the node is added to the scene.
 func _ready() -> void:
-	if	active:
+	if enabled:
 		enable()
 	else:
 		disable()
 
-# Override
+# Called when the player interacts with the force field.
 func _interact():
-	toggle()
+	toggle_state()
 
-func toggle():
-	active = !active
-	if active:
+# Toggles the enabled state of the force field.
+func toggle_state():
+	enabled = !enabled
+	if enabled:
 		enable()
 	else:
 		disable()
 
+# enables the force field.
 func enable():
+	collision.disabled = false
 	sprite.play("enable")
 
+# disables the force field.
 func disable():
+	collision.disabled = true
 	sprite.play("disable")

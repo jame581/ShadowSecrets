@@ -42,19 +42,16 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-22, 15)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
-enabled = null
 
 [node name="Input2" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
 position = Vector2(62, 13)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
-enabled = null
 
 [node name="Input3" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
 position = Vector2(-22, -62)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
-enabled = null
 
 [node name="Output" parent="." instance=ExtResource("10_u4ho2")]
 position = Vector2(322, -12)
@@ -114,8 +111,13 @@ position = Vector2(-117, -78)
 
 [node name="ForceField" parent="." instance=ExtResource("11_gqmwg")]
 position = Vector2(-470, 32)
-active = true
+enabled = true
 
 [node name="PowerGenerator" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("12_ygk2f")]
 position = Vector2(-113, -3)
 interactable_devices = [NodePath("../Panic")]
+
+[node name="Input4" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
+position = Vector2(-384, 10)
+interactable_devices = [NodePath("../ForceField")]
+enabled = false
