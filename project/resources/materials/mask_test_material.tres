@@ -1,11 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dfk6rnlc8ulw0"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfk6rnlc8ulw0"]
 
 [ext_resource type="Shader" path="res://shaders/tile_mask.gdshader" id="1_6pq0x"]
-[ext_resource type="Texture2D" uid="uid://cnwiklwagsqgi" path="res://assets/sprites/tilemaps/space_tilemap_dall_e_2_mask.png" id="2_bh6ms"]
 
 [resource]
 shader = ExtResource("1_6pq0x")
 shader_parameter/tint_color = Color(1, 0, 0, 1)
 shader_parameter/pulse_speed = 2.0
 shader_parameter/enabled = 1.0
-shader_parameter/mask = ExtResource("2_bh6ms")
