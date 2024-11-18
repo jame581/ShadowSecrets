@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://67h4qmhplnmr" path="res://scenes/traps/spike.tscn" id="2_jf84w"]
 
 [node name="SpikeArea" type="Node2D" node_paths=PackedStringArray("spikes")]
+scale = Vector2(3, 3)
 script = ExtResource("1_u2e74")
 spikes = [NodePath("Spike1"), NodePath("Spike2"), NodePath("Spike3"), NodePath("Spike4"), NodePath("Spike5"), NodePath("Spike6"), NodePath("Spike7"), NodePath("Spike8"), NodePath("Spike9"), NodePath("Spike10")]
 
@@ -12,40 +13,50 @@ wait_time = 0.3
 
 [node name="Spike1" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(-22, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike2" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(-13, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike3" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(-4, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike4" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(5, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike5" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(14, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike6" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(23, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike7" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(32, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike8" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(41, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike9" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(50, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0
 
 [node name="Spike10" parent="." instance=ExtResource("2_jf84w")]
 position = Vector2(59, -6)
+scale = Vector2(1, 1)
 timer_duration = 4.0

@@ -191,6 +191,7 @@ _data = {
 size = Vector2(8.5, 13.75)
 
 [node name="Spike" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_jvhyk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
