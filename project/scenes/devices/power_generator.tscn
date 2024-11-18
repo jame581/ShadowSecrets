@@ -223,7 +223,7 @@ script = ExtResource("1_8l6mp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_35wqs")
-animation = &"active"
+animation = &"sequence"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

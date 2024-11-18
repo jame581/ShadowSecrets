@@ -18,8 +18,7 @@ func _ready():
 func set_state(state: bool):
 	enabled = state
 	update_visual_state()
-	if enabled:
-		trigger_outputs()
+	trigger_outputs()
 
 # Called when the device is interacted with.
 func _on_interacted():

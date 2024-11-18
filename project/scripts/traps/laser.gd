@@ -46,10 +46,11 @@ func _on_area_2d_body_exited(body):
 	player_ref = null
 
 func enable():
+	collision_shape.disabled = false
 	sprite.play("enable")
 
 func disable():
-	#collision_shape.disabled = true
+	collision_shape.disabled = true
 	sprite.play("disable")
 
 func apply_impulse_to_player():
