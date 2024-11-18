@@ -29,7 +29,7 @@ void fragment() {
 	float insanity_border_size = BORDER_SIZE - (insanity * 0.1);
 
 	vec3 static_plot = vec3(generate_random_static(STATIC_GRANULARITY,UPDATE_INTERVAL,UV));
-	
+
 	vec2 c1 = vec2(0.5);
 	vec2 pv1 = get_polar_coords(c1,UV);
 	float func = insanity_border_size-.015*cos(4.0*pv1.y);

@@ -32,6 +32,7 @@ func _interact():
 func set_state(state: bool):
 	enabled = state
 	if enabled:
+		Power.give_me_power()
 		trigger_outputs()
 
 func delayed_start():

@@ -25,6 +25,7 @@ InteractionManager="*res://scenes/interaction_manager.tscn"
 Insanity="*res://scripts/autoload/insanity.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
 DialogManager="*res://scripts/autoload/dialog_manager.gd"
+Power="*res://scripts/autoload/power.gd"
 
 [display]
 
