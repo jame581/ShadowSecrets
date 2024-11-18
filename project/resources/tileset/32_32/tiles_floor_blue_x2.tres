@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dpf7kwnewdybs"]
 
-[ext_resource type="Texture2D" uid="uid://chbwuumd8vlmy" path="res://assets/sprites/tilemaps/tiles-floor-blue_x2.png" id="1_v23dh"]
+[ext_resource type="Texture2D" uid="uid://chbwuumd8vlmy" path="res://assets/sprites/tilemaps/x2/tiles-floor-blue_x2.png" id="1_hjjnd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bh6cc"]
-texture = ExtResource("1_v23dh")
+texture = ExtResource("1_hjjnd")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

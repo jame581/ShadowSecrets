@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://bwkhldhv3rnib"]
 
 [ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_q6mlg"]
-[ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/tiles_floor_blue_x2.tres" id="2_m5b15"]
+[ext_resource type="TileSet" uid="uid://dpf7kwnewdybs" path="res://resources/tileset/32_32/tiles_floor_blue_x2.tres" id="2_m5b15"]
 [ext_resource type="Texture2D" uid="uid://cysequei4rx6h" path="res://assets/sprites/tilemaps/level_platform_tiles.png" id="2_uc1nw"]
 [ext_resource type="TileSet" uid="uid://tgubpw1as5sy" path="res://resources/tileset/tiles_background_walls.tres" id="3_eiowl"]
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="3_uvekh"]

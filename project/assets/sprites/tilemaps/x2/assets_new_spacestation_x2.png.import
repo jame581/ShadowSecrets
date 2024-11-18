@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chbwuumd8vlmy"
-path="res://.godot/imported/tiles-floor-blue_x2.png-ceb15a280bb1711eca5c51abae11c0c1.ctex"
+uid="uid://bhy5mohg8f81u"
+path="res://.godot/imported/assets_new_spacestation_x2.png-bdff20d103e61cd63bfc70e8a6026765.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilemaps/tiles-floor-blue_x2.png"
-dest_files=["res://.godot/imported/tiles-floor-blue_x2.png-ceb15a280bb1711eca5c51abae11c0c1.ctex"]
+source_file="res://assets/sprites/tilemaps/x2/assets_new_spacestation_x2.png"
+dest_files=["res://.godot/imported/assets_new_spacestation_x2.png-bdff20d103e61cd63bfc70e8a6026765.ctex"]
 
 [params]
 
