@@ -1,8 +1,7 @@
 extends InteractableDevice
 class_name ForceField
 
-@onready var collision: CollisionShape2D = $StaticBody2D/CollisionShape2D
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node is added to the scene.
 func _ready() -> void:
@@ -25,10 +24,8 @@ func toggle_state():
 
 # enables the force field.
 func enable():
-	collision.disabled = false
-	sprite.play("enable")
+	animation_player.play("enable")
 
 # disables the force field.
 func disable():
-	collision.disabled = true
-	sprite.play("disable")
+	animation_player.play("disable")
