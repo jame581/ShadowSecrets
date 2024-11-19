@@ -33,44 +33,38 @@ tile_set = ExtResource("2_wcapp")
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
 position = Vector2(-372, -88)
-scale = Vector2(1, 1)
+scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Input" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
-position = Vector2(-22, 15)
+position = Vector2(258, -329)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
 
 [node name="Input2" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
-position = Vector2(62, 13)
+position = Vector2(219, 29)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
 
 [node name="Input3" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
-position = Vector2(-22, -62)
+position = Vector2(32, -135)
 interactable_devices = [NodePath("../PowerGenerator")]
 single_interaction = true
 
 [node name="Output" parent="." instance=ExtResource("10_u4ho2")]
 position = Vector2(322, -12)
 
-[node name="Output2" parent="." instance=ExtResource("10_u4ho2")]
-position = Vector2(161, -12)
-
-[node name="Output3" parent="." instance=ExtResource("10_u4ho2")]
-position = Vector2(246, -46)
-enabled = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
 position = Vector2(-372, -88)
+scale = Vector2(2, 2)
 zoom = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
 [node name="Laser" parent="." instance=ExtResource("7_mgqnx")]
-position = Vector2(-541, -96)
+position = Vector2(-882, 64)
 impulse_strength = 300.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -88,36 +82,50 @@ grow_vertical = 2
 scale = Vector2(3, 3)
 
 [node name="Spike" parent="." instance=ExtResource("8_m1ld2")]
-position = Vector2(-466, -38)
+position = Vector2(-617, -71)
 timer_duration = 2.0
 
 [node name="SpikeArea" parent="." instance=ExtResource("9_jdrej")]
-position = Vector2(-283, 47)
+position = Vector2(25, 100)
+scale = Vector2(2, 2)
 timer_duration = 2.0
 
 [node name="SpikeArea2" parent="." instance=ExtResource("9_jdrej")]
-position = Vector2(-295, -34)
+position = Vector2(-399, -345)
+scale = Vector2(2, 2)
 timer_duration = 2.0
 direction = 1
 
 [node name="SpikeArea3" parent="." instance=ExtResource("9_jdrej")]
-position = Vector2(-247, -5)
+position = Vector2(97, -10)
 rotation = 3.14159
+scale = Vector2(2, 2)
 timer_duration = 2.0
 direction = 1
 
 [node name="Panic" parent="." instance=ExtResource("10_b7myw")]
-position = Vector2(-117, -78)
+position = Vector2(-68, -179)
+scale = Vector2(2, 2)
 
 [node name="ForceField" parent="." instance=ExtResource("11_gqmwg")]
-position = Vector2(-470, 32)
-enabled = true
+position = Vector2(-577, 64)
+scale = Vector2(2, 2)
 
 [node name="PowerGenerator" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("12_ygk2f")]
-position = Vector2(-113, -3)
+position = Vector2(365, 0)
 interactable_devices = [NodePath("../Panic")]
 
 [node name="Input4" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
-position = Vector2(-384, 10)
+position = Vector2(-384, 31)
+scale = Vector2(2, 2)
 interactable_devices = [NodePath("../ForceField")]
+
+[node name="Laser2" parent="." instance=ExtResource("7_mgqnx")]
+position = Vector2(-469, 64)
+active = false
 enabled = false
+
+[node name="Input5" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_kvp3e")]
+position = Vector2(-296, 32)
+scale = Vector2(2, 2)
+interactable_devices = [NodePath("../Laser2")]
