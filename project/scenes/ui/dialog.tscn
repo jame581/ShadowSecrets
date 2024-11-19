@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3hp38ybl556v"]
 
-[ext_resource type="Script" path="res://scripts/ui/dialog_display.gd" id="1_g5jqe"]
+[ext_resource type="Script" path="res://scripts/ui/dialog/dialog_display.gd" id="1_g5jqe"]
 [ext_resource type="Texture2D" uid="uid://c5kqt44t7qj7" path="res://assets/sprites/devices/pANIC/panic_face.png" id="1_tf3n3"]
 [ext_resource type="FontFile" uid="uid://si634lc1vgk4" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_sfike"]
 

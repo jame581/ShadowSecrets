@@ -1,0 +1,21 @@
+{
+    "dialogs": [
+        {
+            "text": "Hello! I am a bot. How can I help you?",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "I can help you with the following things: \n1. Book a flight \n2. Book a hotel \n3. Book a cab \n4. Get weather information",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "next_animation"
+        },
+        {
+            "text": "Please select an option from the list above",
+            "wait_time": 2,
+            "hide_dialog_after": true
+        }
+    ]
+}
