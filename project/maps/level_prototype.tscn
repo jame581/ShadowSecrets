@@ -132,7 +132,7 @@ end_position = Vector2(-33, -24)
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="DialogArea" parent="Dialogs" instance=ExtResource("13_r55p8")]
-position = Vector2(-893, 372)
+position = Vector2(883, 450)
 dialog_text = "Hello, world! Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
 dialog_wait_time = 3.0
 
@@ -146,7 +146,6 @@ shape = SubResource("RectangleShape2D_0bw3t")
 [node name="UI" type="Node" parent="."]
 
 [node name="DialogDisplay" type="CanvasLayer" parent="UI"]
-visible = false
 
 [node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("11_joxlp")]
 

@@ -13,6 +13,7 @@ var ai_image_off: Texture = preload("res://assets/sprites/devices/pANIC/panic_bl
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = false
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
 
 
@@ -23,6 +24,7 @@ func show_dialog(dialog_data: Dictionary) -> void:
 	dialog_text.set_text(dialog_data["text"])
 	wait_timer.wait_time = dialog_data["wait_time"] if dialog_data["wait_time"] > 0 else 2.0
 	animation_player.play("show_dialog")
+	visible = true
 
 
 func hide_dialog() -> void:
