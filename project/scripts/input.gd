@@ -6,6 +6,7 @@ class_name InputDevice
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision: CollisionShape2D = $InteractionArea/CollisionShape2D
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node is added to the scene.
 func _ready():
@@ -23,6 +24,7 @@ func set_state(state: bool):
 # Called when the device is interacted with.
 func _on_interacted():
 	set_state(not enabled)
+	audio.play()
 	if single_interaction:
 		collision.disabled = true
 
