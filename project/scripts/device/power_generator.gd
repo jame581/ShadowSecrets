@@ -4,6 +4,7 @@ class_name PowerGenerator
 @export var interactable_devices: Array[InteractableDevice] = []
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var phase : int = 0
 
@@ -23,9 +24,8 @@ func trigger_outputs():
 
 func _interact():
 	phase += 1
-	if phase > 3:
-		animation.play("active")
-	else:
+	# If the phase is less than or equal to 3, play the sequence animation
+	if phase <= 3:
 		animation.play("sequence"+str(phase))
 
 # In case of power generator this is called from animation player
@@ -37,5 +37,5 @@ func set_state(state: bool):
 
 func delayed_start():
 	if not enabled:
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		set_state(true)

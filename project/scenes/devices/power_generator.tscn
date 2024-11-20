@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://wsekg7b475yv"]
+[gd_scene load_steps=17 format=3 uid="uid://wsekg7b475yv"]
 
 [ext_resource type="Script" path="res://scripts/device/power_generator.gd" id="1_8l6mp"]
 [ext_resource type="Texture2D" uid="uid://d3a5bjck5wbs6" path="res://assets/sprites/devices/generator/generator-Sheet.png" id="2_426xo"]
+[ext_resource type="AudioStream" uid="uid://benvfkyhwly3t" path="res://assets/audio/devices/stellarsecrets_sfx_generator_hum.wav" id="3_5kn06"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf85h"]
 atlas = ExtResource("2_426xo")
@@ -84,17 +85,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["active"]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_8i4rt"]
@@ -208,9 +198,25 @@ tracks/3/keys = {
 "method": &"delayed_start"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_67iov"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ok76w"]
 _data = {
+"RESET": SubResource("Animation_67iov"),
 "active": SubResource("Animation_5elo5"),
 "sequence1": SubResource("Animation_8i4rt"),
 "sequence2": SubResource("Animation_2sds4"),
@@ -229,3 +235,7 @@ animation = &"sequence"
 libraries = {
 "": SubResource("AnimationLibrary_ok76w")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5kn06")
+volume_db = 10.0
