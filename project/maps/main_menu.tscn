@@ -288,7 +288,6 @@ fit_content = true
 scroll_following = true
 
 [node name="VBoxDebugMenu" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
