@@ -32,8 +32,9 @@
         },
         {
             "text": "As you exit the shuttle you notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown. You wonder, why was the supply shuttle able to dock here, but that is a question for later. You have to find out what happened here, and find your daughter if possible.",
-            "wait_time": 2,
-            "hide_dialog_after": true
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
         }
     ]
 }
