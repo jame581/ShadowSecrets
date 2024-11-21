@@ -50,7 +50,7 @@ func initialize() -> void:
 	particles.emitting = true
 
 func _on_start_game_button_pressed() -> void:
-	Global.goto_scene("res://maps/game_world.tscn")
+	Global.goto_scene("res://maps/intro_scene.tscn")
 
 
 func _on_quit_button_pressed() -> void:
