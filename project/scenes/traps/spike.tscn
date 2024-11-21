@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://67h4qmhplnmr"]
+[gd_scene load_steps=20 format=3 uid="uid://67h4qmhplnmr"]
 
 [ext_resource type="Script" path="res://scripts/traps/spike.gd" id="1_jvhyk"]
 [ext_resource type="Texture2D" uid="uid://ykc0jn3jcbqb" path="res://assets/sprites/devices/spike-Sheet.png" id="2_tdd2o"]
+[ext_resource type="AudioStream" uid="uid://o00fd1ejuney" path="res://assets/audio/devices/stellarsecrets_sfx_spike.wav" id="3_5e1pw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8wf5"]
 atlas = ExtResource("2_tdd2o")
@@ -100,6 +101,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ki4js"]
 length = 0.25
@@ -179,6 +192,33 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.2726,
+"start_offset": 0.0,
+"stream": ExtResource("3_5e1pw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cdwuy"]
 _data = {
@@ -197,6 +237,7 @@ script = ExtResource("1_jvhyk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rhmmc")
 animation = &"enable"
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -213,6 +254,11 @@ unique_name_in_owner = true
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_j7ss3")
 disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+attenuation = 15.0
+panning_strength = 2.45
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
