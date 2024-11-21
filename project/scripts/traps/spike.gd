@@ -23,7 +23,7 @@ func _ready() -> void:
 		disable()
 
 func toggle() -> void:
-	active = not active
+	active = !active
 	enable() if active else disable()
 
 func _on_timer_timeout() -> void:

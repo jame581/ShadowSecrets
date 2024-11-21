@@ -13,10 +13,6 @@ func _ready():
 	add_child(timer)
 	timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _interact():
 	enabled = not enabled
 
