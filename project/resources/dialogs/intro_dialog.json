@@ -1,19 +1,37 @@
 {
     "dialogs": [
         {
-            "text": "Hello! I am a bot. How can I help you?",
+            "text": "This is Charon Station. It is a government space station and as such its purpose is classified. There are rumors though, as is usual. The Charon rumor is about top-secret biological research and unethical experiments. The station stopped responding a few weeks ago.",
+            "wait_time": 3,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "You are John Dexter, an investigative reporter from the Proxima Centauri system.",
             "wait_time": 2,
             "hide_dialog_after": false,
             "animation": "intro_animation"
         },
         {
-            "text": "I can help you with the following things: \n1. Book a flight \n2. Book a hotel \n3. Book a cab \n4. Get weather information",
+            "text": "Your daughter works as a researcher on Charon station. You don’t know what exactly she works on, she could not share it even with her closest family.",
             "wait_time": 2,
             "hide_dialog_after": false,
-            "animation": "next_animation"
+            "animation": "intro_animation"
         },
         {
-            "text": "Please select an option from the list above",
+            "text": "You found out Charon stopped responding after she missed your family calls twice. You can sense when something is off, so you smuggled yourself on an automatic shuttle bringing supplies to the station.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "You have managed to get a ride on a supply shuttle that was sent to the station. The shuttle is about to dock.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "As you exit the shuttle you notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown. You wonder, why was the supply shuttle able to dock here, but that is a question for later. You have to find out what happened here, and find your daughter if possible.",
             "wait_time": 2,
             "hide_dialog_after": true
         }

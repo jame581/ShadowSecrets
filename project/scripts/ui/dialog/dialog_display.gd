@@ -4,6 +4,8 @@ class_name DialogDisplay
 
 signal message_displayed()
 
+@export var write_timer_duration: float = 0.05
+
 @onready var dialog_text: RichTextLabel = $VBoxContainer/HBoxContainer/Panel/MarginContainer/DialogText
 @onready var dialog_image: TextureRect = $VBoxContainer/HBoxContainer/AIScreenTexture
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -19,6 +21,7 @@ var hide_dialog_after: bool = false
 func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
 	visible = false
+	write_timer.wait_time = write_timer_duration
 
 
 func show_dialog(dialog_data: Dictionary) -> void:

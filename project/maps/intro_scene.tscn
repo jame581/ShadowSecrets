@@ -6,23 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c62fo0a1blu2k" path="res://assets/sprites/intro/intro_space_station_2.png" id="4_w4q2u"]
 [ext_resource type="Texture2D" uid="uid://c1k8u1ky2wg5r" path="res://assets/sprites/intro/portrait-mc.png" id="5_c5f5r"]
 
-[sub_resource type="Animation" id="Animation_vgjcm"]
-resource_name = "intro_animation"
-length = 0.75
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Story/StoryDisplay:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.75),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_kasci"), ExtResource("4_w4q2u")]
-}
-
 [sub_resource type="Animation" id="Animation_vlhle"]
 length = 0.001
 tracks/0/type = "value"
@@ -48,6 +31,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_vgjcm"]
+resource_name = "intro_animation"
+length = 0.75
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/StoryDisplay:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_kasci"), ExtResource("4_w4q2u")]
 }
 
 [sub_resource type="Animation" id="Animation_fen8x"]
@@ -90,7 +90,7 @@ _data = {
 
 [node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player") instance=ExtResource("1_h4nyc")]
 dialog_display = NodePath("../DialogUI/DialogDisplay")
-start_wait_time = 5.0
+start_wait_time = 3.0
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="Story" type="CanvasLayer" parent="."]
