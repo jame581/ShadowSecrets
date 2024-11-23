@@ -10,7 +10,8 @@ class_name InsanityJump
 @export var debug_visible: bool = true:
 	set(value):
 		debug_visible = value
-		$DebugSprite.visible = debug_visible
+		if $DebugSprite:
+			$DebugSprite.visible = debug_visible
 
 @export_category("DONT TOUCH THIS")
 @export var textures: Array[Texture] = [null, null, null]
