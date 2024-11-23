@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float max_distance = 100.0; // Maximum distance for full transparency
+uniform float max_distance = 0.2; // Maximum distance for full transparency
 
 void fragment() {
     vec4 texture_color = texture(TEXTURE, UV);
