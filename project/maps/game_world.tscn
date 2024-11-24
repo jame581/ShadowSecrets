@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=21 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
@@ -23,6 +23,11 @@ size = Vector2(200, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6bav"]
 size = Vector2(200, 350)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wh805"]
+vertices = PackedVector2Array(-34.0703, 204.063, -382.344, 206.43, -381.641, 161.383, -34.4219, 157.117, 79.3828, 84.0703, -740.938, 90.4219, -740.547, 15.9766, 78.6094, 15.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-750.5, 6, -751, 100.5, 89.5, 94, 88.5, 5), PackedVector2Array(-391.5, 151.5, -392.5, 216.5, -24, 214, -24.5, 147)])
 
 [node name="GameWorld" type="Node2D"]
 
@@ -82,10 +87,15 @@ tile_set = ExtResource("8_fu14o")
 
 [node name="RobotEnemy" parent="Enemies" instance=ExtResource("10_t1wgh")]
 position = Vector2(5884, 21)
+attack_range = 65
 
 [node name="CoruptedEnemy" parent="Enemies" instance=ExtResource("7_4kl4j")]
 position = Vector2(-4990, 595)
 scale = Vector2(3, 3)
+
+[node name="RobotEnemy2" parent="Enemies" instance=ExtResource("10_t1wgh")]
+position = Vector2(5806, 273)
+attack_range = 65
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -475,6 +485,8 @@ text = "A dialogue from the ai should trigger once the generator is fully operat
 [node name="DialogLayer" type="CanvasLayer" parent="UI"]
 
 [node name="DialogDisplay" parent="UI/DialogLayer" instance=ExtResource("15_wxbvc")]
+offset_top = 5.0
+offset_bottom = 175.0
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
 animation_speed = 3.0
@@ -495,3 +507,8 @@ dialog_text = "There's a computer nearby that contains the information you need.
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/AIInfoDialog"]
 shape = SubResource("RectangleShape2D_g6bav")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(6355, -40)
+scale = Vector2(2, 2)
+navigation_polygon = SubResource("NavigationPolygon_wh805")
