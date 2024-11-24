@@ -20,6 +20,7 @@ func _on_body_entered(body: Node) -> void:
 		area_active = false		
 		var dialog_data: Dictionary = {
 			"text": dialog_text,
-			"wait_time": dialog_wait_time
+			"wait_time": dialog_wait_time,
+			"hide_dialog_after": true
 		}
 		DialogManager.emit_signal("show_dialog", dialog_data)
