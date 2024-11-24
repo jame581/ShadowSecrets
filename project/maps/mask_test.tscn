@@ -33,7 +33,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(1626, -684)
+position = Vector2(1797, -650)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -59,7 +59,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(1626, -684)
+position = Vector2(1797, -650)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
@@ -165,12 +165,29 @@ autostart = false
 timer_duration = 2.0
 
 [node name="Insanity4" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(2273, -589)
+position = Vector2(2091, -581)
+debug_visible = true
 
 [node name="Insanity2" parent="." instance=ExtResource("13_6a06q")]
 position = Vector2(2846, -549)
 insanity_type = 1
+debug_visible = true
 
 [node name="Insanity3" parent="." instance=ExtResource("13_6a06q")]
 position = Vector2(3459, -564)
 insanity_type = 2
+debug_visible = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Insanity7" parent="Node2D" instance=ExtResource("13_6a06q")]
+position = Vector2(2816, -185)
+debug_visible = true
+
+[node name="Insanity8" parent="Node2D" instance=ExtResource("13_6a06q")]
+position = Vector2(3048, -185)
+debug_visible = true
+
+[node name="Insanity9" parent="Node2D" instance=ExtResource("13_6a06q")]
+position = Vector2(2936, -185)
+debug_visible = true

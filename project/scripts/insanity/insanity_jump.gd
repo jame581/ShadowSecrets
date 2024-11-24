@@ -13,6 +13,8 @@ class_name InsanityJump
 		if $DebugSprite:
 			$DebugSprite.visible = debug_visible
 
+@export var visibility_magic_number: float = 0.2
+
 @export_category("DONT TOUCH THIS")
 @export var textures: Array[Texture] = [null, null, null]
 @export var sounds: Array[AudioStream] = [null, null, null]
@@ -23,6 +25,7 @@ class_name InsanityJump
 func _ready():
 	if sprite.material is ShaderMaterial:
 		sprite.material = sprite.material.duplicate()
+		sprite.material.set_shader_parameter("max_distance", visibility_magic_number)
 
 	$DebugSprite.visible = false
 	update_insanity()
