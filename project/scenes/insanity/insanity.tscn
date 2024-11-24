@@ -82,7 +82,7 @@ _data = {
 "jump": SubResource("Animation_pota0")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xajy2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr0ja"]
 shader = ExtResource("1_kcn3e")
 shader_parameter/max_distance = 0.4
 
@@ -90,9 +90,7 @@ shader_parameter/max_distance = 0.4
 radius = 90.0
 
 [node name="Insanity" type="Node2D"]
-position = Vector2(2106, -582)
 script = ExtResource("1_qvtg7")
-debug_visible = false
 textures = Array[Texture]([ExtResource("2_fsj1p"), ExtResource("3_8ymqg"), ExtResource("4_hrljn")])
 sounds = Array[AudioStream]([ExtResource("5_42t5t"), ExtResource("6_ridbq"), ExtResource("7_go6sb")])
 
@@ -102,10 +100,10 @@ libraries = {
 }
 
 [node name="InsanitySprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_xajy2")
+material = SubResource("ShaderMaterial_pr0ja")
 texture = ExtResource("2_fsj1p")
 
-[node name="DebugSprite" type="Sprite2D" parent="."]
+[node name="DebugShape" type="Sprite2D" parent="."]
 texture = ExtResource("2_fsj1p")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -117,5 +115,21 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_1g2t1")
+
+[node name="DebugName" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jump Scare - Zooms
+
+"
+fit_content = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
