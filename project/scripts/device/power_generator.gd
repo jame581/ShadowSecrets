@@ -26,7 +26,6 @@ func _interact():
 	# If the phase is less than or equal to 3, play the sequence animation
 	if phase <= 3:
 		animation.play("sequence"+str(phase))
-		show_dialog()
 
 # In case of power generator this is called from animation player
 func set_state(state: bool):
@@ -34,6 +33,7 @@ func set_state(state: bool):
 	if enabled:
 		Power.give_me_power()
 		trigger_outputs()
+		show_dialog()
 
 func delayed_start():
 	if not enabled:
