@@ -66,6 +66,15 @@ func _on_write_timer_timeout() -> void:
 		wait_timer.start()
 
 
+func finish_writing() -> void:
+	if !write_timer.is_stopped():
+		write_timer.stop()
+		dialog_text.visible_characters = dialog_text.get_total_character_count()
+		wait_timer.start()
+	elif !wait_timer.is_stopped():
+		_on_wait_timer_timeout()
+
+
 func _on_wait_timer_timeout() -> void:
 	wait_timer.stop()
 	message_displayed.emit()
