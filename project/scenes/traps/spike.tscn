@@ -204,21 +204,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer2D")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"clips": [{
-"end_offset": 0.2726,
-"start_offset": 0.0,
-"stream": ExtResource("3_5e1pw")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cdwuy"]
 _data = {
@@ -256,8 +241,9 @@ shape = SubResource("RectangleShape2D_j7ss3")
 disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5e1pw")
 volume_db = -5.0
-attenuation = 15.0
+attenuation = 10.0
 panning_strength = 2.45
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
