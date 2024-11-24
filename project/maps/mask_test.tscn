@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=16 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cp81t5nmabmb8" path="res://scenes/devices/output.tscn" id="10_u4ho2"]
 [ext_resource type="PackedScene" uid="uid://b2sl3fwwcu0gy" path="res://scenes/traps/force_field.tscn" id="11_gqmwg"]
 [ext_resource type="PackedScene" uid="uid://wsekg7b475yv" path="res://scenes/devices/power_generator.tscn" id="12_ygk2f"]
-[ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity.tscn" id="13_6a06q"]
+[ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity_jump.tscn" id="13_6a06q"]
+[ext_resource type="PackedScene" uid="uid://cqbo6or6yg4m2" path="res://scenes/insanity/insanity_slide.tscn" id="14_p6ugm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
 shader = ExtResource("3_4po0v")
@@ -165,29 +166,46 @@ autostart = false
 timer_duration = 2.0
 
 [node name="Insanity4" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(2091, -581)
-debug_visible = true
+position = Vector2(3810, -741)
 
 [node name="Insanity2" parent="." instance=ExtResource("13_6a06q")]
 position = Vector2(2846, -549)
 insanity_type = 1
-debug_visible = true
 
 [node name="Insanity3" parent="." instance=ExtResource("13_6a06q")]
 position = Vector2(3459, -564)
 insanity_type = 2
-debug_visible = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Insanity7" parent="Node2D" instance=ExtResource("13_6a06q")]
 position = Vector2(2816, -185)
-debug_visible = true
 
 [node name="Insanity8" parent="Node2D" instance=ExtResource("13_6a06q")]
 position = Vector2(3048, -185)
-debug_visible = true
 
 [node name="Insanity9" parent="Node2D" instance=ExtResource("13_6a06q")]
 position = Vector2(2936, -185)
-debug_visible = true
+
+[node name="Insanity" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(4796, -1176)
+
+[node name="Insanity5" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(5407, -1671)
+insanity_type = 2
+
+[node name="Insanity6" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(5761, -1786)
+
+[node name="Insanity7" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(3950, -631)
+
+[node name="Insanity8" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(2033, -166)
+
+[node name="Insanity9" parent="." instance=ExtResource("13_6a06q")]
+position = Vector2(3727, -599)
+
+[node name="Insanity Slide" parent="." instance=ExtResource("14_p6ugm")]
+position = Vector2(2341, -570)
+Detection = 2

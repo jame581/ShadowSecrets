@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=3 uid="uid://cqbo6or6yg4m2"]
+
+[ext_resource type="Script" path="res://scripts/insanity/insanity_slide.gd" id="1_6sr4r"]
+[ext_resource type="Texture2D" uid="uid://bljtk8mob2lau" path="res://assets/sprites/insanity/insanity_shape1.png" id="2_njwol"]
+[ext_resource type="Texture2D" uid="uid://b132gkx67bs2q" path="res://assets/sprites/insanity/insanity_shape2.png" id="3_ekfe3"]
+[ext_resource type="Texture2D" uid="uid://rkgrayq6n4hd" path="res://assets/sprites/insanity/insanity_shape3.png" id="4_oa5w0"]
+[ext_resource type="AudioStream" uid="uid://sst6wf6d4sft" path="res://assets/audio/insanity/stellarsecrets_sfx_insanity!.wav" id="5_ca1jk"]
+[ext_resource type="AudioStream" uid="uid://cay5rjh4dgpb6" path="res://assets/audio/insanity/stellarsecrets_sfx_insanity3.wav" id="6_nj8n5"]
+[ext_resource type="AudioStream" uid="uid://dcuxu48fjk8k1" path="res://assets/audio/insanity/stellarsecrets_sfx_insanity2.wav" id="7_xkkpk"]
+[ext_resource type="Shader" path="res://shaders/horor_shape.gdshader" id="8_ia0bw"]
+
+[sub_resource type="Animation" id="Animation_ns8ae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InsanitySprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InsanitySprite:material:shader_parameter/max_distance")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InsanitySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bhbfw"]
+resource_name = "to_left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InsanitySprite:material:shader_parameter/max_distance")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2, 0.5, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InsanitySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-180, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w42nu"]
+resource_name = "to_right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InsanitySprite:material:shader_parameter/max_distance")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2, 0.5, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InsanitySprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(180, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqc6e"]
+_data = {
+"RESET": SubResource("Animation_ns8ae"),
+"to_left": SubResource("Animation_bhbfw"),
+"to_right": SubResource("Animation_w42nu")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2hwi"]
+shader = ExtResource("8_ia0bw")
+shader_parameter/max_distance = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1g2t1"]
+radius = 90.0
+
+[node name="Insanity Slide" type="Node2D"]
+script = ExtResource("1_6sr4r")
+textures = Array[Texture]([ExtResource("2_njwol"), ExtResource("3_ekfe3"), ExtResource("4_oa5w0")])
+sounds = Array[AudioStream]([ExtResource("5_ca1jk"), ExtResource("6_nj8n5"), ExtResource("7_xkkpk")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aqc6e")
+}
+
+[node name="InsanitySprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a2hwi")
+texture = ExtResource("2_njwol")
+
+[node name="DebugShape" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_njwol")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ca1jk")
+volume_db = -5.0
+
+[node name="DebugName" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -74.0
+offset_right = 85.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jumps to screen
+
+"
+fit_content = true
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("CircleShape2D_1g2t1")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(-200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("CircleShape2D_1g2t1")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+monitoring = false
+
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
