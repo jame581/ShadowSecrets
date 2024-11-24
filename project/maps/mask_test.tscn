@@ -34,7 +34,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(1797, -650)
+position = Vector2(3009, -607)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -60,7 +60,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(1797, -650)
+position = Vector2(3009, -607)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
@@ -166,14 +166,14 @@ autostart = false
 timer_duration = 2.0
 
 [node name="Insanity4" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(3810, -741)
+position = Vector2(5092, -781)
 
 [node name="Insanity2" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(2846, -549)
+position = Vector2(4128, -589)
 insanity_type = 1
 
 [node name="Insanity3" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(3459, -564)
+position = Vector2(4741, -604)
 insanity_type = 2
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -198,14 +198,19 @@ insanity_type = 2
 position = Vector2(5761, -1786)
 
 [node name="Insanity7" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(3950, -631)
+position = Vector2(5232, -671)
 
 [node name="Insanity8" parent="." instance=ExtResource("13_6a06q")]
 position = Vector2(2033, -166)
 
 [node name="Insanity9" parent="." instance=ExtResource("13_6a06q")]
-position = Vector2(3727, -599)
+position = Vector2(5009, -639)
 
 [node name="Insanity Slide" parent="." instance=ExtResource("14_p6ugm")]
-position = Vector2(2341, -570)
+position = Vector2(3671, -578)
 Detection = 2
+
+[node name="Insanity Slide2" parent="." instance=ExtResource("14_p6ugm")]
+position = Vector2(2315, -578)
+Detection = 2
+insanity_type = 2
