@@ -26,13 +26,13 @@ func insanity_hit(hit_level: insanity_level) -> void:
     match hit_level:
         insanity_level.LOW:
             print("Insanity hit: LOW")
-            increase_insanity(0.05)
+            increase_insanity(0.10)
         insanity_level.MEDIUM:
             print("Insanity hit: MEDIUM")
-            increase_insanity(0.09)
+            increase_insanity(0.20)
         insanity_level.HIGH:
             print("Insanity hit: HIGH")
-            increase_insanity(0.15)
+            increase_insanity(0.30)
 
 # Private function to increase insanity
 func increase_insanity(amount: float) -> void:
