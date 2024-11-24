@@ -9,9 +9,10 @@ class_name InsanityJump
 
 @export var debug_visible: bool = true:
 	set(value):
+		print("Debug visible: ", value)
 		debug_visible = value
-		if $DebugSprite:
-			$DebugSprite.visible = debug_visible
+		if $DebugShape:
+			$DebugShape.visible = debug_visible
 
 @export var visibility_magic_number: float = 0.2
 
@@ -28,14 +29,18 @@ func _ready():
 		sprite.material = sprite.material.duplicate()
 		sprite.material.set_shader_parameter("max_distance", visibility_magic_number)
 
-	$DebugSprite.visible = false
-	update_insanity()
+	# Editor-only code
+	if !Engine.is_editor_hint():
+		print("InsanityJump: Not in editor")
+		$DebugShape.visible = false
+		$DebugName.visible = false
+		update_insanity()	
 
 # Function to update the sprite texture based on the selected index
 func update_insanity() -> void:
 	var selected_index = clamp(insanity_type, 0, textures.size() - 1)
 	$InsanitySprite.texture = textures[selected_index]
-	$DebugSprite.texture = textures[selected_index]
+	$DebugShape.texture = textures[selected_index]
 	$AudioStreamPlayer2D.stream = sounds[selected_index]
 
 func _on_area_2d_body_entered(body:Node2D):
