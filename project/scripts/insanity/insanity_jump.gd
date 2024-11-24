@@ -19,8 +19,9 @@ class_name InsanityJump
 @export var textures: Array[Texture] = [null, null, null]
 @export var sounds: Array[AudioStream] = [null, null, null]
 
-@onready var animaton_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $InsanitySprite
+@onready var area: Area2D = $Area2D
 
 func _ready():
 	if sprite.material is ShaderMaterial:
@@ -28,11 +29,6 @@ func _ready():
 		sprite.material.set_shader_parameter("max_distance", visibility_magic_number)
 
 	$DebugSprite.visible = false
-	update_insanity()
-
-# Setter function for insanity_type
-func set_insanity_type(value: int) -> void:
-	insanity_type = value
 	update_insanity()
 
 # Function to update the sprite texture based on the selected index
@@ -44,11 +40,8 @@ func update_insanity() -> void:
 
 func _on_area_2d_body_entered(body:Node2D):
 	if body.is_in_group("player"):
-		$AnimationPlayer.play("jump")
-		$Area2D.monitoring = true
-		Insanity.insanity_hit(Insanity.insanity_level.HIGH)
-		Insanity.insanity_hit(Insanity.insanity_level.HIGH)
-		Insanity.insanity_hit(Insanity.insanity_level.HIGH)
+		animation_player.play("jump")
+		area.monitoring = true
 		Insanity.insanity_hit(Insanity.insanity_level.HIGH)
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
