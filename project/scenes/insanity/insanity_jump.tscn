@@ -82,7 +82,7 @@ _data = {
 "jump": SubResource("Animation_pota0")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1cqs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0s5m2"]
 shader = ExtResource("1_kcn3e")
 shader_parameter/max_distance = 0.4
 
@@ -100,7 +100,7 @@ libraries = {
 }
 
 [node name="InsanitySprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_o1cqs")
+material = SubResource("ShaderMaterial_0s5m2")
 texture = ExtResource("2_fsj1p")
 
 [node name="DebugShape" type="Sprite2D" parent="."]

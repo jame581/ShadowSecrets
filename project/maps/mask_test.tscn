@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=19 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://wsekg7b475yv" path="res://scenes/devices/power_generator.tscn" id="12_ygk2f"]
 [ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity_jump.tscn" id="13_6a06q"]
 [ext_resource type="PackedScene" uid="uid://cqbo6or6yg4m2" path="res://scenes/insanity/insanity_slide.tscn" id="14_p6ugm"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_gasls"]
+[ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
+[ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
 shader = ExtResource("3_4po0v")
@@ -34,7 +37,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(4406, -607)
+position = Vector2(-129, -787)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -60,7 +63,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(4406, -607)
+position = Vector2(-129, -787)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
@@ -214,3 +217,18 @@ Detection = 2
 position = Vector2(2315, -578)
 Detection = 2
 insanity_type = 2
+
+[node name="UI" type="Node" parent="."]
+
+[node name="DialogDisplay" type="CanvasLayer" parent="UI"]
+
+[node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("15_gasls")]
+offset_top = 5.0
+offset_bottom = 175.0
+
+[node name="InGameMenu" parent="UI" instance=ExtResource("16_vc1rn")]
+visible = false
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("17_0jkqd")]
+layer = 128
+visible = false
