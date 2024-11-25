@@ -31,7 +31,6 @@ func _ready():
 
 	# Editor-only code
 	if !Engine.is_editor_hint():
-		print("InsanityJump: Not in editor")
 		$DebugShape.visible = false
 		$DebugName.visible = false
 		update_insanity()	

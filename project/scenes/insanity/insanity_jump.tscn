@@ -82,12 +82,12 @@ _data = {
 "jump": SubResource("Animation_pota0")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc5v2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1cqs"]
 shader = ExtResource("1_kcn3e")
 shader_parameter/max_distance = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1g2t1"]
-radius = 90.0
+radius = 60.0
 
 [node name="Insanity Jump" type="Node2D"]
 script = ExtResource("1_qvtg7")
@@ -100,7 +100,7 @@ libraries = {
 }
 
 [node name="InsanitySprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_sc5v2")
+material = SubResource("ShaderMaterial_o1cqs")
 texture = ExtResource("2_fsj1p")
 
 [node name="DebugShape" type="Sprite2D" parent="."]
@@ -111,7 +111,6 @@ stream = ExtResource("5_42t5t")
 volume_db = -5.0
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_1g2t1")

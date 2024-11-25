@@ -34,7 +34,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(3009, -607)
+position = Vector2(4406, -607)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -60,7 +60,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(3009, -607)
+position = Vector2(4406, -607)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 

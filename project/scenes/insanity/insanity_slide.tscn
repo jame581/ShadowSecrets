@@ -135,7 +135,7 @@ _data = {
 "to_right": SubResource("Animation_w42nu")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k2tl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3p5h"]
 shader = ExtResource("8_ia0bw")
 shader_parameter/max_distance = 0.4
 
@@ -153,7 +153,7 @@ libraries = {
 }
 
 [node name="InsanitySprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_6k2tl")
+material = SubResource("ShaderMaterial_k3p5h")
 texture = ExtResource("2_njwol")
 
 [node name="DebugShape" type="Sprite2D" parent="."]

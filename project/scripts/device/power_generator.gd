@@ -12,10 +12,7 @@ var phase : int = 0
 
 func _ready():
 	pass
-
-func _process(delta):
-	pass
-
+	
 # Triggers the outputs of all connected interactable devices.
 func trigger_outputs():
 	for interactable_device in interactable_devices:
