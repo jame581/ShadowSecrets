@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bwkhldhv3rnib"]
+[gd_scene load_steps=17 format=4 uid="uid://c5axaiw7rtlyh"]
 
 [ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_q6mlg"]
 [ext_resource type="TileSet" uid="uid://bx3iysb7gq8vc" path="res://resources/tileset/32_32/tile_set_assets_station.tres" id="3_12q0u"]
@@ -97,11 +97,12 @@ timer_duration = 0.1
 position = Vector2(-147, 475)
 scale = Vector2(3, 3)
 jump_speed = -550.0
-attack_range = 60
+attack_range = 70
 
 [node name="CoruptedEnemy2" parent="Enemies" instance=ExtResource("8_pg3c7")]
 position = Vector2(139, 654)
 scale = Vector2(3, 3)
+attack_range = 70
 
 [node name="BigEnemy" parent="Enemies" instance=ExtResource("9_d3q1n")]
 position = Vector2(2981, 367)
@@ -148,6 +149,8 @@ shape = SubResource("RectangleShape2D_0bw3t")
 [node name="DialogDisplay" type="CanvasLayer" parent="UI"]
 
 [node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("11_joxlp")]
+offset_top = 5.0
+offset_bottom = 175.0
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_23kex")]
 visible = false
