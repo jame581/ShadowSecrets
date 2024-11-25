@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=22 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b2sl3fwwcu0gy" path="res://scenes/traps/force_field.tscn" id="10_otbgi"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_t1wgh"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_wxbvc"]
+[ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bclyk"]
@@ -504,6 +505,9 @@ offset_bottom = 175.0
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
 animation_speed = 3.0
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("17_6cxgh")]
+visible = false
 
 [node name="Dialogs" type="Node" parent="."]
 

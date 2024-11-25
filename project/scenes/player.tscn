@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxywhpwlujveq" path="res://assets/sprites/placeholder.png" id="4_p4lc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
-size = Vector2(23.3333, 33.3333)
+size = Vector2(20.8333, 32.3333)
 
 [sub_resource type="Animation" id="Animation_0d8qc"]
 length = 0.001
@@ -247,7 +247,6 @@ collision_layer = 3
 script = ExtResource("1_lc80v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.33333, -0.333335)
 shape = SubResource("RectangleShape2D_i5wc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
