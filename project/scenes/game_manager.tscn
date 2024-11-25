@@ -4,3 +4,8 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_yebjf")
+
+[node name="CheatTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="CheatTimer" to="." method="_on_cheat_timer_timeout"]

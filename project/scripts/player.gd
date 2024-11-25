@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var healt_component = get_node("Components/HealthComponent")
+@onready var god_mode_icon = $PlayerUI/GodModeIcon
 
 var jump_pressed : bool = false
 var falling : bool = false
@@ -17,6 +18,8 @@ var explosion_impulse : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	healt_component.health_changed.connect(health_changed)
+	GameManager.god_mode_changed.connect(_handle_god_mode_changed)
+	god_mode_icon.visible = false
 
 
 func _physics_process(delta: float) -> void:
@@ -65,6 +68,9 @@ func flip_sprite_by_direction() -> void:
 			sprite.scale.x = 1
 
 func deal_damage(damage: int) -> void:
+	if GameManager.is_god_mode:
+		return
+
 	healt_component.update_health(damage)
 	Insanity.insanity_hit(Insanity.insanity_level.HIGH)
 
@@ -82,3 +88,6 @@ func health_changed(new_value: int) -> void:
 	if new_value <= 0:
 		print("Player died")
 		GameManager.game_over()
+
+func _handle_god_mode_changed(is_god: bool) -> void:
+	god_mode_icon.visible = is_god

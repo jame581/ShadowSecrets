@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg2kxws1wrpmu"]
+[gd_scene load_steps=14 format=3 uid="uid://dg2kxws1wrpmu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lc80v"]
 [ext_resource type="Texture2D" uid="uid://cm25xv1tnr5ca" path="res://assets/sprites/player/player-fullsprite.png" id="2_mtgv0"]
 [ext_resource type="PackedScene" uid="uid://cnq57ucaffmw7" path="res://scenes/components/health_component.tscn" id="3_vunkp"]
+[ext_resource type="Texture2D" uid="uid://dxywhpwlujveq" path="res://assets/sprites/placeholder.png" id="4_p4lc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
 size = Vector2(23.3333, 33.3333)
@@ -56,6 +57,45 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_laxc7"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(15, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_v315s"]
@@ -177,45 +217,6 @@ tracks/2/keys = {
 "values": [5, 6, 7, 8, 9, 10, 11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_laxc7"]
-resource_name = "falling"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [16]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:vframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(15, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4i1gm"]
 _data = {
 "RESET": SubResource("Animation_0d8qc"),
@@ -275,3 +276,13 @@ offset_bottom = 60.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vo4w7")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0cp72")
 value = 50.0
+
+[node name="GodModeIcon" type="TextureRect" parent="PlayerUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("4_p4lc0")
