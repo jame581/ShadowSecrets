@@ -74,6 +74,7 @@ func process_explosion():
 		explosion_impulse = Vector2.ZERO
 
 func health_changed(new_value: int) -> void:
-	if new_value <= 0:
-		print("Player died")
-		GameManager.game_over()
+	pass
+	#if new_value <= 0:
+		#print("Player died")
+		#GameManager.game_over()
