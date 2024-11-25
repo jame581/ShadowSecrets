@@ -18,7 +18,8 @@ var insanity: float = 0.0
 @onready var camera_shaker: AnimationPlayer = get_parent().get_node("Node2D/CameraShaker")
 
 func shake_camera():
-    camera_shaker.play("shake_high")
+    if camera_shaker:
+        camera_shaker.play("shake_high")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
