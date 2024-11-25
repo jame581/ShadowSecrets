@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var healt_component = get_node("Components/HealthComponent")
 
 var jump_pressed : bool = false
+var falling : bool = false
 
 var explosion_ticks : int = 0
 var explosion_impulse : Vector2 = Vector2.ZERO
@@ -22,8 +23,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		falling = true
 	else:
 		jump_pressed = false
+		falling = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -47,6 +50,8 @@ func _physics_process(delta: float) -> void:
 func select_animation(direction) -> void:
 	if jump_pressed:
 		animation_player.play("jump")
+	elif falling:
+		animation_player.play("falling")
 	elif direction:
 		animation_player.play("run")
 	else:
