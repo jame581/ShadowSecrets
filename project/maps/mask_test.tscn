@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=24 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
@@ -14,12 +14,60 @@
 [ext_resource type="PackedScene" uid="uid://wsekg7b475yv" path="res://scenes/devices/power_generator.tscn" id="12_ygk2f"]
 [ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity_jump.tscn" id="13_6a06q"]
 [ext_resource type="PackedScene" uid="uid://cqbo6or6yg4m2" path="res://scenes/insanity/insanity_slide.tscn" id="14_p6ugm"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_gasls"]
+[ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
+[ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
 shader = ExtResource("3_4po0v")
 shader_parameter/STATIC_GRANULARITY = 0.004
 shader_parameter/EDGE_BLUR = 0.5
 shader_parameter/BORDER_SIZE = 0.3
+
+[sub_resource type="Animation" id="Animation_nilu4"]
+resource_name = "shake_low"
+
+[sub_resource type="Animation" id="Animation_nro28"]
+resource_name = "shake_medium"
+
+[sub_resource type="Animation" id="Animation_t8wib"]
+resource_name = "shake_high"
+length = 0.27
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 10), Vector2(10, -10), Vector2(-10, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b25m7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i77cb"]
+_data = {
+"RESET": SubResource("Animation_b25m7"),
+"shake_high": SubResource("Animation_t8wib"),
+"shake_low": SubResource("Animation_nilu4"),
+"shake_medium": SubResource("Animation_nro28")
+}
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(664, -260)
@@ -34,7 +82,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(4406, -607)
+position = Vector2(-129, -787)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -60,7 +108,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(4406, -607)
+position = Vector2(-85, -797)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
@@ -214,3 +262,23 @@ Detection = 2
 position = Vector2(2315, -578)
 Detection = 2
 insanity_type = 2
+
+[node name="UI" type="Node" parent="."]
+
+[node name="DialogDisplay" type="CanvasLayer" parent="UI"]
+
+[node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("15_gasls")]
+offset_top = 5.0
+offset_bottom = 175.0
+
+[node name="InGameMenu" parent="UI" instance=ExtResource("16_vc1rn")]
+visible = false
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("17_0jkqd")]
+layer = 128
+visible = false
+
+[node name="CameraShaker" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i77cb")
+}
