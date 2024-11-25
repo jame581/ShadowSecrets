@@ -25,9 +25,10 @@ var start_position: Vector2 = Vector2.ZERO
 var return_to_home: bool = false
 var is_attacking_player: bool = false
 var jump_now: bool = false
-
+var game_over: bool = false
 
 func _ready() -> void:
+	GameManager.game_is_over.connect(handle_game_over)	
 	start_position = global_position
 
 	# These values need to be adjusted for the actor's speed
@@ -53,6 +54,9 @@ func set_movement_target(movement_target: Vector2):
 
 
 func _process(delta: float) -> void:
+	if game_over:
+		return
+
 	if chase_player and player != null:
 		if global_position.distance_to(player.global_position) < attack_range:
 			attack_player()
@@ -101,9 +105,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func handle_game_over() -> void:
+	print("Game over enemy")
+	navigation_agent.target_position = global_position
+	velocity = Vector2.ZERO
+	is_attacking_player = false
+	select_animation(velocity)
+	flip_sprite_by_velocity()
+	game_over = true
+
 func attack_player():
 	is_attacking_player = true
-	print("Attacking player")
+	# print("Attacking player")
 
 
 func select_animation(direction) -> void:
