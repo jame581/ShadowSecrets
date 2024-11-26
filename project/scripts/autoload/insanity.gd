@@ -15,7 +15,7 @@ var insanity: float = 0.0
 @export var insanity_min: float = 0.0
 @export var insanity_max: float = 1.0
 
-@onready var camera_shaker: AnimationPlayer = get_viewport().get_camera_2d().get_node("CameraShaker")
+var camera_shaker: AnimationPlayer = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,9 +28,9 @@ func _ready():
 
 	Global.map_changed.connect(Callable(self, "_on_map_changed"))
 
-	#var current_scene = get_tree().current_scene
-	#if current_scene:
-	#	camera_shaker = current_scene.get_node("Camera2D/CameraShaker")
+	# Get the camera shaker, if available (its not in main menu)
+	if	get_viewport() && get_viewport().get_camera_2d():
+		camera_shaker = get_viewport().get_camera_2d().get_node("CameraShaker")
 
 # Function to handle insanity hit
 func insanity_hit(hit_level: insanity_level) -> void:
