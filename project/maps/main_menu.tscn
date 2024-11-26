@@ -182,6 +182,49 @@ text = "Version: 1.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VBoxDebugMenu" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
+layout_mode = 2
+text = "Debug menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
+layout_mode = 2
+text = "Select level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions"]
+layout_mode = 2
+auto_height = true
+text_overrun_behavior = 0
+item_count = 4
+same_column_width = true
+item_0/text = "Level prototype"
+item_1/text = "Mask test"
+item_2/text = "Test scene"
+item_3/text = "Game World"
+
+[node name="StartSelectedLevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions"]
+layout_mode = 2
+text = "Start level"
+
 [node name="VBoxSettingsMenu" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(300, 0)
@@ -287,49 +330,6 @@ Ondra Purchart
 fit_content = true
 scroll_following = true
 
-[node name="VBoxDebugMenu" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
-layout_mode = 2
-text = "Debug menu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
-layout_mode = 2
-text = "Select level"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxDebugMenu"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="ItemList" type="ItemList" parent="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions"]
-layout_mode = 2
-auto_height = true
-text_overrun_behavior = 0
-item_count = 4
-same_column_width = true
-item_0/text = "Level prototype"
-item_1/text = "Mask test"
-item_2/text = "Test scene"
-item_3/text = "Game World"
-
-[node name="StartSelectedLevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions"]
-layout_mode = 2
-text = "Start level"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_dpcv2")
@@ -352,7 +352,7 @@ color = Color(0.691357, 0.691357, 0.691357, 1)
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxMenu/MenuOptions/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxMenu/MenuOptions/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxMenu/MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxSettingsMenu/SoundSettingsGrid/SoundsEnabledCheckButton" to="." method="_on_sounds_enabled_check_button_toggled"]
 [connection signal="item_selected" from="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxDebugMenu/MenuOptions/StartSelectedLevelButton" to="." method="_on_start_selected_level_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxSettingsMenu/SoundSettingsGrid/SoundsEnabledCheckButton" to="." method="_on_sounds_enabled_check_button_toggled"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
