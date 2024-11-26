@@ -106,8 +106,6 @@ stretch_mode = 4
 [node name="DialogUI" type="CanvasLayer" parent="."]
 
 [node name="DialogDisplay" parent="DialogUI" instance=ExtResource("2_k1cft")]
-offset_top = 5.0
-offset_bottom = 175.0
 write_timer_duration = 0.01
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
