@@ -76,7 +76,7 @@ func _on_insanity_timer_timeout() -> void:
 func on_insanity_changed(new_insanity: float) -> void:
 	print("Insanity changed to: ", new_insanity)
 	emit_signal("insanity_changed", new_insanity)
-	RenderingServer.global_shader_parameter_set("insanity", new_insanity)
+	RenderingServer.global_shader_parameter_set("insanity", clamp(new_insanity, insanity_min, insanity_max))
 
 # Function to handle map change
 func _on_map_changed(_new_map_path: String):
