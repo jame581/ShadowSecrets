@@ -4,8 +4,7 @@ uniform float STATIC_GRANULARITY = .002;
 uniform float EDGE_BLUR = 1.0;
 uniform float BORDER_SIZE = .3;
 
-uniform float insanity = 1.0 ;
-//global uniform float insanity = 0.0;
+global uniform float insanity = 0.0;
 
 float generate_random_static (in float size, in float interval, in vec2 uv){
 	float time_step = TIME - mod(TIME,interval);
