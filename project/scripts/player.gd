@@ -15,10 +15,12 @@ var falling : bool = false
 var explosion_ticks : int = 0
 var explosion_impulse : Vector2 = Vector2.ZERO
 
+var is_dead : bool = false
 
 func _ready() -> void:
 	healt_component.health_changed.connect(health_changed)
 	GameManager.god_mode_changed.connect(_handle_god_mode_changed)
+	GameManager.game_is_over.connect(_handle_game_over)
 	god_mode_icon.visible = false
 
 
@@ -68,11 +70,11 @@ func flip_sprite_by_direction() -> void:
 			sprite.scale.x = 1
 
 func deal_damage(damage: int) -> void:
-	if GameManager.is_god_mode:
+	if GameManager.is_god_mode or is_dead:
 		return
 
 	healt_component.update_health(damage)
-	Insanity.insanity_hit(Insanity.insanity_level.HIGH)
+	# Insanity.insanity_hit(Insanity.insanity_level.HIGH)
 
 func apply_impulse(direction: Vector2, strength: float) -> void:
 	explosion_impulse += direction.normalized() * strength
@@ -87,7 +89,15 @@ func process_explosion():
 func health_changed(new_value: int) -> void:
 	if new_value <= 0:
 		print("Player died")
+		animation_player.play("death")
+		is_dead = true
 		GameManager.game_over()
+
 
 func _handle_god_mode_changed(is_god: bool) -> void:
 	god_mode_icon.visible = is_god
+
+
+func _handle_game_over() -> void:
+	is_dead = true
+	velocity = Vector2.ZERO
