@@ -267,6 +267,7 @@ health_bar = NodePath("../../PlayerUI/ProgressBar")
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 offset_left = 25.0
 offset_top = 25.0

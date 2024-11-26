@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=30 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_wxbvc"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
+[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="19_nc5px"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
 length = 0.001
@@ -64,6 +65,12 @@ _data = {
 "shake_low": SubResource("Animation_nilu4"),
 "shake_medium": SubResource("Animation_nro28")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_do4ct"]
+shader = ExtResource("19_nc5px")
+shader_parameter/STATIC_GRANULARITY = 0.004
+shader_parameter/EDGE_BLUR = 0.5
+shader_parameter/BORDER_SIZE = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bclyk"]
 size = Vector2(200, 150)
@@ -561,7 +568,22 @@ offset_bottom = 175.0
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
 animation_speed = 3.0
 
+[node name="InsanityLayer" type="CanvasLayer" parent="UI"]
+
+[node name="ColorRect" type="ColorRect" parent="UI/InsanityLayer"]
+z_index = 50
+material = SubResource("ShaderMaterial_do4ct")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -853.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
 [node name="GameOverMenu" parent="UI" instance=ExtResource("17_6cxgh")]
+layer = 2
 visible = false
 
 [node name="Dialogs" type="Node" parent="."]
