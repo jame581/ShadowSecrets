@@ -43,7 +43,8 @@ func _interact():
 
 func _on_area_2d_body_entered(body):
 	if body is CharacterBody2D:
-		body.deal_damage(damage)
+		#body.deal_damage(damage)
+		Insanity.insanity_hit(Insanity.insanity_level.LOW)
 		apply_impulse_to_player(body)
 
 func apply_impulse_to_player(body):

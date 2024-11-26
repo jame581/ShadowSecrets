@@ -25,6 +25,6 @@ func _on_left_body_entered(body:Node2D):
 func disable_and_die():
 	$Right.set_deferred("monitoring",false)
 	$Left.set_deferred("monitoring",false)
-	Insanity.insanity_hit(Insanity.insanity_level.HIGH)
+	Insanity.insanity_hit(Insanity.insanity_level.LOW)
 	await get_tree().create_timer(1.0).timeout
 	queue_free()

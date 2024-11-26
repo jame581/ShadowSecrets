@@ -45,7 +45,7 @@ func update_insanity() -> void:
 func _on_area_2d_body_entered(body:Node2D):
 	if body.is_in_group("player"):
 		animation_player.play("jump")
+		Insanity.insanity_hit(Insanity.insanity_level.LOW)
 		area.monitoring = true
-		Insanity.insanity_hit(Insanity.insanity_level.HIGH)
 		await get_tree().create_timer(1.0).timeout
 		queue_free()

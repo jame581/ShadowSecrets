@@ -16,7 +16,8 @@ func _ready() -> void:
 
 func damage_player(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
-		body.deal_damage(damage)
+		Insanity.insanity_hit(Insanity.insanity_level.LOW)
+		#body.deal_damage(damage)
 		apply_impulse_to_player(body)
 
 func _interact():
