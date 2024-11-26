@@ -15,6 +15,7 @@ extends PanelContainer
 @onready var credits_box: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxCredits")
 @onready var controls_setting: GridContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlSettingsGrid")
 @onready var particles : CPUParticles2D = get_node("CPUParticles2D")
+@onready var sound_toggle: CheckButton = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/SoundSettingsGrid/SoundsEnabledCheckButton")
 
 var level_selected = ""
 var hide_credits = false
@@ -33,6 +34,7 @@ func _ready() -> void:
 	print("Main menu ready")
 	initialize()
 	Global.map_changed.connect(_on_map_changed)
+	sound_toggle.button_pressed = AudioManager.audio_enabled
 
 func initialize() -> void:
 	print("Main menu initialized")

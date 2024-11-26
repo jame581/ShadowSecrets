@@ -7,7 +7,7 @@ var audio_enabled = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if audio_enabled:
-		pass# audio_player.play()
+		audio_player.play()
 
 
 func set_sound_enabled(enabled: bool) -> void:
