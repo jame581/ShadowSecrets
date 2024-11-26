@@ -10,6 +10,7 @@ var wating_to_hide: bool = false
 
 
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS # This will make sure that the pause menu is always updated
 	print("Loading screen ready")
 	visible = false
 	canvas_layer.visible = false

@@ -19,7 +19,6 @@ func _input(event: InputEvent) -> void:
 func toggle_pause_menu() -> void:
 	print("Toggle pause menu called, visible: " + str(visible))
 	if (visible):
-		get_tree().paused = false
 		animation_player.play("fade_out", -1, animation_speed)
 	else:
 		visible = true
@@ -49,4 +48,5 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 	print("Animation finished: " + anim_name)
 	if (anim_name == "fade_out"):
 		visible = false
+		get_tree().paused = false
 		animation_player.stop()

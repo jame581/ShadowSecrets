@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://tgubpw1as5sy" path="res://resources/tileset/tiles_background_walls.tres" id="4_4r78f"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="4_lrov0"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/corupted_enemy.tscn" id="7_4kl4j"]
+[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="7_4kl4j"]
 [ext_resource type="PackedScene" uid="uid://caq0qy4gqciol" path="res://scenes/traps/spike_area.tscn" id="7_bvpr3"]
 [ext_resource type="TileSet" uid="uid://ovxfcyotxhc7" path="res://resources/tileset/32_32/tile_set_lab.tres" id="7_fekqb"]
 [ext_resource type="PackedScene" uid="uid://e6lgy5i4fd8d" path="res://scenes/traps/laser.tscn" id="7_k70y1"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_8ih2t"]
 [ext_resource type="PackedScene" uid="uid://wsekg7b475yv" path="res://scenes/devices/power_generator.tscn" id="9_31ygy"]
 [ext_resource type="PackedScene" uid="uid://b2sl3fwwcu0gy" path="res://scenes/traps/force_field.tscn" id="10_otbgi"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/robot_enemy.tscn" id="10_t1wgh"]
+[ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_t1wgh"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_wxbvc"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
@@ -71,6 +71,7 @@ shader = ExtResource("19_nc5px")
 shader_parameter/STATIC_GRANULARITY = 0.004
 shader_parameter/EDGE_BLUR = 0.5
 shader_parameter/BORDER_SIZE = 0.3
+shader_parameter/insanity = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bclyk"]
 size = Vector2(200, 150)
