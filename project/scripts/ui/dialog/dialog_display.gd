@@ -5,9 +5,10 @@ class_name DialogDisplay
 signal message_displayed()
 
 @export var write_timer_duration: float = 0.05
+@export var portrait: Texture = preload("res://assets/sprites/intro/portrait-mc.png")
 
-@onready var dialog_text: RichTextLabel = $VBoxContainer/HBoxContainer/Panel/MarginContainer/DialogText
-@onready var dialog_image: TextureRect = $VBoxContainer/HBoxContainer/AIScreenTexture
+@onready var dialog_text: RichTextLabel = $VBoxContainer/HBoxContainer/PanelText/MarginContainer/DialogText
+@onready var dialog_image: TextureRect = $VBoxContainer/HBoxContainer/PanelScreen/AIScreenTexture
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var write_timer: Timer = $WriteTimer
 @onready var wait_timer: Timer = $WaitTimer
@@ -55,7 +56,7 @@ func hide_dialog() -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "show_dialog":
 		write_timer.start()
-		dialog_image.texture = ai_image_on
+		dialog_image.texture = portrait
 
 
 func _on_write_timer_timeout() -> void:

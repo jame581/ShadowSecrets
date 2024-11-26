@@ -1,8 +1,14 @@
 {
     "dialogs": [
         {
-            "text": "This is Charon Station. It is a government space station and as such its purpose is classified. There are rumors though, as is usual. The Charon rumor is about top-secret biological research and unethical experiments. The station stopped responding a few weeks ago.",
-            "wait_time": 3,
+            "text": "This is Charon Station. It is a government space station and as such its purpose is classified. There are rumors though, as is usual.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "The Charon rumor is about top-secret biological research and unethical experiments. The station stopped responding a few weeks ago.",
+            "wait_time": 2,
             "hide_dialog_after": false,
             "animation": "intro_animation"
         },
@@ -19,7 +25,13 @@
             "animation": "intro_animation"
         },
         {
-            "text": "You found out Charon stopped responding after she missed your family calls twice. You can sense when something is off, so you smuggled yourself on an automatic shuttle bringing supplies to the station.",
+            "text": "You found out Charon stopped responding after she missed your family calls twice.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_animation"
+        },
+        {
+            "text": "You can sense when something is off, so you smuggled yourself on an automatic shuttle bringing supplies to the station.",
             "wait_time": 2,
             "hide_dialog_after": false,
             "animation": "intro_animation"
@@ -31,10 +43,16 @@
             "animation": "intro_animation"
         },
         {
-            "text": "As you exit the shuttle you notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown. You wonder, why was the supply shuttle able to dock here, but that is a question for later. You have to find out what happened here, and find your daughter if possible.",
-            "wait_time": 1,
+            "text": "As you exit the shuttle you notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown.",
+            "wait_time": 2,
             "hide_dialog_after": false,
-            "animation": "intro_animation"
+            "animation": "intro_2_animation"
+        },
+        {
+            "text": "You wonder, why was the supply shuttle able to dock here, but that is a question for later. You have to find out what happened here, and find your daughter if possible.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "intro_2_animation"
         }
     ]
 }

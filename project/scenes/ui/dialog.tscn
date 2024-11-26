@@ -59,21 +59,29 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="AIScreenTexture" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="PanelScreen" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+
+[node name="AIScreenTexture" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_tf3n3")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer"]
+[node name="PanelText" type="Panel" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelText"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,7 +93,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DialogText" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Panel/MarginContainer"]
+[node name="DialogText" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/PanelText/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_sfike")
 text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc."
