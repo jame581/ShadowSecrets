@@ -25,7 +25,7 @@ func _ready():
 		spike.timer.wait_time = timer_duration
 
 	if autostart:
-		print("autostart")
+		# print("autostart")
 		enable()
 
 func _interact():

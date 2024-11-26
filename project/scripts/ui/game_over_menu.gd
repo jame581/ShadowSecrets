@@ -16,14 +16,11 @@ func _on_last_checkpoint_button_pressed() -> void:
 
 
 func _on_restart_level_button_pressed() -> void:
-	get_tree().paused = false
 	visible = false
-	
 	Global.restart_current_scene()
 
 
 func _on_back_to_menu_button_pressed() -> void:
-	get_tree().paused = false
 	Global.goto_main_menu()
 
 
@@ -32,10 +29,14 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if (anim_name == "fade_out"):
 		visible = false
 		animation_player.stop()
+		get_tree().paused = false
 
 
 func handle_game_over() -> void:
 	print("Game over signal received")
+	if (visible):
+		return
+
 	visible = true
 	animation_player.play("fade_in", -1, animation_speed)
 	get_tree().paused = true

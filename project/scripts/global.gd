@@ -43,6 +43,7 @@ func _deferred_goto_scene(path):
 	get_tree().current_scene = current_scene
 	map_changed.emit(current_scene.scene_file_path)
 	await LoadingScreen.hide_loading_screen()
+	get_tree().paused = false
 
 func _on_loading_screen_hidden():
 	# This function will be called when the loading screen is hidden
