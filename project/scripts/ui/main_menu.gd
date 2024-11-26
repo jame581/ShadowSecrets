@@ -14,7 +14,8 @@ extends PanelContainer
 @onready var settings_box: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu")
 @onready var credits_box: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxCredits")
 @onready var controls_setting: GridContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlSettingsGrid")
-@onready var particles : CPUParticles2D = get_node("CPUParticles2D")
+@onready var controls_gamepad_setting: GridContainer = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/ControlGamepadSettingsGrid")
+@onready var particles: CPUParticles2D = get_node("CPUParticles2D")
 @onready var sound_toggle: CheckButton = get_node("MarginContainer/HBoxContainer/VBoxSettingsMenu/SoundSettingsGrid/SoundsEnabledCheckButton")
 @onready var debug_menu: VBoxContainer = get_node("MarginContainer/HBoxContainer/VBoxDebugMenu")
 
@@ -136,14 +137,14 @@ func create_action_list() -> void:
 		action_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
 		var input_label: Label = Label.new()
-		input_label.size_flags_horizontal = Control.SIZE_SHRINK_END & Control.SIZE_EXPAND_FILL
-		
+		input_label.size_flags_horizontal = Control.SIZE_SHRINK_END & Control.SIZE_EXPAND_FILL		
 		
 		var events = InputMap.action_get_events(action)
 		if events.size() > 0:
 			for event in events:
-				input_label.text += event.as_text().trim_suffix(" (Physical)") + " / "
-			input_label.text = input_label.text.trim_suffix(" / ")	
+				if event is InputEventKey:
+					input_label.text += event.as_text().trim_suffix(" (Physical)") + " / "
+			input_label.text = input_label.text.trim_suffix(" / ")
 		else:
 			input_label.text = "Not set"
 		
@@ -151,6 +152,40 @@ func create_action_list() -> void:
 		controls_setting.add_child(input_label)
 
 
+	for action in input_actions:
+		var action_label: Label = Label.new()
+		action_label.text = input_actions[action]
+		action_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+		var input_label: Label = Label.new()
+		input_label.size_flags_horizontal = Control.SIZE_SHRINK_END & Control.SIZE_EXPAND_FILL
+		input_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		input_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			for event in events:
+				if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+					input_label.text += get_short_event_name(event) + " / "
+			input_label.text = input_label.text.trim_suffix(" / ")
+		else:
+			input_label.text = "Not set"
+		
+		controls_gamepad_setting.add_child(action_label)
+		controls_gamepad_setting.add_child(input_label)
+
+
+func get_short_event_name(event: InputEvent) -> String:
+	if event is InputEventJoypadButton:
+		return "Button " + str(event.button_index)
+	elif event is InputEventJoypadMotion:
+		return "Axis " + str(event.axis)
+	return ""
+
+
 func clear_action_list() -> void:
 	for item in controls_setting.get_children():
+		item.queue_free()
+	
+	for item in controls_gamepad_setting.get_children():
 		item.queue_free()
