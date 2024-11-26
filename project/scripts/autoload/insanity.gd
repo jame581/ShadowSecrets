@@ -13,7 +13,7 @@ var insanity: float = 0.0
 @onready var insanity_timer: Timer = Timer.new()
 
 @export var insanity_min: float = 0.0
-@export var insanity_max: float = 1.8
+@export var insanity_max: float = 1.0
 
 @onready var camera_shaker: AnimationPlayer = get_viewport().get_camera_2d().get_node("CameraShaker")
 
@@ -37,15 +37,15 @@ func insanity_hit(hit_level: insanity_level) -> void:
 	match hit_level:
 		insanity_level.LOW:
 			#print("Insanity hit: LOW")
-			increase_insanity(0.10)
+			increase_insanity(0.05)
 		insanity_level.MEDIUM:
 			#print("Insanity hit: MEDIUM")
-			increase_insanity(0.20)
+			increase_insanity(0.08)
 		insanity_level.HIGH:
 			#print("Insanity hit: HIGH")
-			increase_insanity(0.30)
+			increase_insanity(0.15)
 	
-	if insanity >= insanity_max - 0.3:
+	if insanity >= 0.75:
 		shake_camera()
 
 # Private function to increase insanity
