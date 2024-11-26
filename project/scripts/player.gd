@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var healt_component = get_node("Components/HealthComponent")
 @onready var god_mode_icon = $PlayerUI/GodModeIcon
+@onready var death_timer = $DeathTimer
 
 var jump_pressed : bool = false
 var falling : bool = false
@@ -53,7 +54,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func select_animation(direction) -> void:
-	if jump_pressed:
+	if is_dead:
+		animation_player.play("death")
+	elif jump_pressed:
 		animation_player.play("jump")
 	elif falling:
 		animation_player.play("falling")
@@ -89,9 +92,8 @@ func process_explosion():
 func health_changed(new_value: int) -> void:
 	if new_value <= 0:
 		print("Player died")
-		animation_player.play("death")
 		is_dead = true
-		GameManager.game_over()
+		death_timer.start()
 
 
 func _handle_god_mode_changed(is_god: bool) -> void:
@@ -101,3 +103,8 @@ func _handle_god_mode_changed(is_god: bool) -> void:
 func _handle_game_over() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
+
+
+func _on_death_timer_timeout() -> void:
+	print("Player death timer timeout")
+	GameManager.game_over()
