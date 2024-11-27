@@ -15,7 +15,12 @@ var insanity: float = 0.0
 @export var insanity_min: float = 0.0
 @export var insanity_max: float = 1.0
 
+var insanity_hit_low: float = 0.05
+var insanity_hit_medium: float = 0.08
+var insanity_hit_high: float = 0.15
+
 var camera_shaker: AnimationPlayer = null
+@onready var screen_effects: AnimationPlayer = $ScreenEffects
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,19 +39,24 @@ func _ready():
 
 # Function to handle insanity hit
 func insanity_hit(hit_level: insanity_level) -> void:
+	var insanity_hit: float = 0.0
+
 	match hit_level:
 		insanity_level.LOW:
-			#print("Insanity hit: LOW")
-			increase_insanity(0.05)
+			insanity_hit = insanity_hit_low
 		insanity_level.MEDIUM:
-			#print("Insanity hit: MEDIUM")
-			increase_insanity(0.08)
+			insanity_hit = insanity_hit_medium
 		insanity_level.HIGH:
-			#print("Insanity hit: HIGH")
-			increase_insanity(0.15)
-	
+			insanity_hit = insanity_hit_high
+
+	increase_insanity(insanity_hit)
+
+	# Shake the camera if the insanity is high
 	if insanity >= 0.75:
 		shake_camera()
+
+	# Play the hit effect
+	hit_effect()
 
 # Private function to increase insanity
 func increase_insanity(amount: float) -> void:
@@ -58,11 +68,9 @@ func increase_insanity(amount: float) -> void:
 		return
 
 	insanity += amount
+
+	# notify the change
 	on_insanity_changed(insanity)
-	
-	#if insanity >= insanity_max:
-	#	GameManager.game_over()
-	#	insanity = 0.0
 
 # Function called when the timer times out
 func _on_insanity_timer_timeout() -> void:
@@ -86,3 +94,7 @@ func _on_map_changed(_new_map_path: String):
 func shake_camera():
 	if camera_shaker != null:
 		camera_shaker.play("shake_high")
+
+func hit_effect():
+	if screen_effects != null:
+		screen_effects.play("hit")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cewcfwuxepd6k"]
+
+[ext_resource type="Script" path="res://scripts/autoload/insanity.gd" id="1_bkady"]
+[ext_resource type="Shader" path="res://shaders/damage_hit.gdshader" id="2_y81i8"]
+[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_hk7ta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m32q3"]
+shader = ExtResource("2_y81i8")
+shader_parameter/effect_visibility = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rctby"]
+shader = ExtResource("3_hk7ta")
+shader_parameter/STATIC_GRANULARITY = 0.002
+shader_parameter/EDGE_BLUR = 1.0
+shader_parameter/BORDER_SIZE = 0.3
+
+[sub_resource type="Animation" id="Animation_p8ehv"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/RedFlash:material:shader_parameter/effect_visibility")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.75, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbs3c"]
+_data = {
+"hit": SubResource("Animation_p8ehv")
+}
+
+[node name="Insanity" type="Node2D"]
+script = ExtResource("1_bkady")
+insanity_min = null
+insanity_max = null
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="RedFlash" type="ColorRect" parent="CanvasLayer2"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_m32q3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -853.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InsanityEffect" type="ColorRect" parent="CanvasLayer"]
+z_index = 1250
+material = SubResource("ShaderMaterial_rctby")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -853.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="ScreenEffects" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qbs3c")
+}

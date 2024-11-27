@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=21 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
-[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_4po0v"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="3_vxavp"]
 [ext_resource type="PackedScene" uid="uid://e6lgy5i4fd8d" path="res://scenes/traps/laser.tscn" id="7_mgqnx"]
 [ext_resource type="PackedScene" uid="uid://67h4qmhplnmr" path="res://scenes/traps/spike.tscn" id="8_m1ld2"]
@@ -17,18 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_gasls"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dela0"]
-shader = ExtResource("3_4po0v")
-shader_parameter/STATIC_GRANULARITY = 0.004
-shader_parameter/EDGE_BLUR = 0.5
-shader_parameter/BORDER_SIZE = 0.3
-
-[sub_resource type="Animation" id="Animation_nilu4"]
-resource_name = "shake_low"
-
-[sub_resource type="Animation" id="Animation_nro28"]
-resource_name = "shake_medium"
 
 [sub_resource type="Animation" id="Animation_t8wib"]
 resource_name = "shake_high"
@@ -46,27 +33,19 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(-10, 10), Vector2(10, -10), Vector2(-10, -10), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_b25m7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
+[sub_resource type="Animation" id="Animation_fk851"]
+resource_name = "shake_medium"
+length = 0.2
+
+[sub_resource type="Animation" id="Animation_nilu4"]
+resource_name = "hit_effect"
+length = 0.2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i77cb"]
 _data = {
-"RESET": SubResource("Animation_b25m7"),
+"hit_effect": SubResource("Animation_nilu4"),
 "shake_high": SubResource("Animation_t8wib"),
-"shake_low": SubResource("Animation_nilu4"),
-"shake_medium": SubResource("Animation_nro28")
+"shake_medium": SubResource("Animation_fk851")
 }
 
 [node name="Node2D" type="Node2D"]
@@ -82,7 +61,7 @@ tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
 z_index = 10
-position = Vector2(-129, -787)
+position = Vector2(-380, -536)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -108,27 +87,19 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(-85, -797)
+position = Vector2(-380, -536)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
+
+[node name="CameraShaker" type="AnimationPlayer" parent="Camera2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_i77cb")
+}
 
 [node name="Laser" parent="." instance=ExtResource("7_mgqnx")]
 position = Vector2(-882, 64)
 impulse_strength = 300.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = 50
-material = SubResource("ShaderMaterial_dela0")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -853.0
-offset_bottom = -479.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
 
 [node name="Spike" parent="." instance=ExtResource("8_m1ld2")]
 position = Vector2(-617, -71)
@@ -277,8 +248,3 @@ visible = false
 [node name="GameOverMenu" parent="UI" instance=ExtResource("17_0jkqd")]
 layer = 128
 visible = false
-
-[node name="CameraShaker" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_i77cb")
-}
