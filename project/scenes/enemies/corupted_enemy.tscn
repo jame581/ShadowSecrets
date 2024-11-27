@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbjebx1q2n0mj"]
+[gd_scene load_steps=11 format=3 uid="uid://cyoy01ibtqqev"]
 
 [ext_resource type="Texture2D" uid="uid://bvlp4nnfadben" path="res://assets/sprites/enemies/corupted_enemy_sheet.png" id="1_0jedr"]
 [ext_resource type="Script" path="res://scripts/enemies/corupted_enemy.gd" id="1_3kger"]
@@ -207,6 +207,7 @@ _data = {
 }
 
 [node name="CoruptedEnemy" type="CharacterBody2D"]
+z_index = 10
 scale = Vector2(2, 2)
 script = ExtResource("1_3kger")
 movement_speed = 125.0

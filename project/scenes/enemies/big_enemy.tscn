@@ -207,6 +207,7 @@ _data = {
 }
 
 [node name="BigEnemy" type="CharacterBody2D"]
+z_index = 10
 scale = Vector2(4, 4)
 script = ExtResource("1_sp3ji")
 movement_speed = 80.0
