@@ -3,8 +3,8 @@ class_name Laser
 
 @export_group("Laser Properties")
 @export var active: bool = false
-@export var damage: int = 10
 @export var impulse_strength: float = 500.0  # Strength of the impulse applied to the player
+@export var damage: Insanity.insanity_level = Insanity.insanity_level.MEDIUM
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -13,12 +13,6 @@ func _ready() -> void:
 		enable()
 	else:
 		disable()
-
-func damage_player(body: CharacterBody2D) -> void:
-	if body is CharacterBody2D:
-		Insanity.insanity_hit(Insanity.insanity_level.LOW)
-		#body.deal_damage(damage)
-		apply_impulse_to_player(body)
 
 func _interact():
 	toggle()
@@ -44,3 +38,7 @@ func apply_impulse_to_player(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
 		var direction = (body.global_position - global_position).normalized()
 		body.apply_impulse(direction, impulse_strength)
+
+func damage_player(body: CharacterBody2D) -> void:
+	body.call_deferred("deal_damage", damage)
+	apply_impulse_to_player(body)

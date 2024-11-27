@@ -20,6 +20,7 @@ var is_dead : bool = false
 
 func _ready() -> void:
 	healt_component.health_changed.connect(health_changed)
+	Insanity.insanity_changed.connect(_handle_insanity_changed)
 	GameManager.god_mode_changed.connect(_handle_god_mode_changed)
 	GameManager.game_is_over.connect(_handle_game_over)
 	god_mode_icon.visible = false
@@ -38,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		jump_pressed = true
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("left", "right")
 	if explosion_ticks >= 0:
@@ -72,14 +73,16 @@ func flip_sprite_by_direction() -> void:
 		else:
 			sprite.scale.x = 1
 
-func deal_damage(damage: int) -> void:
+func deal_damage(damage: Insanity.insanity_level) -> void:
 	if GameManager.is_god_mode or is_dead:
 		return
-
-	healt_component.update_health(damage)
-	# Insanity.insanity_hit(Insanity.insanity_level.HIGH)
+	
+	Insanity.insanity_hit(damage)
 
 func apply_impulse(direction: Vector2, strength: float) -> void:
+	if is_dead:
+		return
+
 	explosion_impulse += direction.normalized() * strength
 	explosion_ticks = 10
 
@@ -90,7 +93,11 @@ func process_explosion():
 		explosion_impulse = Vector2.ZERO
 
 func health_changed(new_value: int) -> void:
-	if new_value <= 0:
+	#we use sanity\insanity instead of health
+	pass
+
+func _handle_insanity_changed(new_insanity: float) -> void:
+	if new_insanity >= 1.0:
 		print("Player died")
 		is_dead = true
 		death_timer.start()

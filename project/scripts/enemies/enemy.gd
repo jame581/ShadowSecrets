@@ -7,7 +7,7 @@ class_name Enemy
 @export var movement_speed: float = 100.0
 @export var jump_speed: float = -600.0
 @export var health: int = 100
-@export var damage: int = 25
+@export var damage: Insanity.insanity_level = Insanity.insanity_level.LOW
 @export var attack_range: int = 50
 @export var player_position_changed_threshold: float = 20.0
 

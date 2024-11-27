@@ -60,9 +60,9 @@ func increase_insanity(amount: float) -> void:
 	insanity += amount
 	on_insanity_changed(insanity)
 	
-	if insanity >= insanity_max:
-		GameManager.game_over()
-		insanity = 0.0
+	#if insanity >= insanity_max:
+	#	GameManager.game_over()
+	#	insanity = 0.0
 
 # Function called when the timer times out
 func _on_insanity_timer_timeout() -> void:
