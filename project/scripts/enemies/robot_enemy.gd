@@ -1,6 +1,9 @@
 extends Enemy
 
 
+@onready var death_timer: Timer = $DeathTimer
+@onready var explosion_particles: CPUParticles2D = $ExplosionParticles
+
 func _ready() -> void:
 	super._ready()
 
@@ -33,3 +36,8 @@ func _on_attack_area_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.call_deferred("deal_damage", damage)
 		print("Player attacked!")
+		explosion_particles.emitting = true
+		death_timer.start()
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvkneaaogg8iw"]
+[gd_scene load_steps=15 format=3 uid="uid://dvkneaaogg8iw"]
 
 [ext_resource type="Script" path="res://scripts/enemies/robot_enemy.gd" id="1_hwigt"]
 [ext_resource type="Texture2D" uid="uid://dmgwbmb2fgop1" path="res://assets/sprites/enemies/robot_enemy_sheet.png" id="2_h54vu"]
@@ -206,9 +206,29 @@ _data = {
 "walk": SubResource("Animation_coqxl")
 }
 
+[sub_resource type="Curve" id="Curve_nu8gc"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_j3aww"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xilrq"]
+offsets = PackedFloat32Array(0, 0.52381)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_0xfyn"]
+offsets = PackedFloat32Array(0, 0.52381, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1)
+
 [node name="RobotEnemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_hwigt")
+movement_speed = 150.0
+attack_range = 75
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 7.5)
@@ -245,6 +265,31 @@ libraries = {
 process_callback = 0
 wait_time = 0.5
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 150.0
+angle_curve = SubResource("Curve_nu8gc")
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_j3aww")
+color_ramp = SubResource("Gradient_xilrq")
+color_initial_ramp = SubResource("Gradient_0xfyn")
+
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
