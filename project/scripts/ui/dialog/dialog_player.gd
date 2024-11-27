@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_accept"):
 		dialog_display.finish_writing() #next_message()
 
 

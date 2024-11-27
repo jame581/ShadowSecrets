@@ -17,6 +17,7 @@ var ai_image_on: Texture = preload("res://assets/sprites/devices/pANIC/panic_fac
 var ai_image_off: Texture = preload("res://assets/sprites/devices/pANIC/panic_blank.png")
 
 var hide_dialog_after: bool = false
+var dialog_writing: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,6 +44,7 @@ func display_next_message(dialog_data: Dictionary) -> void:
 		wait_timer.wait_time = dialog_data["wait_time"] if dialog_data["wait_time"] > 0 else 2.0
 		hide_dialog_after = dialog_data["hide_dialog_after"] if dialog_data.has("hide_dialog_after") else true
 		write_timer.start()
+		dialog_writing = true
 	else:
 		show_dialog(dialog_data)
 
@@ -56,6 +58,7 @@ func hide_dialog() -> void:
 func _on_animation_player_animation_finished(anim_name: String) -> void:
 	if anim_name == "show_dialog":
 		write_timer.start()
+		dialog_writing = true
 		dialog_image.texture = portrait
 
 
@@ -63,16 +66,22 @@ func _on_write_timer_timeout() -> void:
 	dialog_text.visible_characters += 1
 	if dialog_text.visible_characters == dialog_text.get_total_character_count():
 		write_timer.stop()
+		dialog_writing = false
 		print("Dialog Display - Message displayed")
 		wait_timer.start()
 
 
 func finish_writing() -> void:
-	if !write_timer.is_stopped():
+	print("Dialog Display - Finish writing")
+	print("Dialog Display - write_timer.is_stopped(): ", write_timer.is_stopped())
+	if dialog_writing:
+		print("Dialog Display - Stopping write timer")
 		write_timer.stop()
+		dialog_writing = false
 		dialog_text.visible_characters = dialog_text.get_total_character_count()
 		wait_timer.start()
 	elif !wait_timer.is_stopped():
+		print("Dialog Display - Stopping wait timer")
 		_on_wait_timer_timeout()
 
 

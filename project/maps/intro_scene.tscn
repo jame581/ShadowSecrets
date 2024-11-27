@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://duy1vdeh7bpf7"]
+[gd_scene load_steps=11 format=3 uid="uid://duy1vdeh7bpf7"]
 
 [ext_resource type="PackedScene" uid="uid://dnrarc37sqtj6" path="res://scenes/ui/dialog_player.tscn" id="1_h4nyc"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="2_k1cft"]
 [ext_resource type="Texture2D" uid="uid://yodln30x5j0d" path="res://assets/sprites/intro/intro_space_station_1.png" id="3_kasci"]
+[ext_resource type="Texture2D" uid="uid://c1k8u1ky2wg5r" path="res://assets/sprites/intro/portrait-mc.png" id="4_o582e"]
 [ext_resource type="Texture2D" uid="uid://c62fo0a1blu2k" path="res://assets/sprites/intro/intro_space_station_2.png" id="4_w4q2u"]
 [ext_resource type="Texture2D" uid="uid://bchipivvlbfcc" path="res://assets/sprites/intro/draft-intro-2.png" id="5_3qexn"]
 
@@ -90,6 +91,7 @@ _data = {
 [node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player") instance=ExtResource("1_h4nyc")]
 dialog_display = NodePath("../DialogUI/DialogDisplay")
 start_wait_time = 1.0
+load_level_after = "res://maps/game_world.tscn"
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="Story" type="CanvasLayer" parent="."]
@@ -106,7 +108,10 @@ stretch_mode = 4
 [node name="DialogUI" type="CanvasLayer" parent="."]
 
 [node name="DialogDisplay" parent="DialogUI" instance=ExtResource("2_k1cft")]
+offset_top = 5.0
+offset_bottom = 175.0
 write_timer_duration = 0.01
+portrait = ExtResource("4_o582e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
