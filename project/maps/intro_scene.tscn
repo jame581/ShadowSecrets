@@ -90,7 +90,6 @@ _data = {
 
 [node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player") instance=ExtResource("1_h4nyc")]
 dialog_display = NodePath("../DialogUI/DialogDisplay")
-start_wait_time = 1.0
 load_level_after = "res://maps/game_world.tscn"
 animation_player = NodePath("../AnimationPlayer")
 
