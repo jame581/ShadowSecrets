@@ -97,6 +97,7 @@ timer_duration = 0.1
 position = Vector2(-147, 475)
 scale = Vector2(3, 3)
 jump_speed = -550.0
+damage = 2
 attack_range = 70
 
 [node name="CoruptedEnemy2" parent="Enemies" instance=ExtResource("8_pg3c7")]

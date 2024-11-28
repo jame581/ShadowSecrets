@@ -309,12 +309,13 @@ libraries = {
 "": SubResource("AnimationLibrary_4i1gm")
 }
 
+[node name="CharacterAudioComponent" parent="." instance=ExtResource("5_0acjd")]
+scale = Vector2(0.333333, 0.333333)
+
 [node name="Components" type="Node" parent="."]
 
 [node name="HealthComponent" parent="Components" node_paths=PackedStringArray("health_bar") instance=ExtResource("3_vunkp")]
 health_bar = NodePath("../../PlayerUI/ProgressBar")
-
-[node name="CharacterAudioComponent" parent="Components" instance=ExtResource("5_0acjd")]
 
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 
@@ -341,6 +342,8 @@ texture = ExtResource("4_p4lc0")
 
 [node name="DeathTimer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="ResetHitTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="ResetHitTimer" to="." method="_on_reset_hit_timer_timeout"]
