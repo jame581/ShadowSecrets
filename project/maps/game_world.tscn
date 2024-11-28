@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=40 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://tgubpw1as5sy" path="res://resources/tileset/tiles_background_walls.tres" id="4_4r78f"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="4_lrov0"]
-[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="7_4kl4j"]
+[ext_resource type="PackedScene" uid="uid://cyoy01ibtqqev" path="res://scenes/enemies/corupted_enemy.tscn" id="7_4kl4j"]
 [ext_resource type="PackedScene" uid="uid://caq0qy4gqciol" path="res://scenes/traps/spike_area.tscn" id="7_bvpr3"]
 [ext_resource type="TileSet" uid="uid://ovxfcyotxhc7" path="res://resources/tileset/32_32/tile_set_lab.tres" id="7_fekqb"]
 [ext_resource type="PackedScene" uid="uid://e6lgy5i4fd8d" path="res://scenes/traps/laser.tscn" id="7_k70y1"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_wxbvc"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
-[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="19_nc5px"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
 length = 0.001
@@ -66,12 +65,6 @@ _data = {
 "shake_low": SubResource("Animation_nilu4"),
 "shake_medium": SubResource("Animation_nro28")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_do4ct"]
-shader = ExtResource("19_nc5px")
-shader_parameter/STATIC_GRANULARITY = 0.004
-shader_parameter/EDGE_BLUR = 0.5
-shader_parameter/BORDER_SIZE = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxqp"]
 size = Vector2(221, 222)
@@ -581,20 +574,6 @@ offset_bottom = 175.0
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
 animation_speed = 3.0
-
-[node name="InsanityLayer" type="CanvasLayer" parent="UI"]
-
-[node name="ColorRect" type="ColorRect" parent="UI/InsanityLayer"]
-z_index = 50
-material = SubResource("ShaderMaterial_do4ct")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -853.0
-offset_bottom = -479.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
 
 [node name="GameOverMenu" parent="UI" instance=ExtResource("17_6cxgh")]
 layer = 2
