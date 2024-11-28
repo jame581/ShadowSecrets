@@ -1,14 +1,36 @@
 extends CharacterBody2D
 
-@export_group("Player Movement")
+@export_group("Player/Movement")
 @export var player_speed = 300
 @export var jump_velocity = -400
+
+@export_group("Player/Audio Setup")
+@export_subgroup("Death Sounds")
+@export var death_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_death.wav")
+@export var near_death_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_near_death.wav")
+@export_subgroup("Foot steps Sounds")
+@export var footsteps_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_footsteps.wav")
+@export_subgroup("Hurt Sounds")
+@export var hurt_sounds: Array[AudioStream] = [
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_hurt1.mp3"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_hurt2.mp3"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_hurt3.mp3")
+]
+@export_subgroup("Jump Sounds")
+@export var landing_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_jump_landing.wav")
+@export var jump_sounds: Array[AudioStream] = [
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_jump1.mp3"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_jump2.mp3"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_jump3.mp3"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_jump4.mp3")
+]
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var healt_component = get_node("Components/HealthComponent")
 @onready var god_mode_icon = $PlayerUI/GodModeIcon
 @onready var death_timer = $DeathTimer
+@onready var audio_component = get_node("Components/CharacterAudioComponent")
 
 var jump_pressed : bool = false
 var falling : bool = false
@@ -57,14 +79,19 @@ func _physics_process(delta: float) -> void:
 func select_animation(direction) -> void:
 	if is_dead:
 		animation_player.play("death")
+		audio_component.play_audio(death_sound)
 	elif jump_pressed:
 		animation_player.play("jump")
+		audio_component.play_random_audio(jump_sounds)
 	elif falling:
 		animation_player.play("falling")
+		#audio_component.play_audio(landing_sound)
 	elif direction:
 		animation_player.play("run")
+		audio_component.play_audio(footsteps_sound)
 	else:
 		animation_player.play("idle")
+		#audio_component.stop_audio()
 
 func flip_sprite_by_direction() -> void:
 	if velocity.x != 0:
@@ -77,6 +104,7 @@ func deal_damage(damage: Insanity.insanity_level) -> void:
 	if GameManager.is_god_mode or is_dead:
 		return
 	
+	audio_component.play_random_audio(hurt_sounds)
 	Insanity.insanity_hit(damage)
 
 func apply_impulse(direction: Vector2, strength: float) -> void:

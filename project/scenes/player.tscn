@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dg2kxws1wrpmu"]
+[gd_scene load_steps=16 format=3 uid="uid://dg2kxws1wrpmu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lc80v"]
 [ext_resource type="Texture2D" uid="uid://7uixaa32ds4b" path="res://assets/sprites/player/player_fullsprite_final.png" id="2_isfsh"]
 [ext_resource type="Texture2D" uid="uid://dl4x27bry1ryu" path="res://assets/sprites/player/player_death.png" id="3_jmcjl"]
 [ext_resource type="PackedScene" uid="uid://cnq57ucaffmw7" path="res://scenes/components/health_component.tscn" id="3_vunkp"]
 [ext_resource type="Texture2D" uid="uid://dxywhpwlujveq" path="res://assets/sprites/placeholder.png" id="4_p4lc0"]
+[ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="5_0acjd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
 size = Vector2(20.8333, 32.3333)
@@ -313,6 +314,8 @@ libraries = {
 [node name="HealthComponent" parent="Components" node_paths=PackedStringArray("health_bar") instance=ExtResource("3_vunkp")]
 health_bar = NodePath("../../PlayerUI/ProgressBar")
 
+[node name="CharacterAudioComponent" parent="Components" instance=ExtResource("5_0acjd")]
+
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerUI"]
@@ -337,5 +340,7 @@ grow_horizontal = 2
 texture = ExtResource("4_p4lc0")
 
 [node name="DeathTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
