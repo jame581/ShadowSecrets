@@ -19,6 +19,7 @@ var ai_image_off: Texture = preload("res://assets/sprites/devices/pANIC/panic_bl
 
 var hide_dialog_after: bool = false
 var dialog_writing: bool = false
+var dialog_shown: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,6 +62,7 @@ func hide_dialog() -> void:
 	write_timer.stop()
 	wait_timer.stop()
 	audio_player.stop()
+	dialog_shown = false
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
@@ -68,6 +70,7 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		write_timer.start()
 		dialog_writing = true
 		dialog_image.texture = portrait
+		dialog_shown = true
 
 
 func _on_write_timer_timeout() -> void:
@@ -81,6 +84,9 @@ func _on_write_timer_timeout() -> void:
 
 
 func finish_writing() -> void:
+	if not dialog_shown:
+		return
+
 	print("Dialog Display - Finish writing")
 	print("Dialog Display - write_timer.is_stopped(): ", write_timer.is_stopped())
 	if dialog_writing:

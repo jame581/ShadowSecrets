@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duy1vdeh7bpf7"]
+[gd_scene load_steps=15 format=3 uid="uid://duy1vdeh7bpf7"]
 
 [ext_resource type="PackedScene" uid="uid://dnrarc37sqtj6" path="res://scenes/ui/dialog_player.tscn" id="1_h4nyc"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="2_k1cft"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c62fo0a1blu2k" path="res://assets/sprites/intro/intro_space_station_2.png" id="4_w4q2u"]
 [ext_resource type="Texture2D" uid="uid://bchipivvlbfcc" path="res://assets/sprites/intro/draft-intro-2.png" id="5_3qexn"]
 [ext_resource type="Texture2D" uid="uid://g6vnwnilddpy" path="res://assets/sprites/intro/space_2.png" id="7_ucm48"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_035od"]
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_vlhle"]
 length = 0.001
@@ -70,6 +73,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(276, 539)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Story/SpaceShip:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Story/Fade:theme_override_styles/panel:bg_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_fen8x"]
 resource_name = "intro_2_animation"
@@ -96,6 +123,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("5_3qexn")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Story/SpaceShip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_vgjcm"]
@@ -149,10 +188,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(185, 478), Vector2(165, 478)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Story/SpaceShip:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_egtv2"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Fade:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_57of2"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Fade:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m2fh"]
 _data = {
 "RESET": SubResource("Animation_vlhle"),
+"fade_in": SubResource("Animation_egtv2"),
+"fade_out": SubResource("Animation_57of2"),
 "intro_2_animation": SubResource("Animation_fen8x"),
 "intro_animation": SubResource("Animation_vgjcm")
 }
@@ -178,11 +261,20 @@ texture = ExtResource("3_kasci")
 stretch_mode = 4
 
 [node name="SpaceShip" type="TextureRect" parent="Story"]
+visible = false
 offset_left = 276.0
 offset_top = 539.0
 offset_right = 340.0
 offset_bottom = 603.0
 texture = ExtResource("3_lrn7e")
+
+[node name="Fade" type="Panel" parent="Story"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_035od")
 
 [node name="DialogUI" type="CanvasLayer" parent="."]
 
