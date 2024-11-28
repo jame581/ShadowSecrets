@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://7uixaa32ds4b" path="res://assets/sprites/player/player_fullsprite_final.png" id="2_isfsh"]
 [ext_resource type="Texture2D" uid="uid://dl4x27bry1ryu" path="res://assets/sprites/player/player_death.png" id="3_jmcjl"]
 [ext_resource type="PackedScene" uid="uid://cnq57ucaffmw7" path="res://scenes/components/health_component.tscn" id="3_vunkp"]
-[ext_resource type="Texture2D" uid="uid://dxywhpwlujveq" path="res://assets/sprites/placeholder.png" id="4_p4lc0"]
 [ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="5_0acjd"]
+[ext_resource type="Texture2D" uid="uid://cjskqqayyayy4" path="res://assets/sprites/player/goat1.png" id="6_7nihv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
 size = Vector2(20.8333, 32.3333)
@@ -334,11 +334,12 @@ value = 50.0
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -32.0
+offset_top = 25.0
+offset_right = 32.0
+offset_bottom = 89.0
 grow_horizontal = 2
-texture = ExtResource("4_p4lc0")
+texture = ExtResource("6_7nihv")
 
 [node name="DeathTimer" type="Timer" parent="."]
 
