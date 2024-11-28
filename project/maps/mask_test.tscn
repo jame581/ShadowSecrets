@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=22 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="3_vxavp"]
@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_gasls"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
+[ext_resource type="PackedScene" uid="uid://q8dw4ye7cbwj" path="res://scenes/devices/computer.tscn" id="17_uji4i"]
+
+[sub_resource type="Animation" id="Animation_nilu4"]
+resource_name = "hit_effect"
+length = 0.2
 
 [sub_resource type="Animation" id="Animation_t8wib"]
 resource_name = "shake_high"
@@ -37,10 +42,6 @@ tracks/0/keys = {
 resource_name = "shake_medium"
 length = 0.2
 
-[sub_resource type="Animation" id="Animation_nilu4"]
-resource_name = "hit_effect"
-length = 0.2
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i77cb"]
 _data = {
 "hit_effect": SubResource("Animation_nilu4"),
@@ -60,8 +61,7 @@ tile_map_data = PackedByteArray("AAAmAA4AAAAGAAUAAAAmAA8AAAAGAAYAAAAmABAAAAAGAAc
 tile_set = ExtResource("2_wcapp")
 
 [node name="Player" parent="." instance=ExtResource("3_vxavp")]
-z_index = 10
-position = Vector2(-380, -536)
+position = Vector2(-207, -169)
 scale = Vector2(2, 2)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -87,7 +87,7 @@ position = Vector2(322, -12)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1185
-position = Vector2(-380, -536)
+position = Vector2(-207, -169)
 scale = Vector2(2, 2)
 position_smoothing_speed = 4.77
 
@@ -248,3 +248,7 @@ visible = false
 [node name="GameOverMenu" parent="UI" instance=ExtResource("17_0jkqd")]
 layer = 128
 visible = false
+
+[node name="Computer" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("17_uji4i")]
+position = Vector2(-188, 25)
+interactable_devices = [NodePath("../Laser2")]
