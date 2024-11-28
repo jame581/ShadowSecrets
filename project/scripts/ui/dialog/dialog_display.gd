@@ -25,7 +25,7 @@ func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
 	visible = false
 	write_timer.wait_time = write_timer_duration
-	audio_player.stop()
+	# audio_player.stop()
 
 
 func show_dialog(dialog_data: Dictionary) -> void:
@@ -37,6 +37,8 @@ func show_dialog(dialog_data: Dictionary) -> void:
 	hide_dialog_after = dialog_data["hide_dialog_after"] if dialog_data.has("hide_dialog_after") else true
 	animation_player.play("show_dialog")
 	visible = true
+	if !audio_player.is_playing():
+		audio_player.play()
 
 
 func display_next_message(dialog_data: Dictionary) -> void:
@@ -47,6 +49,8 @@ func display_next_message(dialog_data: Dictionary) -> void:
 		hide_dialog_after = dialog_data["hide_dialog_after"] if dialog_data.has("hide_dialog_after") else true
 		write_timer.start()
 		dialog_writing = true
+		if !audio_player.is_playing():
+			audio_player.play()
 	else:
 		show_dialog(dialog_data)
 
@@ -55,6 +59,8 @@ func hide_dialog() -> void:
 	animation_player.play_backwards("show_dialog")
 	dialog_image.texture = ai_image_off
 	write_timer.stop()
+	wait_timer.stop()
+	audio_player.stop()
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
@@ -65,9 +71,6 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 
 func _on_write_timer_timeout() -> void:
-	if !audio_player.is_playing():
-		audio_player.play()
-	
 	dialog_text.visible_characters += 1
 	if dialog_text.visible_characters == dialog_text.get_total_character_count():
 		write_timer.stop()
@@ -94,8 +97,8 @@ func finish_writing() -> void:
 
 func _on_wait_timer_timeout() -> void:
 	wait_timer.stop()
+	audio_player.stop()
 	message_displayed.emit()
-	
 	if hide_dialog_after:
 		hide_dialog()
 	
