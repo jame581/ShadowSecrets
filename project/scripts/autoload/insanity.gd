@@ -15,9 +15,9 @@ var insanity: float = 0.0
 @export var insanity_min: float = 0.0
 @export var insanity_max: float = 1.0
 
-var insanity_hit_low: float = 0.05
-var insanity_hit_medium: float = 0.08
-var insanity_hit_high: float = 0.15
+var insanity_change_low: float = 0.05
+var insanity_change_medium: float = 0.08
+var insanity_change_high: float = 0.15
 
 var camera_shaker: AnimationPlayer = null
 @onready var screen_effects: AnimationPlayer = $ScreenEffects
@@ -37,20 +37,25 @@ func _ready():
 	if	get_viewport() && get_viewport().get_camera_2d():
 		# print("get_viewport: " + str(get_viewport()), "get_camera_2d: " + str(get_viewport().get_camera_2d()), "get_node: " + str(get_viewport().get_camera_2d().get_child("CameraShaker")))
 		camera_shaker = get_viewport().get_camera_2d().get_node_or_null("CameraShaker")
+	else:
+		if $CanvasLayer:
+			$CanvasLayer/InsanityEffect.visible = false
+		if $CanvasLayer2:
+			$CanvasLayer2/RedFlash.visible = false
 
 # Function to handle insanity hit
 func insanity_hit(hit_level: insanity_level) -> void:
-	var insanity_hit: float = 0.0
+	var insanity_change: float = 0.0
 
 	match hit_level:
 		insanity_level.LOW:
-			insanity_hit = insanity_hit_low
+			insanity_change = insanity_change_low
 		insanity_level.MEDIUM:
-			insanity_hit = insanity_hit_medium
+			insanity_change = insanity_change_medium
 		insanity_level.HIGH:
-			insanity_hit = insanity_hit_high
+			insanity_change = insanity_change_high
 
-	increase_insanity(insanity_hit)
+	increase_insanity(insanity_change)
 
 	# Shake the camera if the insanity is high
 	if insanity >= 0.75:
@@ -83,7 +88,7 @@ func _on_insanity_timer_timeout() -> void:
 		increase_insanity(-0.02)
 	
 func on_insanity_changed(new_insanity: float) -> void:
-	print("Insanity changed to: ", new_insanity)
+	#print("Insanity changed to: ", new_insanity)
 	emit_signal("insanity_changed", new_insanity)
 	RenderingServer.global_shader_parameter_set("insanity", clamp(new_insanity, insanity_min, insanity_max))
 
