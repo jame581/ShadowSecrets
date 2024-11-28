@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bis4clcn0l7yn" path="res://assets/sprites/lights/cone_light.png" id="4_b1cp1"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="5_iyg5n"]
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="7_avo21"]
-[ext_resource type="PackedScene" uid="uid://bbjebx1q2n0mj" path="res://scenes/enemies/corupted_enemy.tscn" id="8_pg3c7"]
+[ext_resource type="PackedScene" uid="uid://cyoy01ibtqqev" path="res://scenes/enemies/corupted_enemy.tscn" id="8_pg3c7"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="9_23kex"]
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="9_d3q1n"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_fb264"]
-[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="11_joxlp"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="11_joxlp"]
 [ext_resource type="Texture2D" uid="uid://u0ple2pi0a24" path="res://assets/sprites/intro/portrait-AI.png" id="13_20kfp"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="13_r55p8"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="14_w38f8"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="14_w38f8"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="15_djeii"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_84tu6"]
@@ -38,7 +38,6 @@ repeat_times = 5
 texture = ExtResource("1_q6mlg")
 
 [node name="Player" parent="." instance=ExtResource("5_iyg5n")]
-z_index = 10
 position = Vector2(396, 480)
 player_speed = 350
 jump_velocity = -580
@@ -136,7 +135,6 @@ end_position = Vector2(-33, -24)
 [node name="DialogArea" parent="Dialogs" instance=ExtResource("13_r55p8")]
 position = Vector2(883, 450)
 dialog_text = "Hello boy. I'm a sexy demon AI. You can not beat me... ha ha ha..."
-dialog_wait_time = 3.0
 
 [node name="ComputerBase" type="Sprite2D" parent="Dialogs/DialogArea"]
 position = Vector2(-3, -26)
@@ -150,7 +148,6 @@ shape = SubResource("RectangleShape2D_0bw3t")
 [node name="DialogDisplay" type="CanvasLayer" parent="UI"]
 
 [node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("11_joxlp")]
-write_timer_duration = 0.1
 portrait = ExtResource("13_20kfp")
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("9_23kex")]

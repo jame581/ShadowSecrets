@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://wsekg7b475yv" path="res://scenes/devices/power_generator.tscn" id="12_ygk2f"]
 [ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity_jump.tscn" id="13_6a06q"]
 [ext_resource type="PackedScene" uid="uid://cqbo6or6yg4m2" path="res://scenes/insanity/insanity_slide.tscn" id="14_p6ugm"]
-[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog.tscn" id="15_gasls"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="15_gasls"]
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
 [ext_resource type="PackedScene" uid="uid://q8dw4ye7cbwj" path="res://scenes/devices/computer.tscn" id="17_uji4i"]
