@@ -35,7 +35,8 @@ func _ready():
 
 	# Get the camera shaker, if available (its not in main menu)
 	if	get_viewport() && get_viewport().get_camera_2d():
-		camera_shaker = get_viewport().get_camera_2d().get_node("CameraShaker")
+		# print("get_viewport: " + str(get_viewport()), "get_camera_2d: " + str(get_viewport().get_camera_2d()), "get_node: " + str(get_viewport().get_camera_2d().get_child("CameraShaker")))
+		camera_shaker = get_viewport().get_camera_2d().get_node_or_null("CameraShaker")
 
 # Function to handle insanity hit
 func insanity_hit(hit_level: insanity_level) -> void:
