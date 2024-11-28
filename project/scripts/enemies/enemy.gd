@@ -10,12 +10,16 @@ class_name Enemy
 @export var damage: Insanity.insanity_level = Insanity.insanity_level.LOW
 @export var attack_range: int = 50
 @export var player_position_changed_threshold: float = 20.0
+@export_subgroup("Audio")
+@export var movement_audio: AudioStream = preload("res://assets/audio/enemy/stellarsecrets_sfx_enemy_movement.wav")
+@export var audio_volume: float = -10.0
 
 # onready variables
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var sprite: Sprite2D = get_node("Sprite")
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var update_player_position_timer: Timer = $UpdatePlayerPositionTimer
+@onready var audio_component: CharacterAudioComponent = get_node("CharacterAudioComponent")
 
 # private variables
 var chase_player: bool = false
@@ -41,6 +45,9 @@ func _ready() -> void:
 
 	# update_player_position_timer.start()
 	update_player_position_timer.timeout.connect(update_player_position)
+
+	# Set the audio volume
+	audio_component.set_audio_volume(audio_volume)
 
 
 func actor_setup():
@@ -124,8 +131,10 @@ func select_animation(direction) -> void:
 		animation_player.play("attack")
 	elif direction.x:
 		animation_player.play("walk")
+		audio_component.play_with_random_pitch(movement_audio, 0.8, 1.2)
 	else:
 		animation_player.play("idle")
+		audio_component.stop_audio()
 
 
 func flip_sprite_by_velocity() -> void:

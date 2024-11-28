@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvkneaaogg8iw"]
+[gd_scene load_steps=16 format=3 uid="uid://dvkneaaogg8iw"]
 
 [ext_resource type="Script" path="res://scripts/enemies/robot_enemy.gd" id="1_hwigt"]
 [ext_resource type="Texture2D" uid="uid://dmgwbmb2fgop1" path="res://assets/sprites/enemies/robot_enemy_sheet.png" id="2_h54vu"]
+[ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="3_jkln4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(22.5, 27)
@@ -229,7 +230,11 @@ z_index = 10
 scale = Vector2(2, 2)
 script = ExtResource("1_hwigt")
 movement_speed = 150.0
+jump_speed = null
+health = null
+damage = null
 attack_range = 75
+player_position_changed_threshold = null
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 7.5)
@@ -289,6 +294,8 @@ scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_j3aww")
 color_ramp = SubResource("Gradient_xilrq")
 color_initial_ramp = SubResource("Gradient_0xfyn")
+
+[node name="CharacterAudioComponent" parent="." instance=ExtResource("3_jkln4")]
 
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]

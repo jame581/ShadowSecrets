@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsyksur8gqx8f"]
+[gd_scene load_steps=12 format=3 uid="uid://dsyksur8gqx8f"]
 
 [ext_resource type="Script" path="res://scripts/enemies/big_enemy.gd" id="1_sp3ji"]
 [ext_resource type="Texture2D" uid="uid://bmhysmanlb31h" path="res://assets/sprites/enemies/big_enemy_sheet_v2.png" id="2_kdgcy"]
+[ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="3_q3g1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(20.5, 41.5)
@@ -249,6 +250,8 @@ libraries = {
 [node name="UpdatePlayerPositionTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
+
+[node name="CharacterAudioComponent" parent="." instance=ExtResource("3_q3g1a")]
 
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyoy01ibtqqev"]
+[gd_scene load_steps=12 format=3 uid="uid://cyoy01ibtqqev"]
 
 [ext_resource type="Texture2D" uid="uid://bvlp4nnfadben" path="res://assets/sprites/enemies/corupted_enemy_sheet.png" id="1_0jedr"]
 [ext_resource type="Script" path="res://scripts/enemies/corupted_enemy.gd" id="1_3kger"]
+[ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="3_2jkhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4pcy"]
 size = Vector2(18, 26.5)
@@ -246,6 +247,8 @@ libraries = {
 [node name="UpdatePlayerPositionTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
+
+[node name="CharacterAudioComponent" parent="." instance=ExtResource("3_2jkhe")]
 
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectArea" to="." method="_on_player_detect_area_body_exited"]

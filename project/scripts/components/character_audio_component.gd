@@ -1,9 +1,12 @@
 extends Node2D
 
+class_name CharacterAudioComponent
+
 @onready var audio_stream: AudioStreamPlayer2D = get_node("AudioStreamPlayer2D")
 @onready var timer: Timer = get_node("Timer")
 
 var default_pitch: float = 1.0
+var audio_volume: float = 0.0
 
 func _ready() -> void:
 	default_pitch = audio_stream.pitch_scale
@@ -51,3 +54,10 @@ func _on_audio_stream_player_2d_finished() -> void:
 
 func is_playing() -> bool:
 	return audio_stream.playing
+
+func set_audio_volume(volume: float) -> void:
+	audio_stream.volume_db = volume
+	audio_volume = volume
+
+func get_audio_volume() -> float:
+	return audio_volume
