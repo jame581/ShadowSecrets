@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3hp38ybl556v"]
+[gd_scene load_steps=8 format=3 uid="uid://c3hp38ybl556v"]
 
 [ext_resource type="Script" path="res://scripts/ui/dialog/dialog_display.gd" id="1_g5jqe"]
 [ext_resource type="Texture2D" uid="uid://c5kqt44t7qj7" path="res://assets/sprites/devices/pANIC/panic_face.png" id="1_tf3n3"]
 [ext_resource type="FontFile" uid="uid://si634lc1vgk4" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_sfike"]
+[ext_resource type="AudioStream" uid="uid://kbq0smbxnad5" path="res://assets/audio/ui/stellarsecrets_sfx_text_scroll.wav" id="4_u1lmq"]
 
 [sub_resource type="Animation" id="Animation_dnlnj"]
 length = 0.001
@@ -109,6 +110,9 @@ wait_time = 0.1
 libraries = {
 "": SubResource("AnimationLibrary_7wbcx")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u1lmq")
 
 [connection signal="timeout" from="WriteTimer" to="." method="_on_write_timer_timeout"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

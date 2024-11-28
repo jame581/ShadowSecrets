@@ -12,6 +12,7 @@ signal message_displayed()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var write_timer: Timer = $WriteTimer
 @onready var wait_timer: Timer = $WaitTimer
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var ai_image_on: Texture = preload("res://assets/sprites/devices/pANIC/panic_face.png")
 var ai_image_off: Texture = preload("res://assets/sprites/devices/pANIC/panic_blank.png")
@@ -24,6 +25,7 @@ func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
 	visible = false
 	write_timer.wait_time = write_timer_duration
+	audio_player.stop()
 
 
 func show_dialog(dialog_data: Dictionary) -> void:
@@ -63,12 +65,16 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 
 func _on_write_timer_timeout() -> void:
+	if !audio_player.is_playing():
+		audio_player.play()
+	
 	dialog_text.visible_characters += 1
 	if dialog_text.visible_characters == dialog_text.get_total_character_count():
 		write_timer.stop()
 		dialog_writing = false
 		print("Dialog Display - Message displayed")
 		wait_timer.start()
+		audio_player.stop()
 
 
 func finish_writing() -> void:
@@ -80,6 +86,7 @@ func finish_writing() -> void:
 		dialog_writing = false
 		dialog_text.visible_characters = dialog_text.get_total_character_count()
 		wait_timer.start()
+		audio_player.stop()
 	elif !wait_timer.is_stopped():
 		print("Dialog Display - Stopping wait timer")
 		_on_wait_timer_timeout()
