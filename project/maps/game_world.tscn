@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=38 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
 [ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="10_330gr"]
 [ext_resource type="PackedScene" uid="uid://b2sl3fwwcu0gy" path="res://scenes/traps/force_field.tscn" id="10_otbgi"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_t1wgh"]
+[ext_resource type="PackedScene" uid="uid://q8dw4ye7cbwj" path="res://scenes/devices/computer.tscn" id="14_yx0vq"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="15_wxbvc"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
@@ -83,9 +84,6 @@ size = Vector2(200, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s7l1"]
 size = Vector2(343, 241)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkd2n"]
-size = Vector2(173, 216)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gmv8"]
 size = Vector2(278, 304)
 
@@ -97,9 +95,6 @@ size = Vector2(200, 350)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ee3k"]
 size = Vector2(265, 209)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_atqwr"]
-size = Vector2(263, 225)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wh805"]
 vertices = PackedVector2Array(-5623, 309.93, -5623, 376, -5926.11, 376, -5926.88, 308.063, 77.4375, 321.523, -309.367, 322.469, -312.109, 249.977, 77.0469, 249.508, -34.0703, 204.063, -382.344, 206.43, -381.641, 161.383, -34.4219, 157.117, 79.3828, 84.0703, -740.938, 90.4219, -740.547, 15.9766, 78.6094, 15.0078, -2801, -380.477, -3617, -379.508, -3617, -482.063, -2801, -487.43)
@@ -249,16 +244,13 @@ interactable_devices = [NodePath("../../Traps/Lasers/Laser12")]
 position = Vector2(-5553, 572)
 interactable_devices = [NodePath("../../Traps/Lasers/Laser12")]
 
-[node name="Input8" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("4_lrov0")]
-position = Vector2(-4977, 815)
-interactable_devices = [NodePath("../../Traps/ForceFields/ForceField"), NodePath("../../Traps/Lasers/Laser5")]
-
 [node name="Input13" parent="Interactables" instance=ExtResource("4_lrov0")]
 position = Vector2(3892, 1389)
 
-[node name="Input14" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("4_lrov0")]
-position = Vector2(814, -205)
-interactable_devices = [NodePath("../../Traps/Lasers/Laser2"), NodePath("../../Traps/ForceFields/ForceField4"), NodePath("../../Traps/Lasers/Laser")]
+[node name="Computer" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("14_yx0vq")]
+position = Vector2(-4973, 849)
+interactable_devices = [NodePath("../../Traps/Lasers/Laser5"), NodePath("../../Traps/ForceFields/ForceField")]
+dialog_text = "Diary of Chief Researcher Elena Dexter: We made a huge breakthrough in the last few months. Since the marines brought the virus strain from XB1-I, we successfully reproduced it and started testing its effects on laboratory mice. The mice consumption in the laboratory grew exponentially after that - most of them died quite terribly. But! Some of them survived and started behaving more intelligent, got stronger and developed quicker reflexes. The military is pushing us to start testing on humans ASAP. They hope this will bring them supersoldiers. I hope it will not end badly."
 
 [node name="Traps" type="Node" parent="."]
 
@@ -296,10 +288,9 @@ active = true
 position = Vector2(-1409, 96)
 active = true
 
-[node name="Laser6" parent="Traps/Lasers" node_paths=PackedStringArray("obstacle") instance=ExtResource("7_k70y1")]
+[node name="Laser6" parent="Traps/Lasers" instance=ExtResource("7_k70y1")]
 position = Vector2(-5137, 225)
 active = true
-obstacle = NodePath("")
 
 [node name="Laser10" parent="Traps/Lasers" instance=ExtResource("7_k70y1")]
 position = Vector2(-5137, 415)
@@ -566,20 +557,6 @@ offset_right = 4038.0
 offset_bottom = 1223.0
 text = "This button launches the escape pod and ends the game"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Debug texts"]
-offset_left = -5363.0
-offset_top = 926.0
-offset_right = -4816.0
-offset_bottom = 1012.0
-text = "A computer that gives the palyer some information and unlocks the lab is here instead of simple switch"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="Debug texts"]
-offset_left = -177.0
-offset_top = -74.0
-offset_right = 131.0
-offset_bottom = 31.0
-text = "A computer that gives the player the info he is looking for and that lifts the lockdown is located here"
-
 [node name="UI" type="Node" parent="."]
 
 [node name="DialogLayer" type="CanvasLayer" parent="UI"]
@@ -633,14 +610,6 @@ dialog_text = "Do I hear footsteps? Am I starting to lose my mind in this godfor
 position = Vector2(55, -178)
 shape = SubResource("RectangleShape2D_8s7l1")
 
-[node name="Diary1Dialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
-position = Vector2(-5043, 817)
-dialog_text = "Diary of Chief Researcher Elena Dexter: We made a huge breakthrough in the last few months. Since the marines brought the virus strain from XB1-I, we successfully reproduced it and started testing its effects on laboratory mice. The mice consumption in the laboratory grew exponentially after that - most of them died quite terribly. But! Some of them survived and started behaving more intelligent, got stronger and developed quicker reflexes. The military is pushing us to start testing on humans ASAP. They hope this will bring them supersoldiers. I hope it will not end badly."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/Diary1Dialogue"]
-position = Vector2(60.5, -5)
-shape = SubResource("RectangleShape2D_xkd2n")
-
 [node name="EngineeringShaftsDialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
 position = Vector2(-2076, -669)
 dialog_text = "At least here in engineering shafts there is nothing that tries to kill me. Apart from the damn spikes in the ceiling. Who’s bright idea was this? What are they even supposed to do?"
@@ -659,7 +628,7 @@ shape = SubResource("RectangleShape2D_qqprk")
 
 [node name="AIInfoDialog" parent="Dialogs" instance=ExtResource("17_d4yve")]
 position = Vector2(-10, -272)
-dialog_text = "Diary of Chief Researcher Elena Dexter: F..k the military. F..k the government. They killed us all. Their precious research was more valuable to them than our lives. When we refused to continue with testing the XB virus on humans, they stole it and released it on the station. Most of my colleagues are already dying or turning into deformed monsters. It is only a matter of time before I will join them. Unless… Unless I take a full, undiluted dose of the virus and hope I am the lucky one who will not be affected but rather augmented. If these notes reach anyone from my family know this: I love you with all my heart, and I am so sorry I had to keep all this a secret from you. Maybe if I told you it wouldn’t end like this. Good bye."
+dialog_text = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/AIInfoDialog"]
 shape = SubResource("RectangleShape2D_g6bav")
@@ -672,13 +641,10 @@ dialog_text = "This is the entrance to escape pods. I cannot go there until I un
 position = Vector2(26.5, 6.5)
 shape = SubResource("RectangleShape2D_6ee3k")
 
-[node name="WhatToDoDialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
-position = Vector2(860, -216)
-dialog_text = "Oh no, my little girl ended up like a monster. What is there left for me? Should I leave and tell humanity what happened here? Or should I just make this ship explode and die with my daughter?"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/WhatToDoDialogue"]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_atqwr")
+[node name="Computer" parent="Dialogs" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("14_yx0vq")]
+position = Vector2(-12, -171)
+interactable_devices = [NodePath("../../Traps/Lasers/Laser2"), NodePath("../../Traps/ForceFields/ForceField4")]
+dialog_text = "Diary of Chief Researcher Elena Dexter: F..k the military. F..k the government. They killed us all. Their precious research was more valuable to them than our lives. When we refused to continue with testing the XB virus on humans, they stole it and released it on the station. Most of my colleagues are already dying or turning into deformed monsters. It is only a matter of time before I will join them. Unless… Unless I take a full, undiluted dose of the virus and hope I am the lucky one who will not be affected but rather augmented. If these notes reach anyone from my family know this: I love you with all my heart, and I am so sorry I had to keep all this a secret from you. Maybe if I told you it wouldn’t end like this. Good bye."
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(6355, -40)
