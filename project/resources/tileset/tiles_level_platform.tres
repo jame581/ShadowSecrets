@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://jffg7vle0hpw"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://jffg7vle0hpw"]
 
 [ext_resource type="Texture2D" uid="uid://cysequei4rx6h" path="res://assets/sprites/tilemaps/level_platform_tiles.png" id="1_qyrjv"]
+[ext_resource type="Texture2D" uid="uid://dsdia18pg4kgv" path="res://assets/sprites/tilemaps/level_platform_tiles2.png" id="2_7ga2m"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nti0c"]
 tile_data = PackedInt32Array(0, 131072, 0, 65536, 131072, 1, 131072, 131072, 2, 1, 196608, 0, 65537, 196608, 1, 131073, 196608, 2, 2, 262144, 0, 65538, 262144, 1, 131074, 262144, 2, 3, 0, 2, 65539, 327680, 1, 131075, 327680, 2)
@@ -186,10 +187,30 @@ texture_region_size = Vector2i(32, 32)
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -4.5, -16, 16, 5.75, 16, 16, -16, 16)
 5:2/0/physics_layer_0/polygon_0/one_way = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7lv7"]
+texture = ExtResource("2_7ga2m")
+texture_region_size = Vector2i(32, 32)
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vucup")
+sources/2 = SubResource("TileSetAtlasSource_o7lv7")
 pattern_0 = SubResource("TileMapPattern_nti0c")
 pattern_1 = SubResource("TileMapPattern_7j7oh")
 pattern_2 = SubResource("TileMapPattern_4lhc1")
