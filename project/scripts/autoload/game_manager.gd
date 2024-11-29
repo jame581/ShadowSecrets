@@ -55,4 +55,6 @@ func _on_cheat_timer_timeout() -> void:
 	cheat_timer.stop()
 
 func _trigger_game_end(is_good_ending: bool) -> void:
+	#TODO(Honza): Implement game ending
+	print("Good ending? ", is_good_ending)
 	pass
