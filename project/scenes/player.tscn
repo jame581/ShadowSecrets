@@ -1,14 +1,57 @@
-[gd_scene load_steps=16 format=3 uid="uid://dg2kxws1wrpmu"]
+[gd_scene load_steps=22 format=3 uid="uid://dg2kxws1wrpmu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lc80v"]
+[ext_resource type="Shader" path="res://shaders/player_hit.gdshader" id="2_6kd1n"]
 [ext_resource type="Texture2D" uid="uid://7uixaa32ds4b" path="res://assets/sprites/player/player_fullsprite_final.png" id="2_isfsh"]
 [ext_resource type="Texture2D" uid="uid://dl4x27bry1ryu" path="res://assets/sprites/player/player_death.png" id="3_jmcjl"]
 [ext_resource type="PackedScene" uid="uid://cnq57ucaffmw7" path="res://scenes/components/health_component.tscn" id="3_vunkp"]
 [ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="5_0acjd"]
+[ext_resource type="Animation" uid="uid://c07jiga3mqkjs" path="res://resources/anim/hit_flash.res" id="5_8y4nb"]
 [ext_resource type="Texture2D" uid="uid://cjskqqayyayy4" path="res://assets/sprites/player/goat1.png" id="6_7nihv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5wc8"]
 size = Vector2(20.8333, 32.3333)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mpsg"]
+shader = ExtResource("2_6kd1n")
+shader_parameter/effect_visibility = 0.0
+
+[sub_resource type="Animation" id="Animation_3o8ch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:material:shader_parameter/effect_visibility")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n1a7b"]
+resource_name = "hit_flash"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:material:shader_parameter/effect_visibility")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad858"]
+_data = {
+"RESET": SubResource("Animation_3o8ch"),
+"hit_flash": SubResource("Animation_n1a7b")
+}
 
 [sub_resource type="Animation" id="Animation_piuu1"]
 resource_name = "death"
@@ -271,6 +314,7 @@ tracks/3/keys = {
 _data = {
 "death": SubResource("Animation_piuu1"),
 "falling": SubResource("Animation_laxc7"),
+"hit_flash": ExtResource("5_8y4nb"),
 "idle": SubResource("Animation_v315s"),
 "jump": SubResource("Animation_dry3y"),
 "run": SubResource("Animation_878ls")
@@ -301,8 +345,15 @@ script = ExtResource("1_lc80v")
 shape = SubResource("RectangleShape2D_i5wc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_isfsh")
-hframes = 16
+material = SubResource("ShaderMaterial_4mpsg")
+texture = ExtResource("3_jmcjl")
+hframes = 10
+
+[node name="HitPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_ad858")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

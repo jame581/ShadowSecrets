@@ -27,6 +27,8 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var hit = $HitPlayer
+
 @onready var healt_component = get_node("Components/HealthComponent")
 @onready var god_mode_icon = $PlayerUI/GodModeIcon
 @onready var death_timer = $DeathTimer
@@ -111,6 +113,7 @@ func deal_damage(damage: Insanity.insanity_level) -> void:
 	got_hit = true
 	audio_component.play_random_audio(hurt_sounds)
 	reset_hit_timer.start()
+	hit.play("hit_flash")
 	Insanity.insanity_hit(damage)
 
 func apply_impulse(direction: Vector2, strength: float) -> void:
