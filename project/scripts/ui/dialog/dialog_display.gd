@@ -36,6 +36,8 @@ func show_dialog(dialog_data: Dictionary) -> void:
 	dialog_text.set_text(dialog_data["text"])
 	wait_timer.wait_time = dialog_data["wait_time"] if dialog_data["wait_time"] > 0 else 2.0
 	hide_dialog_after = dialog_data["hide_dialog_after"] if dialog_data.has("hide_dialog_after") else true
+	portrait = dialog_data["portrait"] if dialog_data.has("portrait") else portrait
+
 	animation_player.play("show_dialog")
 	visible = true
 	if !audio_player.is_playing():
@@ -48,6 +50,8 @@ func display_next_message(dialog_data: Dictionary) -> void:
 		dialog_text.set_text(dialog_data["text"])
 		wait_timer.wait_time = dialog_data["wait_time"] if dialog_data["wait_time"] > 0 else 2.0
 		hide_dialog_after = dialog_data["hide_dialog_after"] if dialog_data.has("hide_dialog_after") else true
+		portrait = dialog_data["portrait"] if dialog_data.has("portrait") else portrait
+
 		write_timer.start()
 		dialog_writing = true
 		if !audio_player.is_playing():

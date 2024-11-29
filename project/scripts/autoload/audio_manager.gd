@@ -4,6 +4,7 @@ extends Node2D
 @export var audio_enabled: bool = true
 @export var intro_audio: AudioStream = preload("res://assets/audio/intro.wav")
 @export var main_menu: AudioStream = preload("res://assets/audio/level_draft.wav")
+@export var outro_audio: AudioStream = preload("res://assets/audio/intro.wav")
 @export var main_game: AudioStream
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -33,6 +34,9 @@ func _on_map_changed(map_name: String) -> void:
 		audio_player.play()
 	elif map_name == "res://maps/intro_scene.tscn":
 		audio_player.stream = intro_audio
+		audio_player.play()
+	elif map_name == "res://maps/outro_scene.tscn":
+		audio_player.stream = outro_audio
 		audio_player.play()
 	else:
 		audio_player.stop()

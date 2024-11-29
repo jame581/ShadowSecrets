@@ -3,6 +3,7 @@ extends Area2D
 @export var dialog_text : String = "Hello, world!"
 @export var dialog_wait_time : float = 5.0
 @export var area_active: bool = true
+@export var portrait: Texture = preload("res://assets/sprites/intro/portrait-mc.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,7 @@ func _on_body_entered(body: Node) -> void:
 		var dialog_data: Dictionary = {
 			"text": dialog_text,
 			"wait_time": dialog_wait_time,
-			"hide_dialog_after": true
+			"hide_dialog_after": true,
+			"portrait": portrait
 		}
 		DialogManager.emit_signal("show_dialog", dialog_data)
