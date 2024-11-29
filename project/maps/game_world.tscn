@@ -579,13 +579,6 @@ text = "A computer that gives the player the info he is looking for and that lif
 
 [node name="DialogDisplay" parent="UI/DialogLayer" instance=ExtResource("15_wxbvc")]
 
-[node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
-animation_speed = 3.0
-
-[node name="GameOverMenu" parent="UI" instance=ExtResource("17_6cxgh")]
-layer = 2
-visible = false
-
 [node name="InsanityLayer" type="CanvasLayer" parent="UI"]
 
 [node name="InsanityEffect" type="ColorRect" parent="UI/InsanityLayer"]
@@ -599,6 +592,13 @@ offset_bottom = -479.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
+
+[node name="InGameMenu" parent="UI" instance=ExtResource("9_8ih2t")]
+animation_speed = 3.0
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("17_6cxgh")]
+layer = 2
+visible = false
 
 [node name="Dialogs" type="Node" parent="."]
 
