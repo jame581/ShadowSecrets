@@ -6,7 +6,11 @@ class_name Laser
 @export var impulse_strength: float = 500.0  # Strength of the impulse applied to the player
 @export var damage: Insanity.insanity_level = Insanity.insanity_level.MEDIUM
 
+@export var obstacle: NavigationObstacle2D = null
+
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	if	active:
@@ -30,9 +34,13 @@ func _on_area_2d_body_entered(body):
 
 func enable():
 	animation_player.play("enable")
+	if obstacle:
+		obstacle.set_affect_navigation_mesh(true)
 
 func disable():
 	animation_player.play("disable")
+	if obstacle:
+		obstacle.set_affect_navigation_mesh(false)
 
 func apply_impulse_to_player(body: CharacterBody2D) -> void:
 	if body is CharacterBody2D:
