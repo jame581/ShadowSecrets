@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn8tjajvnx0sy"]
+
+[ext_resource type="Script" path="res://scripts/game_end_trigger.gd" id="1_b15o6"]
+[ext_resource type="Shader" path="res://shaders/game_end_trigger.gdshader" id="2_kjo21"]
+[ext_resource type="Texture2D" uid="uid://cd3wvdla3ic5q" path="res://assets/sprites/devices/button/button_mask.png" id="3_vrcid"]
+[ext_resource type="Texture2D" uid="uid://dokses1033m3a" path="res://assets/sprites/devices/button/exit_button_base2.png" id="4_hdm17"]
+[ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="5_fmpkk"]
+[ext_resource type="AudioStream" uid="uid://ceu8lgm30cyfy" path="res://assets/audio/devices/stellarsecrets_sfx_keypad.wav" id="6_qby07"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlu6p"]
+shader = ExtResource("2_kjo21")
+shader_parameter/enabled_color = Color(0.235294, 0.368627, 0.545098, 1)
+shader_parameter/mask = ExtResource("3_vrcid")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng0dw"]
+radius = 15.0
+
+[node name="GameEndTrigger" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_b15o6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dlu6p")
+texture = ExtResource("4_hdm17")
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_fmpkk")]
+visible = false
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_ng0dw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qby07")
+volume_db = -5.0
+attenuation = 10.0
+
+[connection signal="interacted" from="InteractionArea" to="." method="_on_interacted"]
