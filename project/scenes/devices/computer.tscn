@@ -1,10 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://q8dw4ye7cbwj"]
+[gd_scene load_steps=12 format=3 uid="uid://q8dw4ye7cbwj"]
 
 [ext_resource type="Script" path="res://scripts/device/computer.gd" id="1_wq7yf"]
+[ext_resource type="Texture2D" uid="uid://c6xxeo3xy6cnd" path="res://assets/sprites/devices/terminal/terminal.png" id="2_mxa13"]
 [ext_resource type="PackedScene" uid="uid://dvmiriiudw1cj" path="res://scenes/interaction_area.tscn" id="5_hkrk0"]
-[ext_resource type="Shader" path="res://shaders/device.gdshader" id="5_pb47y"]
-[ext_resource type="Texture2D" uid="uid://dogkog2ojdrho" path="res://assets/sprites/devices/computer/computer_mask.png" id="6_klu8o"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="7_kddlw"]
 
 [sub_resource type="Animation" id="Animation_67iov"]
 length = 0.001
@@ -90,15 +88,8 @@ _data = {
 "sequence3": SubResource("Animation_qcr14")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7sle6"]
-shader = ExtResource("5_pb47y")
-shader_parameter/disabled_color = Color(0, 0, 0, 1)
-shader_parameter/enabled_color = Color(0, 1, 0, 1)
-shader_parameter/enabled = 0.3
-shader_parameter/mask = ExtResource("6_klu8o")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_tit6n"]
-radius = 15.0
+radius = 20.0
 
 [node name="Computer" type="Node2D"]
 scale = Vector2(2, 2)
@@ -110,9 +101,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_7sle6")
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_kddlw")
+texture = ExtResource("2_mxa13")
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_hkrk0")]
 collision_layer = 3
