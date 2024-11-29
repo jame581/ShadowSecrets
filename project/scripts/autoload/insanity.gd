@@ -37,11 +37,6 @@ func _ready():
 	if	get_viewport() && get_viewport().get_camera_2d():
 		# print("get_viewport: " + str(get_viewport()), "get_camera_2d: " + str(get_viewport().get_camera_2d()), "get_node: " + str(get_viewport().get_camera_2d().get_child("CameraShaker")))
 		camera_shaker = get_viewport().get_camera_2d().get_node_or_null("CameraShaker")
-	else:
-		if $CanvasLayer:
-			$CanvasLayer/InsanityEffect.visible = false
-		if $CanvasLayer2:
-			$CanvasLayer2/RedFlash.visible = false
 
 # Function to handle insanity hit
 func insanity_hit(hit_level: insanity_level) -> void:
