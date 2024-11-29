@@ -1,18 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cewcfwuxepd6k"]
+[gd_scene load_steps=6 format=3 uid="uid://cewcfwuxepd6k"]
 
 [ext_resource type="Script" path="res://scripts/autoload/insanity.gd" id="1_bkady"]
 [ext_resource type="Shader" path="res://shaders/damage_hit.gdshader" id="2_y81i8"]
-[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="3_hk7ta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m32q3"]
 shader = ExtResource("2_y81i8")
 shader_parameter/effect_visibility = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rctby"]
-shader = ExtResource("3_hk7ta")
-shader_parameter/STATIC_GRANULARITY = 0.002
-shader_parameter/EDGE_BLUR = 1.0
-shader_parameter/BORDER_SIZE = 0.3
 
 [sub_resource type="Animation" id="Animation_p8ehv"]
 resource_name = "hit"
@@ -37,28 +30,14 @@ _data = {
 
 [node name="Insanity" type="Node2D"]
 script = ExtResource("1_bkady")
-insanity_min = null
-insanity_max = null
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="RedFlash" type="ColorRect" parent="CanvasLayer2"]
+visible = false
 visibility_layer = 7
 material = SubResource("ShaderMaterial_m32q3")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -853.0
-offset_bottom = -479.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="InsanityEffect" type="ColorRect" parent="CanvasLayer"]
-z_index = 1250
-material = SubResource("ShaderMaterial_rctby")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

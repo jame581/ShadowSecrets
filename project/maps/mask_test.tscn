@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://guxwqtg6a5b5"]
+[gd_scene load_steps=24 format=4 uid="uid://guxwqtg6a5b5"]
 
 [ext_resource type="TileSet" uid="uid://h2omh7nvr747" path="res://resources/tileset/tiles_assets_1_x2.tres" id="2_wcapp"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="3_vxavp"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b5lwirq8hdc8r" path="res://scenes/ui/in_game_menu.tscn" id="16_vc1rn"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_0jkqd"]
 [ext_resource type="PackedScene" uid="uid://q8dw4ye7cbwj" path="res://scenes/devices/computer.tscn" id="17_uji4i"]
+[ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="17_xemyu"]
 
 [sub_resource type="Animation" id="Animation_nilu4"]
 resource_name = "hit_effect"
@@ -48,6 +49,12 @@ _data = {
 "shake_high": SubResource("Animation_t8wib"),
 "shake_medium": SubResource("Animation_fk851")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t00k1"]
+shader = ExtResource("17_xemyu")
+shader_parameter/STATIC_GRANULARITY = 0.002
+shader_parameter/EDGE_BLUR = 1.0
+shader_parameter/BORDER_SIZE = 0.3
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(664, -260)
@@ -239,8 +246,6 @@ insanity_type = 2
 [node name="DialogDisplay" type="CanvasLayer" parent="UI"]
 
 [node name="DialogDisplay" parent="UI/DialogDisplay" instance=ExtResource("15_gasls")]
-offset_top = 5.0
-offset_bottom = 175.0
 
 [node name="InGameMenu" parent="UI" instance=ExtResource("16_vc1rn")]
 visible = false
@@ -248,6 +253,20 @@ visible = false
 [node name="GameOverMenu" parent="UI" instance=ExtResource("17_0jkqd")]
 layer = 128
 visible = false
+
+[node name="InsanityLayer" type="CanvasLayer" parent="UI"]
+
+[node name="InsanityEffect" type="ColorRect" parent="UI/InsanityLayer"]
+z_index = 1250
+material = SubResource("ShaderMaterial_t00k1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -853.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
 
 [node name="Computer" parent="." node_paths=PackedStringArray("interactable_devices") instance=ExtResource("17_uji4i")]
 position = Vector2(-188, 25)
