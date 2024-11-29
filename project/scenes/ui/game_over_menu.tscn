@@ -102,10 +102,6 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="LastCheckpointButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-text = "last checkpoint"
-
 [node name="RestartLevelButton" type="Button" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Restart"
@@ -119,7 +115,6 @@ libraries = {
 "": SubResource("AnimationLibrary_e6tno")
 }
 
-[connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/LastCheckpointButton" to="." method="_on_last_checkpoint_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer2/VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

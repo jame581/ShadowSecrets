@@ -11,10 +11,6 @@ func _ready() -> void:
 	GameManager.game_is_over.connect(handle_game_over)
 
 
-func _on_last_checkpoint_button_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_restart_level_button_pressed() -> void:
 	visible = false
 	Global.restart_current_scene()
