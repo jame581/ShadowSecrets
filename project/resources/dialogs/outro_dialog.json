@@ -6,7 +6,6 @@
             "hide_dialog_after": false,
             "animation": "intro_start",
             "animation2": "ship_movement"
-            "portrait": ""
         },
         {
             "text": "My dearest daughter was part of a secret government research to create super-humans and it didn’t end well. It never does.",
@@ -18,14 +17,14 @@
             "text": "  ",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "daughter",
-            "animation2": "fade"
+            "animation2": "fade_in"
         },
         {
             "text": "She is now roaming her beloved laboratory turned into a monster. And all I have left is a story that will shake all the planets inhabited by humans to the core.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "daughter"
+            "animation": "daughter",
+            "animation2": "fade_out"
         },
         {
             "text": "I don’t care what comes after that, It will be my last piece and I will make every word count.",
@@ -37,13 +36,14 @@
             "text": "  ",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation2": "fade"
+            "animation2": "fade_in"
         },
         {
             "text": "Few weeks later",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "newspaper"
+            "animation": "newspaper",
+            "animation2": "fade_out"
         },
         {
             "text": "Visions from Charon still haunt me, but I finished it. It came out today in all the important newspapers. I didn’t take any money for it - I will not need them anymore.",
