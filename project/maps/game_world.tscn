@@ -70,7 +70,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ud8i4"]
 shader = ExtResource("20_x8hxt")
 shader_parameter/STATIC_GRANULARITY = 0.002
-shader_parameter/EDGE_BLUR = 1.0
+shader_parameter/EDGE_BLUR = 1.25
 shader_parameter/BORDER_SIZE = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxqp"]

@@ -53,7 +53,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t00k1"]
 shader = ExtResource("17_xemyu")
 shader_parameter/STATIC_GRANULARITY = 0.002
-shader_parameter/EDGE_BLUR = 1.0
+shader_parameter/EDGE_BLUR = 1.25
 shader_parameter/BORDER_SIZE = 0.3
 
 [node name="Node2D" type="Node2D"]

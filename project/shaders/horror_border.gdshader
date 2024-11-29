@@ -1,7 +1,7 @@
 shader_type canvas_item;
 const float UPDATE_INTERVAL = .163;
 uniform float STATIC_GRANULARITY = .002;
-uniform float EDGE_BLUR = 1.0;
+uniform float EDGE_BLUR = 1.25;
 uniform float BORDER_SIZE = .3;
 
 global uniform float insanity = 0.0;
@@ -30,7 +30,7 @@ void fragment() {
 
 	vec3 static_plot = vec3(generate_random_static(STATIC_GRANULARITY,UPDATE_INTERVAL,UV));
 
-	vec2 c1 = vec2(0.5,0.65);
+	vec2 c1 = vec2(0.5,0.6);
 	vec2 pv1 = get_polar_coords(c1,UV);
 	float func = insanity_border_size-.015*cos(10.0*pv1.y);
 	float border_plot = smoothstep(func,func+insanity_edge_blur, pv1.x);
