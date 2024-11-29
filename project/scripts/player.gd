@@ -79,14 +79,21 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, player_speed)
 
+	if is_dead:
+		direction = 0
+		jump_pressed = false
+		velocity = Vector2.ZERO
+		#velocity.x = move_toward(velocity.x, 0, player_speed)
+
 	select_animation(direction)
 	flip_sprite_by_direction()
 	move_and_slide()
 
 func select_animation(direction) -> void:
 	if is_dead:
-		animation_player.play("death")
-	elif jump_pressed:
+		return
+
+	if jump_pressed:
 		animation_player.play("jump")
 	elif falling:
 		animation_player.play("falling")
@@ -137,6 +144,7 @@ func _handle_insanity_changed(new_insanity: float) -> void:
 	if new_insanity >= 1.0:
 		print("Player died")
 		is_dead = true
+		animation_player.play("death")
 		audio_component.play_audio(death_sound)
 		death_timer.start()
 
