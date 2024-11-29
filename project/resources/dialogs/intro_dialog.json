@@ -34,19 +34,20 @@
             "text": "Years of journalist practice teached me to know when something is off.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "fade_in"
+            "animation2": "GlobalAnimation/fade_in"
         },
         {
             "text": "I have managed to get a ride on a supply shuttle that was sent to the station. The shuttle is about to dock.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "intro_2_animation"
+            "animation": "intro_2_animation",
+            "animation2": "GlobalAnimation/fade_out"
         },
         {
             "text": "When exiting the shuttle I notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "fade_out"
+            "animation": "intro_2_animation"
         },
         {
             "text": "Why was the supply shuttle even able to dock here? That is a question for later. I have to find out what happened here, and find my girl if possible.",

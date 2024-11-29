@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://duy1vdeh7bpf7"]
+[gd_scene load_steps=16 format=3 uid="uid://duy1vdeh7bpf7"]
 
 [ext_resource type="PackedScene" uid="uid://dnrarc37sqtj6" path="res://scenes/ui/dialog_player.tscn" id="1_h4nyc"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="2_k1cft"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://n5btws880a4b" path="res://assets/sprites/intro/space_1.png" id="3_lrn7e"]
 [ext_resource type="Texture2D" uid="uid://c62fo0a1blu2k" path="res://assets/sprites/intro/intro_space_station_2.png" id="4_w4q2u"]
 [ext_resource type="Texture2D" uid="uid://bchipivvlbfcc" path="res://assets/sprites/intro/draft-intro-2.png" id="5_3qexn"]
+[ext_resource type="Animation" uid="uid://i534ayybgd83" path="res://resources/anim/fade_in.res" id="5_u5sxo"]
+[ext_resource type="Animation" uid="uid://p24v84du716s" path="res://resources/anim/fade_out.res" id="6_1q2hs"]
 [ext_resource type="Texture2D" uid="uid://g6vnwnilddpy" path="res://assets/sprites/intro/space_2.png" id="7_ucm48"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_035od"]
@@ -96,36 +98,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_egtv2"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Story/Fade:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_57of2"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Story/Fade:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_fen8x"]
@@ -234,20 +206,27 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m2fh"]
 _data = {
 "RESET": SubResource("Animation_vlhle"),
-"fade_in": SubResource("Animation_egtv2"),
-"fade_out": SubResource("Animation_57of2"),
+"fade_in": ExtResource("5_u5sxo"),
+"fade_out": ExtResource("6_1q2hs"),
 "intro_2_animation": SubResource("Animation_fen8x"),
 "intro_animation": SubResource("Animation_vgjcm")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhqv3"]
+_data = {
+"fade_in": ExtResource("5_u5sxo"),
+"fade_out": ExtResource("6_1q2hs")
 }
 
 [node name="IntroScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player") instance=ExtResource("1_h4nyc")]
+[node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player", "animation_player2") instance=ExtResource("1_h4nyc")]
 dialog_display = NodePath("../DialogUI/DialogDisplay")
 load_level_after = "res://maps/game_world.tscn"
 animation_player = NodePath("../AnimationPlayer")
+animation_player2 = NodePath("../AnimationPlayer2")
 
 [node name="Story" type="CanvasLayer" parent="."]
 
@@ -286,3 +265,8 @@ libraries = {
 "": SubResource("AnimationLibrary_0m2fh")
 }
 autoplay = "intro_animation"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"GlobalAnimation": SubResource("AnimationLibrary_rhqv3")
+}
