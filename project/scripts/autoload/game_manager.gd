@@ -53,3 +53,6 @@ func _on_cheat_timer_timeout() -> void:
 	print("Cheat codes cleared")
 	print("God mode is now: ", is_god_mode)
 	cheat_timer.stop()
+
+func _trigger_game_end(is_good_ending: bool) -> void:
+	pass
