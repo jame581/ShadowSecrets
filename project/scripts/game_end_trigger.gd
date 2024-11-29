@@ -17,6 +17,11 @@ func _ready():
 func _on_interacted():
 	collision.disabled = true
 	print("You triggered the game end of type: ", "Bad" if EndType == 1 else "Good")
+
+	# if EndType == 0:
+	# 	audio.stream = GameManager.outro_audio
+	# else:
 	#global here
 	#GameManager.TriggerGameEnd(EndType)
+	Global.goto_scene("res://maps/outro_scene.tscn")
 		
