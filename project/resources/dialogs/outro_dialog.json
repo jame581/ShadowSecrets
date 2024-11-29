@@ -74,6 +74,12 @@
             "wait_time": 1,
             "hide_dialog_after": false,
             "animation": "newspaper"
+        },
+        {
+            "text": " ",
+            "wait_time": 10,
+            "hide_dialog_after": true,
+            "animation": "thank_you"
         }
     ]
 }
