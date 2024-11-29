@@ -3,7 +3,7 @@ class_name Laser
 
 @export_group("Laser Properties")
 @export var active: bool = false
-@export var impulse_strength: float = 500.0  # Strength of the impulse applied to the player
+@export var impulse_strength: float = 300.0  # Strength of the impulse applied to the player
 @export var damage: Insanity.insanity_level = Insanity.insanity_level.MEDIUM
 
 @export var obstacle: NavigationObstacle2D = null

@@ -128,7 +128,7 @@ func apply_impulse(direction: Vector2, strength: float) -> void:
 		return
 
 	explosion_impulse += direction.normalized() * strength
-	explosion_ticks = 10
+	explosion_ticks = 4
 
 func process_explosion():
 	explosion_ticks = explosion_ticks - 1

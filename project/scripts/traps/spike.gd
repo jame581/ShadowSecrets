@@ -6,7 +6,7 @@ class_name Spike
 @export var active: bool = false
 @export var damage: Insanity.insanity_level = Insanity.insanity_level.LOW
 @export var timer_duration: float = 1.0
-@export var impulse_strength: float = 500.0
+@export var impulse_strength: float = 300.0
 
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
