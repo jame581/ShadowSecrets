@@ -1,0 +1,79 @@
+{
+    "dialogs": [
+        {
+            "text": "I barely escaped Charon station, but some part of me remained there.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "intro_start",
+            "animation2": "ship_movement"
+            "portrait": ""
+        },
+        {
+            "text": "My dearest daughter was part of a secret government research to create super-humans and it didn’t end well. It never does.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "intro_start"
+        },
+        {
+            "text": "  ",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "daughter",
+            "animation2": "fade"
+        },
+        {
+            "text": "She is now roaming her beloved laboratory turned into a monster. And all I have left is a story that will shake all the planets inhabited by humans to the core.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "daughter"
+        },
+        {
+            "text": "I don’t care what comes after that, It will be my last piece and I will make every word count.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "daughter"            
+        },
+        {
+            "text": "  ",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation2": "fade"
+        },
+        {
+            "text": "Few weeks later",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        },
+        {
+            "text": "Visions from Charon still haunt me, but I finished it. It came out today in all the important newspapers. I didn’t take any money for it - I will not need them anymore.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        },
+        {
+            "text": "It is only a matter of time before the government will send some men in black to get me and take me somewhere where nobody will find me.",
+            "wait_time": 2,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        },
+        {
+            "text": "A quick fake trial and lifetime in some mining colony is the best I can hope for.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        },
+        {
+            "text": " On the other hand I don’t think it will come to that. I am pretty sure, someone will kill me before that. I uncovered too much.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        },
+        {
+            "text": "Maybe I should have stayed on Charon with my daughter and die there. Maybe some secrets are better left uncovered. I hope at least someone will learn from my mistakes.",
+            "wait_time": 1,
+            "hide_dialog_after": false,
+            "animation": "newspaper"
+        }
+    ]
+}

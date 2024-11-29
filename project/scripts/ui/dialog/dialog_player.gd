@@ -5,6 +5,7 @@ extends Node2D
 @export var start_wait_time: float = 2.0
 @export var load_level_after: String = "res://maps/game_world.tscn"
 @export var animation_player: AnimationPlayer
+@export var animation_player2: AnimationPlayer
 @export_file("*.json") var dialog_text_file
 # @export_multiline var dialog_text: String = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc."
 
@@ -57,8 +58,10 @@ func next_message() -> void:
 	print("Dialog Player - Dialog index: " + str(dialog_index), " dialog data size: " + str(dialogs_data.size()))
 	if dialog_index < dialogs_data.size():
 		dialog_display.display_next_message(dialogs_data[dialog_index])
-		if dialogs_data[dialog_index].has("animation"):
+		if dialogs_data[dialog_index].has("animation") and animation_player != null:
 			animation_player.play(dialogs_data[dialog_index]["animation"])
+		if dialogs_data[dialog_index].has("animation2") and animation_player2 != null:
+			animation_player2.play(dialogs_data[dialog_index]["animation2"])
 		dialog_index += 1
 	else:
 		print("No dialog data to display")

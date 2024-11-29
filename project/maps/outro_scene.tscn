@@ -1,0 +1,332 @@
+[gd_scene load_steps=19 format=3 uid="uid://wvou4pnfkcpx"]
+
+[ext_resource type="PackedScene" uid="uid://dnrarc37sqtj6" path="res://scenes/ui/dialog_player.tscn" id="1_ahlts"]
+[ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="2_ma1lu"]
+[ext_resource type="Texture2D" uid="uid://yodln30x5j0d" path="res://assets/sprites/intro/intro_space_station_1.png" id="2_sel8v"]
+[ext_resource type="Texture2D" uid="uid://n5btws880a4b" path="res://assets/sprites/intro/space_1.png" id="3_sv14t"]
+[ext_resource type="Texture2D" uid="uid://c62fo0a1blu2k" path="res://assets/sprites/intro/intro_space_station_2.png" id="5_6ng62"]
+[ext_resource type="Texture2D" uid="uid://g6vnwnilddpy" path="res://assets/sprites/intro/space_2.png" id="6_vp0gx"]
+[ext_resource type="Texture2D" uid="uid://bxrykcf0cvxhx" path="res://assets/sprites/outro/ending_stse.png" id="7_7c283"]
+[ext_resource type="Texture2D" uid="uid://ca15jr67mkitf" path="res://assets/sprites/outro/daughter.png" id="7_no56l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnb6u"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_j28lv"]
+resource_name = "intro_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Story:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_sel8v"), ExtResource("5_6ng62")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/SpaceShip:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_sv14t"), ExtResource("6_vp0gx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Story/SpaceShip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Story/Panel:theme_override_styles/panel:bg_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yrjoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Story:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_sel8v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/SpaceShip:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_sv14t")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Story/SpaceShip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Story/Panel:theme_override_styles/panel:bg_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v8fv8"]
+resource_name = "daughter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Story:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_no56l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/SpaceShip:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hylrr"]
+resource_name = "newspaper"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Story:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7c283")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu677"]
+_data = {
+"RESET": SubResource("Animation_yrjoe"),
+"daughter": SubResource("Animation_v8fv8"),
+"intro_start": SubResource("Animation_j28lv"),
+"newspaper": SubResource("Animation_hylrr")
+}
+
+[sub_resource type="Animation" id="Animation_5koo4"]
+resource_name = "ship_movement"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/SpaceShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 2.82843, 1, 2.07053),
+"update": 0,
+"values": [Vector2(606, 400), Vector2(276, 456), Vector2(325, 216), Vector2(509, 72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/SpaceShip:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.185005, 0.185005, 0.436332, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Story/SpaceShip:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_pcx0n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/SpaceShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(606, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Story/SpaceShip:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.185005]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Story/SpaceShip:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Story/Panel:theme_override_styles/panel:bg_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_70dr8"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75l6k"]
+_data = {
+"RESET": SubResource("Animation_pcx0n"),
+"fade": SubResource("Animation_70dr8"),
+"ship_movement": SubResource("Animation_5koo4")
+}
+
+[node name="OutroScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DialogPlayer" parent="." node_paths=PackedStringArray("dialog_display", "animation_player", "animation_player2") instance=ExtResource("1_ahlts")]
+dialog_display = NodePath("../DialogUI/DialogDisplay")
+start_wait_time = 2.0
+load_level_after = "res://maps/main_menu.tscn"
+animation_player = NodePath("../AnimationPlayer")
+animation_player2 = NodePath("../AnimationPlayer2")
+dialog_text_file = "res://resources/dialogs/outro_dialog.json"
+
+[node name="Story" type="CanvasLayer" parent="."]
+
+[node name="Story" type="TextureRect" parent="Story"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sel8v")
+stretch_mode = 5
+
+[node name="SpaceShip" type="TextureRect" parent="Story"]
+visible = false
+offset_left = 606.0
+offset_top = 400.0
+offset_right = 670.0
+offset_bottom = 464.0
+rotation = -0.185005
+texture = ExtResource("3_sv14t")
+
+[node name="Panel" type="Panel" parent="Story"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pnb6u")
+
+[node name="DialogUI" type="CanvasLayer" parent="."]
+
+[node name="DialogDisplay" parent="DialogUI" instance=ExtResource("2_ma1lu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uu677")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_75l6k")
+}
