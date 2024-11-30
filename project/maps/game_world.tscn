@@ -601,7 +601,7 @@ visible = false
 
 [node name="FirstDialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
 position = Vector2(-262, 1391)
-dialog_text = "What the hell has happened here? Oh no, the station is in lockdown? There is no coming back then, is it?"
+dialog_text = "What the hell has happened here? Seems like I am stuck here unless I find a way to lift the lockdown."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/FirstDialogue"]
 position = Vector2(14.5, -28)
