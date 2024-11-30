@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c5axaiw7rtlyh"]
+[gd_scene load_steps=20 format=4 uid="uid://c5axaiw7rtlyh"]
 
 [ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_q6mlg"]
 [ext_resource type="TileSet" uid="uid://bx3iysb7gq8vc" path="res://resources/tileset/32_32/tile_set_assets_station.tres" id="3_12q0u"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="9_d3q1n"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_fb264"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="11_joxlp"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="12_4umw1"]
 [ext_resource type="Texture2D" uid="uid://u0ple2pi0a24" path="res://assets/sprites/intro/portrait-AI.png" id="13_20kfp"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="13_r55p8"]
 [ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="14_w38f8"]
@@ -23,6 +24,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-352, 466, 488, 470, 46
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bw3t"]
 size = Vector2(75, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4nvs"]
+size = Vector2(50, 50)
 
 [node name="LevelPrototype" type="Node2D"]
 
@@ -137,6 +141,7 @@ end_position = Vector2(-33, -24)
 [node name="DialogArea" parent="Dialogs" instance=ExtResource("13_r55p8")]
 position = Vector2(883, 450)
 dialog_text = "Hello boy. I'm a sexy demon AI. You can not beat me... ha ha ha..."
+portrait = ExtResource("13_20kfp")
 
 [node name="ComputerBase" type="Sprite2D" parent="Dialogs/DialogArea"]
 position = Vector2(-3, -26)
@@ -144,6 +149,33 @@ texture = ExtResource("14_w38f8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 shape = SubResource("RectangleShape2D_0bw3t")
+
+[node name="DialogArea2" parent="Dialogs" instance=ExtResource("13_r55p8")]
+position = Vector2(124, 447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea2"]
+shape = SubResource("RectangleShape2D_q4nvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialogs/DialogArea2"]
+texture = ExtResource("12_4umw1")
+
+[node name="DialogArea3" parent="Dialogs" instance=ExtResource("13_r55p8")]
+position = Vector2(-115, 447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea3"]
+shape = SubResource("RectangleShape2D_q4nvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialogs/DialogArea3"]
+texture = ExtResource("12_4umw1")
+
+[node name="DialogArea4" parent="Dialogs" instance=ExtResource("13_r55p8")]
+position = Vector2(302, 447)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea4"]
+shape = SubResource("RectangleShape2D_q4nvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dialogs/DialogArea4"]
+texture = ExtResource("12_4umw1")
 
 [node name="UI" type="Node" parent="."]
 

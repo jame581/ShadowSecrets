@@ -21,6 +21,9 @@ var hide_dialog_after: bool = false
 var dialog_writing: bool = false
 var dialog_shown: bool = false
 
+var dialog_playing: bool = false
+var dialog_queue: Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
@@ -30,6 +33,12 @@ func _ready() -> void:
 
 
 func show_dialog(dialog_data: Dictionary) -> void:
+	print("Dialog Display - Showing dialog")
+	if dialog_playing:
+		dialog_queue.append(dialog_data)
+		return
+	
+	dialog_playing = true
 	print("Dialog received: " + dialog_data["text"])
 	dialog_image.texture = ai_image_off
 	dialog_text.set_visible_characters(0)
@@ -45,6 +54,7 @@ func show_dialog(dialog_data: Dictionary) -> void:
 
 
 func display_next_message(dialog_data: Dictionary) -> void:
+	print("Dialog Display - Displaying next message")
 	if visible:
 		dialog_text.set_visible_characters(0)
 		dialog_text.set_text(dialog_data["text"])
@@ -61,12 +71,13 @@ func display_next_message(dialog_data: Dictionary) -> void:
 
 
 func hide_dialog() -> void:
-	animation_player.play_backwards("show_dialog")
+	animation_player.play("hide_dialog")
 	dialog_image.texture = ai_image_off
 	write_timer.stop()
 	wait_timer.stop()
 	audio_player.stop()
 	dialog_shown = false
+	dialog_playing = false
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
@@ -75,7 +86,17 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		dialog_writing = true
 		dialog_image.texture = portrait
 		dialog_shown = true
+	elif anim_name == "hide_dialog":
+		dialog_writing = false
+		dialog_shown = false
+		check_next_message()
 
+func check_next_message() -> void:
+	print("Dialog Display - Checking next message")
+	if dialog_queue.size() > 0:
+		show_dialog(dialog_queue.pop_front())
+	else:
+		dialog_playing = false
 
 func _on_write_timer_timeout() -> void:
 	dialog_text.visible_characters += 1
