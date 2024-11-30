@@ -1,8 +1,7 @@
 [gd_scene load_steps=40 format=4 uid="uid://cuwxu7riacm8s"]
 
+[ext_resource type="Texture2D" uid="uid://gai3v5do08ox" path="res://assets/sprites/backgrounds/spaaaaace2.png" id="1_6mrx7"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
-[ext_resource type="Texture2D" uid="uid://cciq2tpkk56bg" path="res://assets/sprites/backgrounds/background_tile.png" id="1_igrcl"]
-[ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_klita"]
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://tgubpw1as5sy" path="res://resources/tileset/tiles_background_walls.tres" id="4_4r78f"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="4_lrov0"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8tjajvnx0sy" path="res://scenes/devices/game_end_trigger.tscn" id="15_xitvj"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
+[ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="19_elcpj"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="20_x8hxt"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
@@ -103,9 +103,9 @@ size = Vector2(265, 209)
 size = Vector2(358, 292)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wh805"]
-vertices = PackedVector2Array(-5623, 309.93, -5623, 376, -5926.11, 376, -5926.88, 308.063, 77.4375, 321.523, -309.367, 322.469, -312.109, 249.977, 77.0469, 249.508, -34.0703, 204.063, -382.344, 206.43, -381.641, 161.383, -34.4219, 157.117, 79.3828, 84.0703, -740.938, 90.4219, -740.547, 15.9766, 78.6094, 15.0078, -2801, -380.477, -3617, -379.508, -3617, -482.063, -2801, -487.43)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-750.5, 6, -751, 100.5, 89.5, 94, 88.5, 5), PackedVector2Array(-391.5, 151.5, -392.5, 216.5, -24, 214, -24.5, 147), PackedVector2Array(-5613, 386, -5613, 300, -5937, 298, -5936, 386), PackedVector2Array(-2791, -370.5, -3627, -369.5, -3627, -492, -2791, -497.5), PackedVector2Array(87.5, 331.5, 87, 239.5, -322.5, 240, -319, 332.5)])
+vertices = PackedVector2Array(-5623, 309.93, -5623, 376, -5926.11, 376, -5926.88, 308.063, 77.4375, 321.523, -309.367, 322.469, -312.109, 249.977, 77.0469, 249.508, -5628.5, 211.852, -5628.5, 267.328, -5712.3, 270.148, -5711.18, 210.641, -34.0703, 204.063, -382.344, 206.43, -381.641, 161.383, -34.4219, 157.117, 79.3828, 84.0703, -740.938, 90.4219, -740.547, 15.9766, 78.6094, 15.0078, -2801, -380.477, -3617, -379.508, -3617, -482.063, -2801, -487.43)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 21, 22, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-750.5, 6, -751, 100.5, 89.5, 94, 88.5, 5), PackedVector2Array(-391.5, 151.5, -392.5, 216.5, -24, 214, -24.5, 147), PackedVector2Array(-5613, 386, -5613, 300, -5937, 298, -5936, 386), PackedVector2Array(-2791, -370.5, -3627, -369.5, -3627, -492, -2791, -497.5), PackedVector2Array(87.5, 331.5, 87, 239.5, -322.5, 240, -319, 332.5), PackedVector2Array(-5618.5, 277, -5618.5, 202, -5721, 200.5, -5722.5, 280.5)])
 
 [node name="GameWorld" type="Node2D"]
 
@@ -113,24 +113,16 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-750.5, 6, -751, 100.5,
 position = Vector2(640, 360)
 
 [node name="SpaceParallax2D" type="Parallax2D" parent="ParallaxBackground"]
-repeat_size = Vector2(320, 180)
+scroll_offset = Vector2(-17, -75)
+repeat_size = Vector2(800, 400)
 autoscroll = Vector2(10, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SpaceParallax2D"]
-texture = ExtResource("1_klita")
-
-[node name="WallParallax2D" type="Parallax2D" parent="ParallaxBackground"]
-visible = false
-clip_children = 1
-repeat_size = Vector2(32, 32)
-repeat_times = 90
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/WallParallax2D"]
-texture = ExtResource("1_igrcl")
+texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5612, -277)
+position = Vector2(-561, 1372)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -145,7 +137,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
-position = Vector2(5612, -277)
+position = Vector2(-561, 1372)
 player_speed = 500
 jump_velocity = -700
 
@@ -179,7 +171,7 @@ tile_set = ExtResource("8_cutgq")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="CoruptedEnemy" parent="Enemies" instance=ExtResource("7_4kl4j")]
-position = Vector2(-4967, 557)
+position = Vector2(-4966, 409)
 scale = Vector2(3, 3)
 attack_range = 75
 
@@ -538,6 +530,14 @@ enabled = true
 position = Vector2(2915, 1439)
 scale = Vector2(2, 2)
 enabled = true
+
+[node name="Trap" parent="Traps" instance=ExtResource("19_elcpj")]
+position = Vector2(-5127, 634)
+timer_duration = 2.0
+
+[node name="Trap2" parent="Traps" instance=ExtResource("19_elcpj")]
+position = Vector2(-5376, 634)
+timer_duration = 2.0
 
 [node name="Tutorial notes" type="Node" parent="."]
 

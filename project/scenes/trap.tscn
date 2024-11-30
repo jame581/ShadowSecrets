@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ceu8lgm30cyfy" path="res://assets/audio/devices/stellarsecrets_sfx_keypad.wav" id="5_l138p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rpnfr"]
-radius = 50.0
+radius = 146.342
 
 [sub_resource type="Animation" id="Animation_hsytv"]
 length = 0.001
