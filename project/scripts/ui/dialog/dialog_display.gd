@@ -49,8 +49,6 @@ func show_dialog(dialog_data: Dictionary) -> void:
 
 	animation_player.play("show_dialog")
 	visible = true
-	if !audio_player.is_playing():
-		audio_player.play()
 
 
 func display_next_message(dialog_data: Dictionary) -> void:
@@ -86,6 +84,8 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		dialog_writing = true
 		dialog_image.texture = portrait
 		dialog_shown = true
+		if !audio_player.is_playing():
+			audio_player.play()
 	elif anim_name == "hide_dialog":
 		dialog_writing = false
 		dialog_shown = false
