@@ -20,7 +20,7 @@ var insanity_change_medium: float = 0.15
 var insanity_change_high: float = 0.25
 
 var camera_shaker: AnimationPlayer = null
-@onready var screen_effects: AnimationPlayer = $ScreenEffects
+@onready var insanity_effects_player: AnimationPlayer = $InsanityEffects
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,8 +53,8 @@ func insanity_hit(hit_level: insanity_level) -> void:
 	increase_insanity(insanity_change)
 
 	# Shake the camera if the insanity is high
-	if insanity >= 0.75:
-		shake_camera()
+	if insanity >= 0.70:
+		play_near_death_effect()
 
 	# Play the hit effect
 	hit_effect()
@@ -83,7 +83,7 @@ func _on_insanity_timer_timeout() -> void:
 		increase_insanity(-0.02)
 	
 func on_insanity_changed(new_insanity: float) -> void:
-	#print("Insanity changed to: ", new_insanity)
+	print("Insanity changed to: ", new_insanity)
 	emit_signal("insanity_changed", new_insanity)
 	RenderingServer.global_shader_parameter_set("insanity", clamp(new_insanity, insanity_min, insanity_max))
 
@@ -92,10 +92,15 @@ func _on_map_changed(_new_map_path: String):
 	insanity = 0.0
 	on_insanity_changed(insanity)
 
-func shake_camera():
+func play_near_death_effect():
+	print("Play near death effect")
 	if camera_shaker != null:
 		camera_shaker.play("shake_high")
+	
+	if insanity_effects_player != null:
+		insanity_effects_player.play("near_death")
+		print("Play near death effect")
 
 func hit_effect():
-	if screen_effects != null:
-		screen_effects.play("hit")
+	if insanity_effects_player != null:
+		insanity_effects_player.play("hit")

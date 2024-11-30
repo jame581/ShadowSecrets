@@ -1,11 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cewcfwuxepd6k"]
+[gd_scene load_steps=9 format=3 uid="uid://cewcfwuxepd6k"]
 
 [ext_resource type="Script" path="res://scripts/autoload/insanity.gd" id="1_bkady"]
 [ext_resource type="Shader" path="res://shaders/damage_hit.gdshader" id="2_y81i8"]
+[ext_resource type="AudioStream" uid="uid://ds3aeolur4mfo" path="res://assets/audio/insanity/stellarsecrets_sfx_player_near_death.wav" id="3_umlqh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m32q3"]
 shader = ExtResource("2_y81i8")
 shader_parameter/effect_visibility = 0.0
+
+[sub_resource type="Animation" id="Animation_igir7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_p8ehv"]
 resource_name = "hit"
@@ -23,9 +39,27 @@ tracks/0/keys = {
 "values": [0.0, 0.75, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_y6nso"]
+resource_name = "near_death"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qbs3c"]
 _data = {
-"hit": SubResource("Animation_p8ehv")
+"RESET": SubResource("Animation_igir7"),
+"hit": SubResource("Animation_p8ehv"),
+"near_death": SubResource("Animation_y6nso")
 }
 
 [node name="Insanity" type="Node2D"]
@@ -47,7 +81,14 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 
-[node name="ScreenEffects" type="AnimationPlayer" parent="."]
+[node name="InsanityEffects" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qbs3c")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_umlqh")
+volume_db = 10.0
+max_distance = 10000.0
+attenuation = 1e-05
+playback_type = 1
