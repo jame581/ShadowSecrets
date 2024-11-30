@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c5axaiw7rtlyh"]
+[gd_scene load_steps=19 format=4 uid="uid://c5axaiw7rtlyh"]
 
 [ext_resource type="Texture2D" uid="uid://bskdvna4k28m2" path="res://assets/sprites/backgrounds/spaaaaace.png" id="1_q6mlg"]
 [ext_resource type="TileSet" uid="uid://bx3iysb7gq8vc" path="res://resources/tileset/32_32/tile_set_assets_station.tres" id="3_12q0u"]
@@ -11,10 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dsyksur8gqx8f" path="res://scenes/enemies/big_enemy.tscn" id="9_d3q1n"]
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_fb264"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="11_joxlp"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/computer/computer_base.png" id="12_4umw1"]
+[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="12_4umw1"]
 [ext_resource type="Texture2D" uid="uid://u0ple2pi0a24" path="res://assets/sprites/intro/portrait-AI.png" id="13_20kfp"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="13_r55p8"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="14_w38f8"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="15_djeii"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_84tu6"]
@@ -145,7 +144,7 @@ portrait = ExtResource("13_20kfp")
 
 [node name="ComputerBase" type="Sprite2D" parent="Dialogs/DialogArea"]
 position = Vector2(-3, -26)
-texture = ExtResource("14_w38f8")
+texture = ExtResource("12_4umw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 shape = SubResource("RectangleShape2D_0bw3t")
