@@ -84,17 +84,18 @@ position_smoothing_enabled = true
 [node name="Trap" parent="Traps" instance=ExtResource("7_avo21")]
 position = Vector2(-345, 405)
 scale = Vector2(2, 2)
+timer_duration = 3.0
 
 [node name="Trap2" parent="Traps" instance=ExtResource("7_avo21")]
 position = Vector2(-597, 446)
 scale = Vector2(2, 2)
 damage = 30
-timer_duration = 0.1
+timer_duration = 2.0
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="CoruptedEnemy" parent="Enemies" instance=ExtResource("8_pg3c7")]
-position = Vector2(-147, 475)
+position = Vector2(1403, 459)
 scale = Vector2(3, 3)
 jump_speed = -550.0
 damage = 2

@@ -12,6 +12,7 @@ class_name Enemy
 @export var player_position_changed_threshold: float = 20.0
 @export_subgroup("Audio")
 @export var movement_audio: AudioStream = preload("res://assets/audio/enemy/stellarsecrets_sfx_enemy_movement.wav")
+@export var explosion_audio: AudioStream = preload("res://assets/audio/enemy/stellarsecrets_sfx_enemy_explosion.wav")
 @export var audio_volume: float = -10.0
 
 # onready variables
@@ -60,7 +61,7 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if game_over:
 		return
 

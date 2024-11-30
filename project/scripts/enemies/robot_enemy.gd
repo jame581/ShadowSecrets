@@ -37,6 +37,7 @@ func _on_attack_area_body_entered(body: Node) -> void:
 		body.call_deferred("deal_damage", damage)
 		print("Player attacked!")
 		explosion_particles.emitting = true
+		audio_component.play_with_random_pitch(explosion_audio, 0.8, 1.2)
 		death_timer.start()
 
 func _on_death_timer_timeout() -> void:

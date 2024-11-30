@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvkneaaogg8iw"]
+[gd_scene load_steps=18 format=3 uid="uid://dvkneaaogg8iw"]
 
 [ext_resource type="Script" path="res://scripts/enemies/robot_enemy.gd" id="1_hwigt"]
+[ext_resource type="Texture2D" uid="uid://ec0hlpn7gmun" path="res://assets/sprites/enemies/explosion_sheet.png" id="2_4o0ul"]
 [ext_resource type="Texture2D" uid="uid://dmgwbmb2fgop1" path="res://assets/sprites/enemies/robot_enemy_sheet.png" id="2_h54vu"]
 [ext_resource type="PackedScene" uid="uid://bmlcbhnkq7e61" path="res://scenes/components/character_audio_component.tscn" id="3_jkln4"]
 
@@ -76,10 +77,22 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4o0ul")]
+}
 
 [sub_resource type="Animation" id="Animation_8sygs"]
 resource_name = "attack"
-length = 2.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -99,7 +112,7 @@ tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0999997, 0.233333, 0.4, 0.533333, 0.666667, 0.8, 0.933333, 1.06667, 1.2, 1.33333, 1.46667, 1.6, 1.73333, 1.86667, 1.96667),
+"times": PackedFloat32Array(0.0999997, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [16, 17, 18, 19, 18, 19, 18, 19, 18, 20, 19, 20, 19, 20, 21]
@@ -111,15 +124,51 @@ tracks/2/path = NodePath("AttackArea/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.8, 1.96667),
+"times": PackedFloat32Array(0, 1.33333, 1.43333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_h54vu")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:vframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
 
 [sub_resource type="Animation" id="Animation_chd1i"]
 resource_name = "idle"
-length = 0.8
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -164,10 +213,22 @@ tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.7),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_h54vu")]
 }
 
 [sub_resource type="Animation" id="Animation_coqxl"]
@@ -198,11 +259,75 @@ tracks/1/keys = {
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13, 14]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_h54vu")]
+}
+
+[sub_resource type="Animation" id="Animation_y0gu0"]
+resource_name = "explosion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4o0ul")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sgqil"]
 _data = {
 "RESET": SubResource("Animation_oagme"),
 "attack": SubResource("Animation_8sygs"),
+"explosion": SubResource("Animation_y0gu0"),
 "idle": SubResource("Animation_chd1i"),
 "walk": SubResource("Animation_coqxl")
 }
@@ -230,11 +355,8 @@ z_index = 10
 scale = Vector2(2, 2)
 script = ExtResource("1_hwigt")
 movement_speed = 150.0
-jump_speed = null
-health = null
-damage = null
+damage = 1
 attack_range = 75
-player_position_changed_threshold = null
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 7.5)
@@ -255,7 +377,7 @@ shape = SubResource("CircleShape2D_rix78")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["enemy"]]
-texture = ExtResource("2_h54vu")
+texture = ExtResource("2_4o0ul")
 flip_h = true
 hframes = 8
 vframes = 3
@@ -272,7 +394,7 @@ process_callback = 0
 wait_time = 0.5
 
 [node name="DeathTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="."]
