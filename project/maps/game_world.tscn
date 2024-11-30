@@ -253,16 +253,20 @@ interactable_devices = [NodePath("../../Traps/Lasers/Laser12")]
 [node name="Computer" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("14_yx0vq")]
 position = Vector2(-4973, 849)
 interactable_devices = [NodePath("../../Traps/Lasers/Laser5"), NodePath("../../Traps/ForceFields/ForceField")]
-dialog_text = "Diary of Chief Researcher Elena Dexter: We made a huge breakthrough in the last few months. Since the marines brought the virus strain from XB1-I, we successfully reproduced it and started testing its effects on laboratory mice. The mice consumption in the laboratory grew exponentially after that - most of them died quite terribly. But! Some of them survived and started behaving more intelligent, got stronger and developed quicker reflexes. The military is pushing us to start testing on humans ASAP. They hope this will bring them supersoldiers. I hope it will not end badly."
+dialog_text = "Diary of Elena Dexter: Since the marines brought the virus strain from XB1-I, we successfully reproduced it and started testing its effects on laboratory mice. Some of them survived and turned into super-mice.. The military is pushing us to start testing on humans ASAP. This is the closest they have been to supersoldiers in a long time."
 
 [node name="Computer2" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("14_yx0vq")]
 position = Vector2(-12, -171)
 interactable_devices = [NodePath("../../Traps/Lasers/Laser2"), NodePath("../../Traps/ForceFields/ForceField4")]
-dialog_text = "Diary of Chief Researcher Elena Dexter: F..k the military. F..k the government. They killed us all. Their precious research was more valuable to them than our lives. When we refused to continue with testing the XB virus on humans, they stole it and released it on the station. Most of my colleagues are already dying or turning into deformed monsters. It is only a matter of time before I will join them. Unless… Unless I take a full, undiluted dose of the virus and hope I am the lucky one who will not be affected but rather augmented. If these notes reach anyone from my family know this: I love you with all my heart, and I am so sorry I had to keep all this a secret from you. Maybe if I told you it wouldn’t end like this. Good bye."
+dialog_text = "Diary of Elena Dexter: The virus hasn’t turned me into a monster yet. But it is doing something to me anyway.I feel stronger and it is like my body is growing. But my memories start to fade away too."
 
 [node name="GameEndTrigger" parent="Interactables" instance=ExtResource("15_xitvj")]
 position = Vector2(3946, 1359)
 EndType = 1
+
+[node name="Computer3" parent="Interactables" instance=ExtResource("14_yx0vq")]
+position = Vector2(-787, -168)
+dialog_text = "Diary of Elena Dexter: The military killed us all. When we refused to test the virus on humans, they stole it and released it on the station. Most of my colleagues are already turning into deformed monsters. It is only a matter of time before I will join them."
 
 [node name="Traps" type="Node" parent="."]
 
@@ -653,7 +657,7 @@ shape = SubResource("RectangleShape2D_6ee3k")
 
 [node name="DialogArea" parent="Dialogs" instance=ExtResource("17_d4yve")]
 position = Vector2(803, -198)
-dialog_text = "My dear Evelyn is lost, but at least I finally uncovered the secret of this station. I should go to the escape pods and leave this palce. They should be somwhere on ground level."
+dialog_text = "My dear Evelyn is lost, but I have a proof what happened here. I should go to the escape pods and leave this palce. They should be somewhere on ground level."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 position = Vector2(71, -51)
