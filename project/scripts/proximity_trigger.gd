@@ -11,6 +11,10 @@ class_name ProximityTrigger
 	get:
 		return $Area2D/CollisionShape2D.get_shape().radius
 
+# Define an enum for sections of the game.
+enum section_type {NONE, POWER_GENERATOR, CREW_DECK, LAB}
+@export var section_finished: section_type = ProximityTrigger.section_type.NONE
+
 @onready var collision: CollisionShape2D = $Area2D/CollisionShape2D
 
 # Called when the node is added to the scene.
@@ -31,6 +35,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if	enabled:
 			trigger_outputs()
+			GameManager._mark_section_finished(section_finished)
 		else:
 			call_deferred("set_state", not enabled)
 			update_text()

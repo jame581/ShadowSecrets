@@ -58,3 +58,8 @@ func _trigger_game_end(is_good_ending: bool) -> void:
 	#TODO(Honza): Implement game ending
 	print("Good ending? ", is_good_ending)
 	pass
+
+func _mark_section_finished(section_name: ProximityTrigger.section_type) -> void:
+	#TODO(Jakub): Implement section finished
+	print("Section finished: ", section_name)
+	pass
