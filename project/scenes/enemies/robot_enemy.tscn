@@ -386,6 +386,7 @@ vframes = 3
 libraries = {
 "": SubResource("AnimationLibrary_sgqil")
 }
+autoplay = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

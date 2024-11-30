@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dvkneaaogg8iw" path="res://scenes/enemies/robot_enemy.tscn" id="10_t1wgh"]
 [ext_resource type="PackedScene" uid="uid://q8dw4ye7cbwj" path="res://scenes/devices/computer.tscn" id="14_yx0vq"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="15_wxbvc"]
-[ext_resource type="PackedScene" path="res://scenes/devices/game_end_trigger.tscn" id="15_xitvj"]
+[ext_resource type="PackedScene" uid="uid://dn8tjajvnx0sy" path="res://scenes/devices/game_end_trigger.tscn" id="15_xitvj"]
 [ext_resource type="PackedScene" uid="uid://lwmowj2y24fk" path="res://scenes/ui/game_over_menu.tscn" id="17_6cxgh"]
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="20_x8hxt"]
@@ -75,6 +75,8 @@ shader = ExtResource("20_x8hxt")
 shader_parameter/STATIC_GRANULARITY = 0.004
 shader_parameter/EDGE_BLUR = 1.1
 shader_parameter/BORDER_SIZE = 0.3
+shader_parameter/OPACITY = 0.7
+shader_parameter/insanity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxqp"]
 size = Vector2(421, 222)
@@ -128,7 +130,7 @@ repeat_times = 90
 texture = ExtResource("1_igrcl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-550, 1400)
+position = Vector2(5612, -277)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -143,7 +145,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
-position = Vector2(-550, 1400)
+position = Vector2(5612, -277)
 player_speed = 500
 jump_velocity = -700
 
@@ -176,39 +178,26 @@ tile_set = ExtResource("8_cutgq")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="RobotEnemy" parent="Enemies" instance=ExtResource("10_t1wgh")]
-position = Vector2(5884, 21)
-jump_speed = -600.0
-health = 100
-damage = 0
-attack_range = 65
-player_position_changed_threshold = 20.0
-
 [node name="CoruptedEnemy" parent="Enemies" instance=ExtResource("7_4kl4j")]
 position = Vector2(-4967, 557)
 scale = Vector2(3, 3)
 attack_range = 75
-
-[node name="RobotEnemy2" parent="Enemies" instance=ExtResource("10_t1wgh")]
-position = Vector2(5806, 273)
-jump_speed = -600.0
-health = 100
-damage = 0
-attack_range = 65
-player_position_changed_threshold = 20.0
-
-[node name="RobotEnemy3" parent="Enemies" instance=ExtResource("10_t1wgh")]
-position = Vector2(6102, 523)
-jump_speed = -600.0
-health = 100
-damage = 0
-player_position_changed_threshold = 20.0
 
 [node name="BigEnemy" parent="Enemies" instance=ExtResource("10_330gr")]
 top_level = true
 position = Vector2(590, -924)
 damage = 2
 attack_range = 100
+
+[node name="RobotEnemy4" parent="Enemies" instance=ExtResource("10_t1wgh")]
+position = Vector2(5884, 8)
+damage = 0
+
+[node name="RobotEnemy" parent="Enemies" instance=ExtResource("10_t1wgh")]
+position = Vector2(5806, 273)
+
+[node name="RobotEnemy2" parent="Enemies" instance=ExtResource("10_t1wgh")]
+position = Vector2(6102, 523)
 
 [node name="Interactables" type="Node" parent="."]
 
