@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if area_active and body.is_in_group("player"):
-		print("Player entered the dialog area")		
 		area_active = false		
 		var dialog_data: Dictionary = {
 			"text": dialog_text,

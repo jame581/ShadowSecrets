@@ -54,8 +54,6 @@ func load_dialog_text() -> String:
 	return content
 
 func next_message() -> void:
-	print("Dialog Player - Next message called")
-	print("Dialog Player - Dialog index: " + str(dialog_index), " dialog data size: " + str(dialogs_data.size()))
 	if dialog_index < dialogs_data.size():
 		dialog_display.display_next_message(dialogs_data[dialog_index])
 		if dialogs_data[dialog_index].has("animation") and animation_player != null:
@@ -64,9 +62,7 @@ func next_message() -> void:
 			animation_player2.play(dialogs_data[dialog_index]["animation2"])
 		dialog_index += 1
 	else:
-		print("No dialog data to display")
 		Global.goto_scene(load_level_after)
 
 func _on_timer_timeout() -> void:
-	print("Timer timeout")
 	next_message()

@@ -34,7 +34,6 @@ var input_actions = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Main menu ready")
 	initialize()
 	Global.map_changed.connect(_on_map_changed)
 	sound_toggle.button_pressed = AudioManager.audio_enabled
@@ -45,7 +44,6 @@ func _ready() -> void:
 		debug_menu.visible = false
 
 func initialize() -> void:
-	print("Main menu initialized")
 	hide_all_settings()
 	version_label.text = "Version: " + ProjectSettings.get_setting("application/config/version")
 	
@@ -89,7 +87,6 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		settings_box.hide()
 
 func _on_options_button_pressed() -> void:
-	print("Options button pressed")
 	if settings_box.is_visible():
 		animation_player.play("show_settings", -1, -2.0, true)
 		hide_settings = true

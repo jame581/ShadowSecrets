@@ -82,7 +82,6 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if jump_now:
-		print("Jumping madafaka")
 		velocity.y = jump_speed
 		select_animation(velocity)
 		flip_sprite_by_velocity()
@@ -106,7 +105,6 @@ func _physics_process(delta: float) -> void:
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
-	# print("current_agent_position: ", current_agent_position, "next_path_position: ", next_path_position, "velocity: ", velocity)
 	
 	select_animation(velocity)
 	flip_sprite_by_velocity()
@@ -114,7 +112,6 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_game_over() -> void:
-	print("Game over enemy")
 	navigation_agent.target_position = global_position
 	velocity = Vector2.ZERO
 	is_attacking_player = false
@@ -124,7 +121,6 @@ func handle_game_over() -> void:
 
 func attack_player():
 	is_attacking_player = true
-	# print("Attacking player")
 
 
 func select_animation(direction) -> void:
@@ -146,15 +142,10 @@ func flip_sprite_by_velocity() -> void:
 			sprite.scale.x = 1
 
 
-func _on_link_reached(details) -> void:
-	print("Link reached details: ", details)
-	
+func _on_link_reached(details) -> void:	
 	var link_exit_position: Vector2 = details["link_exit_position"]
-	print("Link exit position: ", link_exit_position)
-	print("Global position: ", global_position)
 
 	if global_position.y > link_exit_position.y:
-		print("Jumping madafaka")
 		jump_now = true
 
 

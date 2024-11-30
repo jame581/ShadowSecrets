@@ -44,14 +44,14 @@ func _input(event) -> void:
 
 func _on_cheat_timer_timeout() -> void:
 	if cheat_codes.size() > 0:
-		print("Cheat: ", cheat_codes)
+		# print("Cheat: ", cheat_codes)
 		if cheat_codes == god_cheat:
 			set_god_mode(!is_god_mode)
 			cheat_codes.clear()
 	
 	cheat_codes.clear()
-	print("Cheat codes cleared")
-	print("God mode is now: ", is_god_mode)
+	# print("Cheat codes cleared")
+	# print("God mode is now: ", is_god_mode)
 	cheat_timer.stop()
 
 func _trigger_game_end(is_good_ending: bool) -> void:

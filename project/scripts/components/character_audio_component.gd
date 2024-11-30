@@ -37,17 +37,17 @@ func play_random_audio(audio_list: Array) -> void:
 func play_with_random_pitch(audio: AudioStream, min_pitch: float, max_pitch: float) -> void:
 	audio_stream.pitch_scale = randf_range(min_pitch, max_pitch)
 	if audio != audio_stream.stream:
-		print("Set audio audio")
+		# print("Set audio audio")
 		audio_stream.stream = audio
 		timer.stop()
-		print("Play with random pitch: ", audio_stream.pitch_scale)
+		# print("Play with random pitch: ", audio_stream.pitch_scale)
 		audio_stream.play()
 	else:		
 		timer.wait_time = audio.get_length()
 		if timer.time_left <= 0:
 			timer.start()
 			audio_stream.play()
-			print("Play with random pitch: ", audio_stream.pitch_scale)
+			# print("Play with random pitch: ", audio_stream.pitch_scale)
 
 func _on_audio_stream_player_2d_finished() -> void:
 	pass

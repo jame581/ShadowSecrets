@@ -12,19 +12,16 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("pause_game")):
-		print("Pause game action pressed")
 		toggle_pause_menu()
 
 
 func toggle_pause_menu() -> void:
-	print("Toggle pause menu called, visible: " + str(visible))
 	if (visible):
 		animation_player.play("fade_out", -1, animation_speed)
 	else:
 		visible = true
 		animation_player.play("fade_in", -1, animation_speed)
 		get_tree().paused = true
-		print("Emitting game_paused signal")
 
 	GameManager.game_paused.emit(get_tree().paused)
 
@@ -43,7 +40,6 @@ func _on_back_to_menu_button_pressed() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
-	print("Animation finished: " + anim_name)
 	if (anim_name == "fade_out"):
 		visible = false
 		get_tree().paused = false
