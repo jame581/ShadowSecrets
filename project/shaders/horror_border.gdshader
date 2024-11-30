@@ -1,6 +1,6 @@
 shader_type canvas_item;
 const float UPDATE_INTERVAL = .163;
-uniform float STATIC_GRANULARITY = .002;
+uniform float STATIC_GRANULARITY = .004;
 uniform float EDGE_BLUR = 1.25;
 uniform float BORDER_SIZE = .3;
 
