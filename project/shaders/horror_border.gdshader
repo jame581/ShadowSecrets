@@ -3,8 +3,9 @@ const float UPDATE_INTERVAL = .163;
 uniform float STATIC_GRANULARITY = .004;
 uniform float EDGE_BLUR = 1.1;
 uniform float BORDER_SIZE = .3;
+uniform float OPACITY = 0.7;
 
-global uniform float insanity = 0.0;
+uniform float insanity = 0.0;
 
 float generate_random_static (in float size, in float interval, in vec2 uv){
 	float time_step = TIME - mod(TIME,interval);
@@ -36,5 +37,6 @@ void fragment() {
 	float border_plot = smoothstep(func,func+insanity_edge_blur, pv1.x);
 	vec4 border_color = vec4(vec3(0.0),1.0)*border_plot;
 	COLOR = vec4(static_plot,0.1);
-	COLOR = layer(COLOR,border_color);
+	float opacity_shift = OPACITY + 0.1 * sin(4.0*TIME);
+	COLOR = layer(COLOR,border_color * opacity_shift);
 }
