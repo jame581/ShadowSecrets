@@ -58,10 +58,12 @@ func initialize() -> void:
 	particles.emitting = true
 
 func _on_start_game_button_pressed() -> void:
+	AudioManager.play_button_sound()
 	Global.goto_scene("res://maps/intro_scene.tscn")
 
 
 func _on_quit_button_pressed() -> void:
+	AudioManager.play_button_sound()
 	get_tree().quit()
 
 
@@ -74,6 +76,7 @@ func _on_item_list_item_selected(index: int) -> void:
 		level_selected = level_paths[0]
 
 func _on_start_selected_level_button_pressed() -> void:
+		AudioManager.play_button_sound()
 		Global.goto_scene(level_selected)
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
@@ -87,6 +90,7 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		settings_box.hide()
 
 func _on_options_button_pressed() -> void:
+	AudioManager.play_button_sound()
 	if settings_box.is_visible():
 		animation_player.play("show_settings", -1, -2.0, true)
 		hide_settings = true
@@ -98,6 +102,7 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_credits_button_pressed() -> void:
+	AudioManager.play_button_sound()
 	if credits_box.is_visible():
 		animation_player.play("show_credits", -1, -4.0, true)
 		hide_credits = true

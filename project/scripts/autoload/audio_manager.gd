@@ -8,15 +8,19 @@ extends Node2D
 @export var main_game: AudioStream
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_buttons: AudioStreamPlayer2D = $AudioStreamButtons
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS # This will make sure that the pause menu is always updated
 	audio_player.stream = main_menu
 	Global.map_changed.connect(_on_map_changed)
 	if audio_enabled:
 		audio_player.play()
 		pass
 
+func play_button_sound() -> void:
+	audio_buttons.play()
 
 func set_sound_enabled(enabled: bool) -> void:
 	audio_enabled = enabled

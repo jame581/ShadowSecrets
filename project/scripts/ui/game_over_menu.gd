@@ -13,15 +13,16 @@ func _ready() -> void:
 
 func _on_restart_level_button_pressed() -> void:
 	visible = false
+	AudioManager.play_button_sound()
 	Global.restart_current_scene()
 
 
 func _on_back_to_menu_button_pressed() -> void:
+	AudioManager.play_button_sound()
 	Global.goto_main_menu()
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
-	print("Animation finished: " + anim_name)
 	if (anim_name == "fade_out"):
 		visible = false
 		animation_player.stop()
@@ -29,7 +30,6 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 
 
 func handle_game_over() -> void:
-	print("Game over signal received")
 	if (visible):
 		return
 
