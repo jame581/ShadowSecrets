@@ -28,7 +28,8 @@ var input_actions = {
 	"right": "Move Right",
 	"jump": "Jump",
 	"interact": "Interact",
-	"pause_game": "Pause Game"
+	"pause_game": "Pause Game",
+	"skip_dialog_text": "Skip Dialog Text"
 }
 
 # Called when the node enters the scene tree for the first time.
