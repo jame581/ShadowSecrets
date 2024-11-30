@@ -22,6 +22,9 @@ var insanity_change_high: float = 0.25
 var camera_shaker: AnimationPlayer = null
 @onready var insanity_effects_player: AnimationPlayer = $InsanityEffects
 
+# Reference to the AudioStreamPlayer2D node
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Set up the timer
@@ -93,13 +96,18 @@ func _on_map_changed(_new_map_path: String):
 	on_insanity_changed(insanity)
 
 func play_near_death_effect():
-	print("Play near death effect")
 	if camera_shaker != null:
 		camera_shaker.play("shake_high")
+		print("Play camera shake")
 	
-	if insanity_effects_player != null:
-		insanity_effects_player.play("near_death")
-		print("Play near death effect")
+	# if insanity_effects_player != null:
+	# 	insanity_effects_player.play("near_death")
+	# 	print("Play near death effect")
+
+	if audio_player != null:
+		audio_player.play()
+		await get_tree().create_timer(2.0).timeout
+		audio_player.stop()
 
 func hit_effect():
 	if insanity_effects_player != null:
