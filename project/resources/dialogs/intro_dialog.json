@@ -47,13 +47,14 @@
             "text": "When exiting the shuttle I notice an alarm lights flashing all over the docking bay. The station is obviously in lockdown.",
             "wait_time": 2,
             "hide_dialog_after": false,
-            "animation": "intro_2_animation"
+            "animation2": "GlobalAnimation/fade_in"
         },
         {
             "text": "Why was the supply shuttle even able to dock here? That is a question for later. I have to find out what happened here, and find my girl if possible.",
             "wait_time": 2,
             "hide_dialog_after": false,
-            "animation": "intro_2_animation"
+            "animation": "lock_down",
+            "animation2": "GlobalAnimation/fade_out"
         }
     ]
 }

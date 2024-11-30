@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://duy1vdeh7bpf7"]
+[gd_scene load_steps=19 format=3 uid="uid://duy1vdeh7bpf7"]
 
 [ext_resource type="PackedScene" uid="uid://dnrarc37sqtj6" path="res://scenes/ui/dialog_player.tscn" id="1_h4nyc"]
 [ext_resource type="PackedScene" uid="uid://c3hp38ybl556v" path="res://scenes/ui/dialog_display.tscn" id="2_k1cft"]
@@ -9,6 +9,8 @@
 [ext_resource type="Animation" uid="uid://i534ayybgd83" path="res://resources/anim/fade_in.res" id="5_u5sxo"]
 [ext_resource type="Animation" uid="uid://p24v84du716s" path="res://resources/anim/fade_out.res" id="6_1q2hs"]
 [ext_resource type="Texture2D" uid="uid://g6vnwnilddpy" path="res://assets/sprites/intro/space_2.png" id="7_ucm48"]
+[ext_resource type="Texture2D" uid="uid://c1fg5spn20fba" path="res://assets/sprites/intro/lockdown_animation_intro_no_text.png" id="10_vl1nu"]
+[ext_resource type="Texture2D" uid="uid://ntcvwr51kvt7" path="res://assets/sprites/intro/lockdown_animation_intro_text.png" id="11_78f5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_035od"]
 bg_color = Color(0, 0, 0, 0)
@@ -203,13 +205,31 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_qfynl"]
+resource_name = "lock_down"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Story/StoryDisplay:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_vl1nu"), ExtResource("11_78f5a")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0m2fh"]
 _data = {
 "RESET": SubResource("Animation_vlhle"),
 "fade_in": ExtResource("5_u5sxo"),
 "fade_out": ExtResource("6_1q2hs"),
 "intro_2_animation": SubResource("Animation_fen8x"),
-"intro_animation": SubResource("Animation_vgjcm")
+"intro_animation": SubResource("Animation_vgjcm"),
+"lock_down": SubResource("Animation_qfynl")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rhqv3"]
