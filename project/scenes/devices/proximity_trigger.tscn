@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://df34b8foce7wp"]
+
+[ext_resource type="Script" path="res://scripts/proximity_trigger.gd" id="1_3rl6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ng0dw"]
+radius = 35.0
+
+[node name="ProximityTrigger" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_3rl6h")
+radius = 35.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -29.0
+offset_right = 56.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Proximity: 
+ Disabled"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ng0dw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
