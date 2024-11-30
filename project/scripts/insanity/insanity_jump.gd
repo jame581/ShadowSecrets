@@ -11,7 +11,7 @@ class_name InsanityJump
 
 @export var debug_visible: bool = true:
 	set(value):
-		print("Debug visible: ", value)
+		#print("Debug visible: ", value)
 		debug_visible = value
 		if $DebugShape:
 			$DebugShape.visible = debug_visible

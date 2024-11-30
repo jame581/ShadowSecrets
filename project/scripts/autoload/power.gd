@@ -12,4 +12,4 @@ func _ready():
 func give_me_power() -> void:
 	power = true
 	emit_signal("power_activated")
-	print("Power activated")
+	#print("Power activated")
