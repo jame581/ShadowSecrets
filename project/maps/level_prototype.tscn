@@ -151,6 +151,7 @@ shape = SubResource("RectangleShape2D_0bw3t")
 
 [node name="DialogArea2" parent="Dialogs" instance=ExtResource("13_r55p8")]
 position = Vector2(124, 447)
+dialog_text = "Hello, world! 2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea2"]
 shape = SubResource("RectangleShape2D_q4nvs")
@@ -160,6 +161,7 @@ texture = ExtResource("12_4umw1")
 
 [node name="DialogArea3" parent="Dialogs" instance=ExtResource("13_r55p8")]
 position = Vector2(-115, 447)
+dialog_text = "Hello, world! 3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea3"]
 shape = SubResource("RectangleShape2D_q4nvs")

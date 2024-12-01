@@ -9,6 +9,7 @@ var current_path : String = ""
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+	current_path = current_scene.scene_file_path
 	LoadingScreen.loading_screen_shown.connect(_on_loading_screen_shown)
 	LoadingScreen.loading_screen_hidden.connect(_on_loading_screen_hidden)
 
