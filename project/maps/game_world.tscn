@@ -1,7 +1,8 @@
-[gd_scene load_steps=47 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=52 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="Texture2D" uid="uid://gai3v5do08ox" path="res://assets/sprites/backgrounds/spaaaaace2.png" id="1_6mrx7"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
+[ext_resource type="Script" path="res://scripts/scene_animatorr.gd" id="2_hq0b6"]
 [ext_resource type="TileSet" uid="uid://jffg7vle0hpw" path="res://resources/tileset/tiles_level_platform.tres" id="3_clflt"]
 [ext_resource type="TileSet" uid="uid://tgubpw1as5sy" path="res://resources/tileset/tiles_background_walls.tres" id="4_4r78f"]
 [ext_resource type="PackedScene" uid="uid://dk5oy41jkjoay" path="res://scenes/devices/input.tscn" id="4_lrov0"]
@@ -77,6 +78,312 @@ _data = {
 "shake_medium": SubResource("Animation_nro28")
 }
 
+[sub_resource type="Animation" id="Animation_wmfbc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lights/Node/PointLight2D24:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lights/Node/PointLight2D22:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Lights/Node/PointLight2D19:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Lights/Node/PointLight2D21:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Lights/Node/PointLight2D20:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Lights/Node/PointLight2D18:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Lights/Node/PointLight2D16:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.0, 0.0, 4.0, 3.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Lights/Node/PointLight2D10:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Lights/Node/PointLight2D9:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Lights/Node/PointLight2D6:energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [9.0, 2.0, 3.0, 0.0, 6.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Lights/Node/PointLight2D13:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.0, 1.0, 0.0, 4.0, 2.0]
+}
+
+[sub_resource type="Animation" id="Animation_icgqa"]
+resource_name = "blinking"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lights/Node/PointLight2D24:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.1, 8.9, 5.9, 0.1, 2.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lights/Node/PointLight2D22:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [5.8, 0.3, 8.8, 3.3, 2.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Lights/Node/PointLight2D19:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [6.2, 1.8, 3.2, 0.2, 9.2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Lights/Node/PointLight2D21:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 3.0, 4.0, 0.0, 2.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Lights/Node/PointLight2D20:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 3.0, 4.0, 0.0, 2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Lights/Node/PointLight2D18:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.7, 8.8, 5.7, 0.3, 2.2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Lights/Node/PointLight2D16:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.0, 2.0, 0.0, 3.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Lights/Node/PointLight2D10:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [8.9, 2.1, 3.1, 0.1, 5.9]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Lights/Node/PointLight2D9:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [6.2, 1.8, 3.2, 0.2, 9.2]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Lights/Node/PointLight2D6:energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [5.5, 0.5, 8.5, 3.5, 2.5]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Lights/Node/PointLight2D13:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.2, 1.86667, 2.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 2.0, 1.0, 4.0]
+}
+
+[sub_resource type="Animation" id="Animation_mkhue"]
+resource_name = "enable_lights"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Lights/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.35, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Lights/DirectionalLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbypv"]
+_data = {
+"RESET": SubResource("Animation_wmfbc"),
+"blinking": SubResource("Animation_icgqa"),
+"enable_lights": SubResource("Animation_mkhue")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ud8i4"]
 shader = ExtResource("20_x8hxt")
 shader_parameter/STATIC_GRANULARITY = 0.004
@@ -140,6 +447,12 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_i77cb")
 }
+
+[node name="SceneAnimator" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_jbypv")
+}
+script = ExtResource("2_hq0b6")
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
@@ -954,7 +1267,7 @@ texture_scale = 2.5
 [node name="PointLight2D13" type="PointLight2D" parent="Lights/Node"]
 position = Vector2(2050, 425)
 scale = Vector2(1, 1.5)
-energy = 4.0
+energy = 3.0
 texture = ExtResource("30_j1t2j")
 texture_scale = 2.5
 
@@ -1010,6 +1323,54 @@ texture_scale = 1.5
 [node name="PointLight2D16" type="PointLight2D" parent="Lights/Node"]
 position = Vector2(1824, 1394)
 scale = Vector2(1, 1.18)
-energy = 3.0
+energy = 2.0
 texture = ExtResource("31_dbllk")
 texture_scale = 2.65
+
+[node name="PointLight2D19" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(-305, 1379)
+scale = Vector2(3, 3)
+energy = 9.0
+texture = ExtResource("29_peqq4")
+texture_scale = 1.2
+
+[node name="PointLight2D18" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(-560, 1378)
+scale = Vector2(3, 3)
+energy = 9.0
+texture = ExtResource("29_peqq4")
+texture_scale = 1.2
+
+[node name="PointLight2D20" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(130, 1380)
+scale = Vector2(1, 1.415)
+energy = 4.0
+texture = ExtResource("31_dbllk")
+texture_scale = 2.5
+
+[node name="PointLight2D21" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(543, 1128)
+scale = Vector2(1, 1.5)
+energy = 4.0
+texture = ExtResource("30_j1t2j")
+texture_scale = 2.5
+
+[node name="PointLight2D22" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(-143, 1092)
+scale = Vector2(3, 2.84001)
+energy = 9.0
+texture = ExtResource("29_peqq4")
+texture_scale = 0.9
+
+[node name="PointLight2D24" type="PointLight2D" parent="Lights/Node"]
+position = Vector2(-333, 1092)
+scale = Vector2(3, 2.84001)
+energy = 9.0
+texture = ExtResource("29_peqq4")
+texture_scale = 0.9
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+position = Vector2(3178, 780)
+energy = 0.35
+blend_mode = 1
+max_distance = 50.0
