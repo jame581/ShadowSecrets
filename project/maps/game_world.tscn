@@ -725,7 +725,7 @@ dialog_wait_time = 1.0
 picture = 1
 
 [node name="ProximityTrigger" parent="PANIC/Panic_Final" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
-position = Vector2(-725, 129)
+position = Vector2(-625, 129)
 interactable_devices = [NodePath("..")]
 enabled = true
 
