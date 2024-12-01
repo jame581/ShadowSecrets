@@ -123,7 +123,7 @@ repeat_times = 5
 texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4473, -198)
+position = Vector2(-561, 1372)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -138,7 +138,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
-position = Vector2(4473, -198)
+position = Vector2(-561, 1372)
 player_speed = 500
 jump_velocity = -700
 
@@ -611,7 +611,6 @@ hide_after_2 = true
 position = Vector2(131, -18)
 scale = Vector2(1.5, 1.5)
 interactable_devices = [NodePath("..")]
-radius = 45.0
 enabled = true
 
 [node name="Panic_SecondTime" parent="PANIC" instance=ExtResource("24_47bj3")]
@@ -624,7 +623,6 @@ picture = 1
 position = Vector2(136, 241)
 scale = Vector2(1.5, 1.5)
 interactable_devices = [NodePath("..")]
-radius = 45.0
 enabled = true
 
 [node name="Panic_PowerGeneratorActivated" parent="PANIC" instance=ExtResource("24_47bj3")]
@@ -643,19 +641,34 @@ dialog_wait_time = 1.36
 picture = 1
 
 [node name="Proximity_LeftPowerGenerator" parent="PANIC/Panic_LeftPowerGenerator" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
-position = Vector2(-9, -71)
-scale = Vector2(4.64571, 8.32313)
+position = Vector2(-159, -34)
+scale = Vector2(8, 8)
 interactable_devices = [NodePath(".."), NodePath("../../../Traps/ForceFields/ForceField3"), NodePath("../../../Traps/ForceFields/ForceField5")]
-radius = 45.0
 
 [node name="Panic_CloseToLab" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(2160, 32)
 
 [node name="Panic_WayToCrewDeck" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(-2128, 960)
+dialog_text = "Hop onto the spike, for research purposes."
+dialog_wait_time = 1.5
+picture = 1
+
+[node name="ProximityTrigger" parent="PANIC/Panic_WayToCrewDeck" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(-12, 192)
+interactable_devices = [NodePath("..")]
+enabled = true
 
 [node name="Panic_WayToCrewDeck2" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(-2864, 416)
+dialog_text = "Your agility is impressive. Unfortunately, it won't change a thing."
+dialog_wait_time = 1.5
+picture = 1
+
+[node name="ProximityTrigger" parent="PANIC/Panic_WayToCrewDeck2" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(175, 143)
+interactable_devices = [NodePath("..")]
+enabled = true
 
 [node name="Panic_CrewDeck" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(-5168, -32)
@@ -666,7 +679,6 @@ picture = 1
 [node name="ProximityTrigger" parent="PANIC/Panic_CrewDeck" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
 position = Vector2(347, 49)
 interactable_devices = [NodePath("..")]
-radius = 45.0
 enabled = true
 
 [node name="Panic_LabFirst" parent="PANIC" instance=ExtResource("24_47bj3")]
@@ -693,7 +705,6 @@ picture_2 = 1
 [node name="ProximityTrigger" parent="PANIC/Node/PanicFailedJump" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
 position = Vector2(189, -44)
 interactable_devices = [NodePath("..")]
-radius = 45.0
 enabled = true
 
 [node name="Dialogs" type="Node" parent="."]
