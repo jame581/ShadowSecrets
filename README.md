@@ -1,6 +1,8 @@
 # Stellar Secrets
 This project is our submission for GitHub’s annual game jam, created using Godot. Theme of game jame Secret.
 
+**The game is available on itch.io. Play it here:** https://jame581.itch.io/stellar-secrets
+
 ## Game description
 
 Genre: 2D horror platformer/small metroidvania-like
