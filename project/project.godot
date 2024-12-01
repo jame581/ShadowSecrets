@@ -15,6 +15,7 @@ config/version="0.2.0"
 config/tags=PackedStringArray("2d", "platformer")
 run/main_scene="res://maps/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/image="res://assets/sprites/bloody.png"
 config/icon="res://assets/sprites/game_icon.png"
 
 [autoload]
