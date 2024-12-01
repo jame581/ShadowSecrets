@@ -911,8 +911,6 @@ text = "Laser barriers damage you but can be turned off if you find the correct 
 [node name="DialogLayer" type="CanvasLayer" parent="UI"]
 
 [node name="DialogDisplay" parent="UI/DialogLayer" instance=ExtResource("15_wxbvc")]
-offset_top = -23.0
-offset_bottom = 175.0
 press_enter_visible = false
 metadata/_edit_use_anchors_ = true
 
@@ -1167,7 +1165,7 @@ shape = SubResource("RectangleShape2D_6ee3k")
 position = Vector2(803, -198)
 monitoring = false
 monitorable = false
-dialog_text = "My dear Evelyn is lost, but I have a proof what happened here. I should go to the escape pods and leave this palce. They should be somewhere on ground level."
+dialog_text = "My dear Evelyn is lost, but I have a proof what happened here. I should go to the escape pods and leave this place. They should be somewhere on ground level."
 area_active = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
