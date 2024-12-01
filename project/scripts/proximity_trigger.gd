@@ -11,18 +11,22 @@ class_name ProximityTrigger
 	get:
 		return $Area2D/CollisionShape2D.get_shape().radius
 
+@export var was_activated = false
+
 # Define an enum for sections of the game.
 enum section_type {NONE, POWER_GENERATOR, CREW_DECK, LAB}
 @export var section_finished: section_type = ProximityTrigger.section_type.NONE
 
 @onready var collision: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var area: Area2D = $Area2D
 
 # Called when the node is added to the scene.
 func _ready():
 	if Engine.is_editor_hint():
 		update_text()
 	else:
-		$RichTextLabel.visible = false
+		pass
+		#$RichTextLabel.visible = false
 
 	update_text()
 		
@@ -33,6 +37,12 @@ func set_state(state: bool):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		if not enabled:
+			return
+
+		if was_activated:
+			return
+
 		if	enabled:
 			trigger_outputs()
 			GameManager._mark_section_finished(section_finished)
@@ -42,6 +52,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 		if single_interaction:
 			collision.disabled = true
+			area.monitoring = false
+
+		was_activated = true
+
+func _interact():
+	set_state(not enabled)
 
 # Triggers the outputs of all connected interactable devices.
 func trigger_outputs():

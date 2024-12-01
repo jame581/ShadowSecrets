@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=42 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="Texture2D" uid="uid://gai3v5do08ox" path="res://assets/sprites/backgrounds/spaaaaace2.png" id="1_6mrx7"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="19_elcpj"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="20_x8hxt"]
 [ext_resource type="PackedScene" uid="uid://cim1ywlunmueh" path="res://scenes/devices/PANIC.tscn" id="24_47bj3"]
+[ext_resource type="PackedScene" uid="uid://df34b8foce7wp" path="res://scenes/devices/proximity_trigger.tscn" id="26_cfslo"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
 length = 0.001
@@ -122,7 +123,7 @@ repeat_times = 5
 texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-561, 1372)
+position = Vector2(4512, -198)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -137,7 +138,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
-position = Vector2(-561, 1372)
+position = Vector2(4512, -198)
 player_speed = 500
 jump_velocity = -700
 
@@ -623,6 +624,19 @@ position = Vector2(752, -351)
 [node name="Panic_Final" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(3856, 1280)
 
+[node name="Node" type="Node" parent="PANIC"]
+
+[node name="PanicFailedJump" parent="PANIC/Node" instance=ExtResource("24_47bj3")]
+position = Vector2(4761, 546)
+dialog_text = "Failing to jump? It's natural for humans... to fail"
+dialog_wait_time = 1.0
+hide_after = false
+picture = 1
+dialog_text_2 = "Multiple times.."
+dialog_wait_time_2 = 1.0
+hide_after_2 = true
+picture_2 = 1
+
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="FirstDialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
@@ -688,6 +702,12 @@ dialog_text = "My dear Evelyn is lost, but I have a proof what happened here. I 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 position = Vector2(71, -51)
 shape = SubResource("RectangleShape2D_6xseb")
+
+[node name="ProximityTrigger" parent="Dialogs" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(4950, 502)
+interactable_devices = [NodePath("../../PANIC/Node/PanicFailedJump")]
+radius = 55.0
+enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(6355, -40)

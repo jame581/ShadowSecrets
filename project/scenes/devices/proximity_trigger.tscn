@@ -3,16 +3,12 @@
 [ext_resource type="Script" path="res://scripts/proximity_trigger.gd" id="1_3rl6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ng0dw"]
-radius = 35.0
+radius = 45.0
 
-[node name="ProximityTrigger" type="Node2D" node_paths=PackedStringArray("interactable_devices")]
+[node name="ProximityTrigger" type="Node2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_3rl6h")
-interactable_devices = []
-single_interaction = true
-radius = 35.0
-section_finished = 0
-enabled = false
+was_activated = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 8

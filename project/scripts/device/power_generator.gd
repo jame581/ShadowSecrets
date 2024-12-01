@@ -43,4 +43,4 @@ func show_dialog() -> void:
 		"wait_time": dialog_wait_time,
 		"hide_dialog_after": true
 	}
-	DialogManager.emit_signal("show_dialog", dialog_data)
+	#DialogManager.emit_signal("show_dialog", dialog_data)
