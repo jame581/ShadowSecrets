@@ -123,7 +123,7 @@ repeat_times = 5
 texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-2144, 4)
+position = Vector2(-561, 1372)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -725,7 +725,7 @@ dialog_wait_time = 1.0
 picture = 1
 
 [node name="ProximityTrigger" parent="PANIC/Panic_Final" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
-position = Vector2(-231, 118)
+position = Vector2(-725, 129)
 interactable_devices = [NodePath("..")]
 enabled = true
 
