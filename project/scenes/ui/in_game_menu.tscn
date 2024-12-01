@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5lwirq8hdc8r"]
 
 [ext_resource type="Script" path="res://scripts/ui/in_game_menu.gd" id="1_fvetf"]
-[ext_resource type="Texture2D" uid="uid://da3uawulivdj4" path="res://assets/sprites/devices/computer/computer_base.png" id="1_l4yl1"]
+[ext_resource type="Texture2D" uid="uid://c5kqt44t7qj7" path="res://assets/sprites/devices/pANIC/panic_face.png" id="2_8uonr"]
 
 [sub_resource type="Animation" id="Animation_gt1cm"]
 length = 0.001
@@ -83,8 +83,9 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("1_l4yl1")
-stretch_mode = 3
+texture = ExtResource("2_8uonr")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer2"]
 layout_mode = 2
