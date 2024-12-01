@@ -78,7 +78,6 @@ shader_parameter/STATIC_GRANULARITY = 0.004
 shader_parameter/EDGE_BLUR = 1.1
 shader_parameter/BORDER_SIZE = 0.3
 shader_parameter/OPACITY = 0.7
-shader_parameter/insanity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxqp"]
 size = Vector2(421, 222)

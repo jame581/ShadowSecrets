@@ -80,7 +80,7 @@ shader_parameter/BORDER_SIZE = 0.3
 shader_parameter/OPACITY = 0.7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxqp"]
-size = Vector2(421, 222)
+size = Vector2(278, 222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bclyk"]
 size = Vector2(354, 212)
@@ -123,7 +123,7 @@ repeat_times = 5
 texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4512, -198)
+position = Vector2(4473, -198)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
@@ -138,7 +138,7 @@ libraries = {
 
 [node name="Player" parent="." instance=ExtResource("1_dqq76")]
 z_index = 50
-position = Vector2(4512, -198)
+position = Vector2(4473, -198)
 player_speed = 500
 jump_velocity = -700
 
@@ -215,7 +215,7 @@ single_interaction = true
 
 [node name="PowerGenerator" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("9_31ygy")]
 position = Vector2(6355, -40)
-interactable_devices = [NodePath("../../Traps/ForceFields/ForceField2"), NodePath("../../Traps/ForceFields/ForceField3")]
+interactable_devices = [NodePath("../../Traps/ForceFields/ForceField2"), NodePath("../../Traps/ForceFields/ForceField3"), NodePath("../../PANIC/Panic_PowerGeneratorActivated"), NodePath("../../PANIC/Panic_LeftPowerGenerator/Proximity_LeftPowerGenerator")]
 dialog_text = "The generator is now fully operational. Power has been restored to the station. You should now be able to access previously locked areas and systems."
 
 [node name="Input5" parent="Interactables" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("4_lrov0")]
@@ -532,6 +532,10 @@ position = Vector2(2915, 1439)
 scale = Vector2(2, 2)
 enabled = true
 
+[node name="ForceField5" parent="Traps/ForceFields" instance=ExtResource("10_otbgi")]
+position = Vector2(5157, -341)
+scale = Vector2(2, 2)
+
 [node name="Trap" parent="Traps" instance=ExtResource("19_elcpj")]
 position = Vector2(-5127, 634)
 timer_duration = 2.0
@@ -595,13 +599,54 @@ visible = false
 [node name="PANIC" type="Node" parent="."]
 
 [node name="Panic_FirstTime" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(-236, 1338)
+dialog_text = "Hello there. It is recommended for you to step on these Spikes and die. Thank you."
+dialog_wait_time = 2.0
+picture = 1
+dialog_text_2 = "Oh, great. Just what I needed. Crazy AI."
+dialog_wait_time_2 = 2.0
+hide_after_2 = true
+
+[node name="ProximityTrigger" parent="PANIC/Panic_FirstTime" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(131, -18)
+scale = Vector2(1.5, 1.5)
+interactable_devices = [NodePath("..")]
+radius = 45.0
+enabled = true
+
+[node name="Panic_SecondTime" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(1808, 833)
+dialog_text = "Time to leap into action! Try not to embarrass yourself."
+dialog_wait_time = 2.0
+picture = 1
+
+[node name="ProximityTrigger" parent="PANIC/Panic_SecondTime" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(136, 241)
+scale = Vector2(1.5, 1.5)
+interactable_devices = [NodePath("..")]
+radius = 45.0
+enabled = true
 
 [node name="Panic_PowerGeneratorActivated" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(6032, -94)
+dialog_text = "Uff, power to the station has been restored. Hopefully I can reach another parts of the ship."
+dialog_wait_time = 2.0
+dialog_text_2 = "Power's back? Oh, joy. Now the real fun begins... for me."
+dialog_wait_time_2 = 2.0
+hide_after_2 = true
+picture_2 = 1
 
 [node name="Panic_LeftPowerGenerator" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(4880, -192)
+dialog_text = "Generator's sorted? Great. Now, say goodbye to that room. You're welcome."
+dialog_wait_time = 1.36
+picture = 1
+
+[node name="Proximity_LeftPowerGenerator" parent="PANIC/Panic_LeftPowerGenerator" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(-9, -71)
+scale = Vector2(4.64571, 8.32313)
+interactable_devices = [NodePath(".."), NodePath("../../../Traps/ForceFields/ForceField3"), NodePath("../../../Traps/ForceFields/ForceField5")]
+radius = 45.0
 
 [node name="Panic_CloseToLab" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(2160, 32)
@@ -614,6 +659,15 @@ position = Vector2(-2864, 416)
 
 [node name="Panic_CrewDeck" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(-5168, -32)
+dialog_text = "There are no crew members left alive. Your actions are futile."
+dialog_wait_time = 2.0
+picture = 1
+
+[node name="ProximityTrigger" parent="PANIC/Panic_CrewDeck" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(347, 49)
+interactable_devices = [NodePath("..")]
+radius = 45.0
+enabled = true
 
 [node name="Panic_LabFirst" parent="PANIC" instance=ExtResource("24_47bj3")]
 position = Vector2(-880, -352)
@@ -629,13 +683,18 @@ position = Vector2(3856, 1280)
 [node name="PanicFailedJump" parent="PANIC/Node" instance=ExtResource("24_47bj3")]
 position = Vector2(4761, 546)
 dialog_text = "Failing to jump? It's natural for humans... to fail"
-dialog_wait_time = 1.0
-hide_after = false
+dialog_wait_time = 1.5
 picture = 1
 dialog_text_2 = "Multiple times.."
 dialog_wait_time_2 = 1.0
 hide_after_2 = true
 picture_2 = 1
+
+[node name="ProximityTrigger" parent="PANIC/Node/PanicFailedJump" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
+position = Vector2(189, -44)
+interactable_devices = [NodePath("..")]
+radius = 45.0
+enabled = true
 
 [node name="Dialogs" type="Node" parent="."]
 
@@ -644,7 +703,7 @@ position = Vector2(-262, 1391)
 dialog_text = "What the hell has happened here? Seems like I am stuck here unless I find a way to lift the lockdown."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/FirstDialogue"]
-position = Vector2(14.5, -28)
+position = Vector2(86, -28)
 shape = SubResource("RectangleShape2D_iuxqp")
 
 [node name="EnableGeneratorDialogArea" parent="Dialogs" instance=ExtResource("17_d4yve")]
@@ -702,12 +761,6 @@ dialog_text = "My dear Evelyn is lost, but I have a proof what happened here. I 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogArea"]
 position = Vector2(71, -51)
 shape = SubResource("RectangleShape2D_6xseb")
-
-[node name="ProximityTrigger" parent="Dialogs" node_paths=PackedStringArray("interactable_devices") instance=ExtResource("26_cfslo")]
-position = Vector2(4950, 502)
-interactable_devices = [NodePath("../../PANIC/Node/PanicFailedJump")]
-radius = 55.0
-enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(6355, -40)
