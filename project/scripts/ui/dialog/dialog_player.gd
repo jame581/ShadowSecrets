@@ -7,10 +7,13 @@ extends Node2D
 @export var animation_player: AnimationPlayer
 @export var animation_player2: AnimationPlayer
 @export_file("*.json") var dialog_text_file
+@export var wait_for_input: bool = false
+
 # @export_multiline var dialog_text: String = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc."
 
 @onready var timer = $Timer
 @onready var load_level_timer = $LoadLevelTimer
+
 
 var dialogs_data: Array = []
 var dialog_index: int = 0
@@ -21,8 +24,8 @@ func _ready() -> void:
 	timer.wait_time = start_wait_time
 	dialog_display.message_displayed.connect(next_message)
 	dialog_display.dialog_finished.connect(handle_dialog_finished)
-	# .message_displayed.connect(next_message)
-
+	dialog_display.wait_for_input = wait_for_input
+	
 	if animation_player == null:
 		push_error("Animation player not set")
 
@@ -31,8 +34,12 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("skip_dialog_text"):
-		dialog_display.finish_writing() #next_message()
+	if event.is_action_pressed("skip_dialog_text"):		
+		if dialog_display.dialog_writing:
+			dialog_display.finish_writing()
+		else:
+			next_message()
+		# dialog_display.finish_writing() #next_message()
 
 
 func parse_json() -> void:

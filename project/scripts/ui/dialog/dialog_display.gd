@@ -25,6 +25,8 @@ var dialog_shown: bool = false
 var dialog_playing: bool = false
 var dialog_queue: Array = []
 
+var wait_for_input: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
@@ -101,8 +103,9 @@ func _on_write_timer_timeout() -> void:
 	if dialog_text.visible_characters == dialog_text.get_total_character_count():
 		write_timer.stop()
 		dialog_writing = false
-		wait_timer.start()
 		audio_player.stop()
+		if not wait_for_input:
+			wait_timer.start()
 
 
 func finish_writing() -> void:
@@ -113,8 +116,9 @@ func finish_writing() -> void:
 		write_timer.stop()
 		dialog_writing = false
 		dialog_text.visible_characters = dialog_text.get_total_character_count()
-		wait_timer.start()
 		audio_player.stop()
+		if not wait_for_input:
+			wait_timer.start()
 	elif !wait_timer.is_stopped():
 		_on_wait_timer_timeout()
 

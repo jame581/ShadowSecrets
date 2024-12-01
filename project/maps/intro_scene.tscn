@@ -319,6 +319,7 @@ _data = {
 dialog_display = NodePath("../DialogUI/DialogDisplay")
 animation_player = NodePath("../AnimationPlayer")
 animation_player2 = NodePath("../AnimationPlayer2")
+wait_for_input = true
 
 [node name="Story" type="CanvasLayer" parent="."]
 
