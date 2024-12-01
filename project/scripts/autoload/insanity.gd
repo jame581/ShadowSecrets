@@ -15,7 +15,7 @@ var insanity: float = 0.0
 @export var insanity_min: float = 0.0
 @export var insanity_max: float = 1.0
 
-var insanity_change_low: float = 0.15
+var insanity_change_low: float = 0.10
 var insanity_change_medium: float = 0.20
 var insanity_change_high: float = 0.30
 var insanity_change_ik: float = 2.0
