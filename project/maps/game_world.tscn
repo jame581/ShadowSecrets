@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=41 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="Texture2D" uid="uid://gai3v5do08ox" path="res://assets/sprites/backgrounds/spaaaaace2.png" id="1_6mrx7"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://kh43ccquwg5q" path="res://scenes/components/dialog_area.tscn" id="17_d4yve"]
 [ext_resource type="PackedScene" uid="uid://bqqo2pp6c3o1y" path="res://scenes/trap.tscn" id="19_elcpj"]
 [ext_resource type="Shader" path="res://shaders/horror_border.gdshader" id="20_x8hxt"]
+[ext_resource type="PackedScene" uid="uid://cim1ywlunmueh" path="res://scenes/devices/PANIC.tscn" id="24_47bj3"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
 length = 0.001
@@ -590,6 +591,38 @@ animation_speed = 3.0
 layer = 2
 visible = false
 
+[node name="PANIC" type="Node" parent="."]
+
+[node name="Panic_FirstTime" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(1808, 833)
+
+[node name="Panic_PowerGeneratorActivated" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(6032, -94)
+
+[node name="Panic_LeftPowerGenerator" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(4880, -192)
+
+[node name="Panic_CloseToLab" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(2160, 32)
+
+[node name="Panic_WayToCrewDeck" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(-2128, 960)
+
+[node name="Panic_WayToCrewDeck2" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(-2864, 416)
+
+[node name="Panic_CrewDeck" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(-5168, -32)
+
+[node name="Panic_LabFirst" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(-880, -352)
+
+[node name="Panic_LabSecond" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(752, -351)
+
+[node name="Panic_Final" parent="PANIC" instance=ExtResource("24_47bj3")]
+position = Vector2(3856, 1280)
+
 [node name="Dialogs" type="Node" parent="."]
 
 [node name="FirstDialogue" parent="Dialogs" instance=ExtResource("17_d4yve")]
@@ -660,3 +693,7 @@ shape = SubResource("RectangleShape2D_6xseb")
 position = Vector2(6355, -40)
 scale = Vector2(2, 2)
 navigation_polygon = SubResource("NavigationPolygon_wh805")
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="PowerGenerator" type="Node" parent="Lights"]
