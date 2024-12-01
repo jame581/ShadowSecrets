@@ -333,10 +333,10 @@ texture = ExtResource("3_kasci")
 stretch_mode = 4
 
 [node name="SpaceShip" type="TextureRect" parent="Story"]
-offset_left = 614.0
-offset_top = 408.0
-offset_right = 678.0
-offset_bottom = 472.0
+offset_left = 3.0
+offset_top = 654.0
+offset_right = 67.0
+offset_bottom = 718.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_lrn7e")
 
@@ -351,8 +351,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_035od")
 [node name="DialogUI" type="CanvasLayer" parent="."]
 
 [node name="DialogDisplay" parent="DialogUI" instance=ExtResource("2_k1cft")]
-offset_top = 5.0
-offset_bottom = 175.0
+offset_bottom = 200.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
