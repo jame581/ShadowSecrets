@@ -57,5 +57,8 @@ func show_dialog() -> void:
 func _on_interaction_area_interacted():
 	_interact()
 	if single_interaction:
-		interaction.monitoring = false
-		collision.disabled = true
+		call_deferred("disable_trigger")
+
+func disable_trigger():
+	collision.disabled = true
+	interaction.monitoring = false
