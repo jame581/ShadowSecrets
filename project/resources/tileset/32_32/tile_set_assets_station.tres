@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bx3iysb7gq8vc"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bx3iysb7gq8vc"]
 
 [ext_resource type="Texture2D" uid="uid://bhy5mohg8f81u" path="res://assets/sprites/tilemaps/x2/assets_new_spacestation_x2.png" id="1_kkf1x"]
 [ext_resource type="Texture2D" uid="uid://bgkv1i1ht70nw" path="res://assets/sprites/navigation.png" id="2_b8fp5"]
+[ext_resource type="Texture2D" uid="uid://d00k2q5ccm6yl" path="res://assets/sprites/Questionmark.png" id="3_70mmo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nfssa"]
 tile_data = PackedInt32Array(65536, 1048576, 1610612746, 1, 1, 0, 65537, 1, 1, 131073, 1, 2, 2, 65537, 0, 65538, 65537, 1, 131074, 65537, 2, 3, 131073, 0, 65539, 131073, 1, 131075, 131073, 2, 4, 196609, 0, 65540, 196609, 1, 131076, 196609, 2, 5, 1048576, 1342177290, 131077, 1048576, 1342177290)
@@ -199,8 +200,13 @@ texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 3:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m7jut"]
+texture = ExtResource("3_70mmo")
+texture_region_size = Vector2i(32, 32)
+
 [resource]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_lmwfc")
 sources/1 = SubResource("TileSetAtlasSource_rd771")
+sources/2 = SubResource("TileSetAtlasSource_m7jut")
 pattern_0 = SubResource("TileMapPattern_nfssa")
