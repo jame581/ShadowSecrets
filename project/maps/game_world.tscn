@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://cuwxu7riacm8s"]
+[gd_scene load_steps=54 format=4 uid="uid://cuwxu7riacm8s"]
 
 [ext_resource type="Texture2D" uid="uid://gai3v5do08ox" path="res://assets/sprites/backgrounds/spaaaaace2.png" id="1_6mrx7"]
 [ext_resource type="PackedScene" uid="uid://dg2kxws1wrpmu" path="res://scenes/player.tscn" id="1_dqq76"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://clw1xdrvl0d3v" path="res://assets/sprites/lights/light-sharp-cone-v1.png" id="29_peqq4"]
 [ext_resource type="Texture2D" uid="uid://debc2ixe7bks" path="res://assets/sprites/lights/light-cone-cut-v1.png" id="30_j1t2j"]
 [ext_resource type="Texture2D" uid="uid://bgmirdpm0qnkt" path="res://assets/sprites/lights/light-cone-v5.png" id="31_dbllk"]
+[ext_resource type="PackedScene" uid="uid://cqbo6or6yg4m2" path="res://scenes/insanity/insanity_slide.tscn" id="33_nflmp"]
+[ext_resource type="PackedScene" uid="uid://ctc3kc084moxy" path="res://scenes/insanity/insanity_jump.tscn" id="34_y2c1v"]
 
 [sub_resource type="Animation" id="Animation_b25m7"]
 length = 0.001
@@ -1375,3 +1377,34 @@ position = Vector2(3178, 780)
 energy = 0.35
 blend_mode = 1
 max_distance = 50.0
+
+[node name="insanity" type="Node" parent="."]
+
+[node name="Insanity Slide" parent="insanity" instance=ExtResource("33_nflmp")]
+position = Vector2(-295, -1351)
+insanity_type = 1
+damage = 1
+
+[node name="Insanity Jump2" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(4075, 936)
+insanity_type = 1
+damage = 1
+
+[node name="Insanity Jump" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(5604, 696)
+insanity_type = 2
+damage = 1
+
+[node name="Insanity Jump3" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(-4504, -648)
+damage = 1
+
+[node name="Insanity Jump4" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(-4950, 578)
+insanity_type = 2
+damage = 1
+
+[node name="Insanity Jump5" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(-3127, 1068)
+insanity_type = 2
+damage = 1
