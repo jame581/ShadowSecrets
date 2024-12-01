@@ -457,6 +457,8 @@ fit_content = true
 [node name="DialogUI" type="CanvasLayer" parent="."]
 
 [node name="DialogDisplay" parent="DialogUI" instance=ExtResource("2_ma1lu")]
+offset_top = -145.0
+offset_bottom = 53.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

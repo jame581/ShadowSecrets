@@ -7,6 +7,7 @@ signal dialog_finished()
 
 @export var write_timer_duration: float = 0.05
 @export var portrait: Texture = preload("res://assets/sprites/intro/portrait-mc.png")
+@export var press_enter_visible: bool = true
 
 @onready var dialog_text: RichTextLabel = $VBoxContainer/HBoxContainer/PanelText/MarginContainer/DialogText
 @onready var dialog_image: TextureRect = $VBoxContainer/HBoxContainer/PanelScreen/AIScreenTexture
@@ -14,6 +15,7 @@ signal dialog_finished()
 @onready var write_timer: Timer = $WriteTimer
 @onready var wait_timer: Timer = $WaitTimer
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var press_to_continue: Label = $VBoxContainer/PressToContinueLabel
 
 var ai_image_on: Texture = preload("res://assets/sprites/devices/pANIC/panic_face.png")
 var ai_image_off: Texture = preload("res://assets/sprites/devices/pANIC/panic_blank.png")
@@ -32,7 +34,7 @@ func _ready() -> void:
 	DialogManager.connect("show_dialog", Callable(self, "show_dialog"))
 	visible = false
 	write_timer.wait_time = write_timer_duration
-	# audio_player.stop()
+	press_to_continue.visible = press_enter_visible
 
 
 func show_dialog(dialog_data: Dictionary) -> void:
@@ -91,6 +93,7 @@ func _on_animation_player_animation_finished(anim_name: String) -> void:
 		dialog_writing = false
 		dialog_shown = false
 		check_next_message()
+
 
 func check_next_message() -> void:
 	if dialog_queue.size() > 0:
