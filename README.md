@@ -49,7 +49,12 @@ We are a team that was created for the GameOff 2024 game jam. Our team consists 
 
 Together, we combine our skills and creativity to bring unique gaming experiences to life.
 
-## Screenshots
+## Showcase
+
+![Gameplay Begin](screenshots/begin_gameplay.gif)
+![Gameplay Hurt](screenshots/hurt.gif)
+
+### Screenshots
 ![Main Menu](screenshots/main_menu.png)
 ![Intro](screenshots/intro_1.png)
 ![Gameplay](screenshots/gameplay_1.png)
