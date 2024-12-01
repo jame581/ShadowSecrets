@@ -26,7 +26,7 @@ func _ready():
 		update_text()
 	else:
 		pass
-		#$RichTextLabel.visible = false
+		$RichTextLabel.visible = false
 
 	update_text()
 		
