@@ -4,7 +4,7 @@ extends Node
 signal insanity_changed(new_insanity)
 
 # Define an enum for insanity levels
-enum insanity_level {LOW, MEDIUM, HIGH}
+enum insanity_level {LOW, MEDIUM, HIGH, IK}
 
 # Property to store the insanity level
 var insanity: float = 0.0
@@ -18,6 +18,7 @@ var insanity: float = 0.0
 var insanity_change_low: float = 0.1
 var insanity_change_medium: float = 0.15
 var insanity_change_high: float = 0.25
+var insanity_change_ik: float = 2.0
 
 var camera_shaker: AnimationPlayer = null
 @onready var insanity_effects_player: AnimationPlayer = $InsanityEffects
@@ -52,6 +53,8 @@ func insanity_hit(hit_level: insanity_level) -> void:
 			insanity_change = insanity_change_medium
 		insanity_level.HIGH:
 			insanity_change = insanity_change_high
+		insanity_level.IK:
+			insanity_change = insanity_change_ik
 
 	increase_insanity(insanity_change)
 
