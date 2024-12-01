@@ -39,7 +39,7 @@ func show_dialog(dialog_data: Dictionary) -> void:
 		return
 	
 	dialog_playing = true
-	dialog_image.texture = ai_image_off
+	dialog_image.texture = null
 	dialog_text.set_visible_characters(0)
 	dialog_text.set_text(dialog_data["text"])
 	wait_timer.wait_time = dialog_data["wait_time"] if dialog_data["wait_time"] > 0 else 2.0
@@ -68,7 +68,7 @@ func display_next_message(dialog_data: Dictionary) -> void:
 
 func hide_dialog() -> void:
 	animation_player.play("hide_dialog")
-	dialog_image.texture = ai_image_off
+	dialog_image.texture = null
 	write_timer.stop()
 	wait_timer.stop()
 	audio_player.stop()
