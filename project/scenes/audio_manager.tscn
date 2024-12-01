@@ -14,5 +14,6 @@ stream = ExtResource("2_yt6bn")
 stream = ExtResource("4_q74hp")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
