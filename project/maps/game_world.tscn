@@ -123,7 +123,7 @@ repeat_times = 5
 texture = ExtResource("1_6mrx7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-561, 1372)
+position = Vector2(-319, -949)
 scale = Vector2(3, 3)
 limit_top = -5000
 limit_bottom = 1600
