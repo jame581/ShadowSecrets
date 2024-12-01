@@ -1380,7 +1380,8 @@ max_distance = 50.0
 [node name="insanity" type="Node" parent="."]
 
 [node name="Insanity Slide" parent="insanity" instance=ExtResource("33_nflmp")]
-position = Vector2(-295, -1351)
+position = Vector2(-99, -1374)
+scale = Vector2(2, 2)
 insanity_type = 1
 damage = 1
 
@@ -1407,3 +1408,10 @@ damage = 1
 position = Vector2(-3127, 1068)
 insanity_type = 2
 damage = 1
+
+[node name="Insanity Slide2" parent="insanity" instance=ExtResource("33_nflmp")]
+position = Vector2(-2229, -676)
+scale = Vector2(1.5, 1.5)
+
+[node name="Insanity Jump6" parent="insanity" instance=ExtResource("34_y2c1v")]
+position = Vector2(-1642, 335)
