@@ -138,6 +138,7 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_u1lmq")
+volume_db = -5.0
 
 [connection signal="timeout" from="WriteTimer" to="." method="_on_write_timer_timeout"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

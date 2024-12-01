@@ -5,11 +5,17 @@ extends CharacterBody2D
 @export var jump_velocity = -400
 
 @export_group("Player/Audio Setup")
+@export var audio_volume: float = 2.0
 @export_subgroup("Death Sounds")
 @export var death_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_death.wav")
 @export var near_death_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_near_death.wav")
 @export_subgroup("Foot steps Sounds")
-@export var footsteps_sound: AudioStream = preload("res://assets/audio/player/stellarsecrets_sfx_player_footsteps.wav")
+@export var footstep_sounds: Array[AudioStream] = [
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_footstep_1.wav"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_footstep_2.wav"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_footstep_3.wav"),
+	preload("res://assets/audio/player/stellarsecrets_sfx_player_footstep_4.wav")
+]
 @export_subgroup("Hurt Sounds")
 @export var hurt_sounds: Array[AudioStream] = [
 	preload("res://assets/audio/player/stellarsecrets_sfx_player_hurt1.mp3"),
@@ -51,6 +57,7 @@ func _ready() -> void:
 	GameManager.god_mode_changed.connect(_handle_god_mode_changed)
 	GameManager.game_is_over.connect(_handle_game_over)
 	god_mode_icon.visible = false
+	audio_component.set_audio_volume(audio_volume)
 
 
 func _physics_process(delta: float) -> void:
@@ -99,7 +106,6 @@ func select_animation(direction) -> void:
 		animation_player.play("falling")
 	elif direction:
 		animation_player.play("run")
-		audio_component.play_with_random_pitch(footsteps_sound, 0.9, 1.1)
 	else:
 		animation_player.play("idle")
 		if audio_component.is_playing() and not got_hit:
@@ -165,3 +171,6 @@ func _on_death_timer_timeout() -> void:
 func _on_reset_hit_timer_timeout() -> void:
 	got_hit = false
 	reset_hit_timer.stop()
+
+func play_footstep_audio() -> void:
+	audio_component.pick_random_audio_play_with_random_pitch(footstep_sounds, 0.8, 1.0)
