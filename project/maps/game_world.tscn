@@ -195,12 +195,15 @@ attack_range = 100
 
 [node name="RobotEnemy4" parent="Enemies" instance=ExtResource("10_t1wgh")]
 position = Vector2(5884, 8)
+damage = 2
 
 [node name="RobotEnemy" parent="Enemies" instance=ExtResource("10_t1wgh")]
 position = Vector2(5806, 273)
+damage = 2
 
 [node name="RobotEnemy2" parent="Enemies" instance=ExtResource("10_t1wgh")]
 position = Vector2(6102, 523)
+damage = 2
 
 [node name="Interactables" type="Node" parent="."]
 
