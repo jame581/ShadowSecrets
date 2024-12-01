@@ -26,9 +26,12 @@ class_name PANIC
 @export var portrait_MC: Texture = preload("res://assets/sprites/intro/portrait-mc.png")
 @export var portrait_AI: Texture = preload("res://assets/sprites/intro/portrait-AI.png")
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if sprite.material is ShaderMaterial:
+		sprite.material = sprite.material.duplicate()
 	# Create a timer
 	# var timer = Timer.new()
 	# timer.wait_time = 10.0
