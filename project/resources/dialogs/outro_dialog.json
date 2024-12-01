@@ -11,12 +11,7 @@
             "text": "My dearest daughter was part of a secret government research to create super-humans and it didn’t end well. It never does.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "intro_start"
-        },
-        {
-            "text": "  ",
-            "wait_time": 1,
-            "hide_dialog_after": false,
+            "animation": "intro_start",
             "animation2": "fade_in"
         },
         {
@@ -30,13 +25,8 @@
             "text": "I don’t care what comes after that, It will be my last piece and I will make every word count.",
             "wait_time": 1,
             "hide_dialog_after": false,
-            "animation": "daughter"            
-        },
-        {
-            "text": "  ",
-            "wait_time": 1,
-            "hide_dialog_after": false,
-            "animation2": "fade_in"
+            "animation": "daughter",
+            "animation2": "fade_in"        
         },
         {
             "text": "Few weeks later",

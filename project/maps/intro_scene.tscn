@@ -333,10 +333,10 @@ texture = ExtResource("3_kasci")
 stretch_mode = 4
 
 [node name="SpaceShip" type="TextureRect" parent="Story"]
-offset_left = 3.0
-offset_top = 654.0
-offset_right = 67.0
-offset_bottom = 718.0
+offset_left = 614.0
+offset_top = 408.0
+offset_right = 678.0
+offset_bottom = 472.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_lrn7e")
 
