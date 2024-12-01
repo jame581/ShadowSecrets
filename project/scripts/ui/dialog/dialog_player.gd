@@ -10,6 +10,7 @@ extends Node2D
 # @export_multiline var dialog_text: String = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc."
 
 @onready var timer = $Timer
+@onready var load_level_timer = $LoadLevelTimer
 
 var dialogs_data: Array = []
 var dialog_index: int = 0
@@ -19,6 +20,7 @@ func _ready() -> void:
 	parse_json()
 	timer.wait_time = start_wait_time
 	dialog_display.message_displayed.connect(next_message)
+	dialog_display.dialog_finished.connect(handle_dialog_finished)
 	# .message_displayed.connect(next_message)
 
 	if animation_player == null:
@@ -66,3 +68,10 @@ func next_message() -> void:
 
 func _on_timer_timeout() -> void:
 	next_message()
+
+func handle_dialog_finished() -> void:
+	load_level_timer.start()
+
+func _on_load_level_timer_timeout() -> void:
+	if load_level_after:
+		Global.goto_scene(load_level_after)

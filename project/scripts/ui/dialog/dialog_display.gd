@@ -3,6 +3,7 @@ extends MarginContainer
 class_name DialogDisplay
 
 signal message_displayed()
+signal dialog_finished()
 
 @export var write_timer_duration: float = 0.05
 @export var portrait: Texture = preload("res://assets/sprites/intro/portrait-mc.png")
@@ -73,6 +74,7 @@ func hide_dialog() -> void:
 	audio_player.stop()
 	dialog_shown = false
 	dialog_playing = false
+	dialog_finished.emit()
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:
