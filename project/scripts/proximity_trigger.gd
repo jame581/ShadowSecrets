@@ -51,10 +51,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			update_text()
 
 		if single_interaction:
-			collision.disabled = true
-			area.monitoring = false
+			call_deferred("disable_trigger")
 
 		was_activated = true
+
+func disable_trigger():
+	collision.disabled = true
+	area.monitoring = false
 
 func _interact():
 	set_state(not enabled)
