@@ -459,6 +459,7 @@ z_index = 50
 position = Vector2(-561, 1372)
 player_speed = 500
 jump_velocity = -700
+audio_volume = 5.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
